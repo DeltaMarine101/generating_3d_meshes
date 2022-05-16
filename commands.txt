@@ -1,0 +1,4 @@
+https://docs.python-guide.org/dev/virtualenvs/
+
+ACTIVATE VIRTUALENV:
+>> source venv/Scripts/activate
