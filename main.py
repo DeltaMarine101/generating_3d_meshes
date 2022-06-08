@@ -1,113 +1,120 @@
 # >> source venv/scripts/activate
 # >> /usr/bin/env "c:\\Users\\Delta\\GoogleDrive\\University_Work\\Research\\Honours thesis\\Thesis code\\generating_3d_meshes\\venv\\Scripts\\python.exe"
 
-# from tkinter import W
-import torch, os
-from torch import Tensor
-# from torch_geometric.nn import GCNConv
-# from torch_geometric.datasets import ShapeNet
-# import torch_geometric.transforms as T
-import numpy as np
-import pyvista as pv
-from pyvista import examples
-import binvox_rw
-import matplotlib.pyplot as plt
+import torch, time, shutil, os
+from torch.distributions import normal
 
-# SHAPENET_PATH = "./ShapeNetCore.v2"
-# shapenet_dataset = ShapeNetCore(SHAPENET_PATH, version=2, load_textures=False)
-# print(len(shapenet_dataset), shapenet_dataset[0])
+import model, data_loader
+from util_functions import print_progress_bar, show_voxels
 
-# def to_pyvista(obj):
-#   verts = np.array(obj['verts'])
-#   faces = np.array(obj['faces'])
-#   h, w = faces.shape
-#   b = np.full((h,w+1), 3)
-#   b[:,:-1] = faces
-#   return pv.PolyData(verts, np.hstack(b))
-
-# surf = to_pyvista(shapenet_dataset[0])
-# print(surf)
-
-bunny = examples.download_bunny_coarse()
-# print(bunny)
-
-# dataset = ShapeNet(root='.', categories=["Airplane", "Car", "Mug"], include_normals=False)
-
-cpos = [
-  (0.05968545747614732, 0.21499133662987105, 0.844081123601417),
-  (0.004019019626409824, -0.005962922065511054, -0.08714371802268502),
-  (-0.022236440006623177, 0.9730434313769921, -0.22954742732150243)
-]
-
-# bunny.plot(cpos=cpos, opacity=0.75)
-
-pv.set_plot_theme("document")
-
-      # Custom voxelise algorithm probably needed
-      # Use 'alg = _vtk.vtkSelectEnclosedPoints()'
-
-def vox_conv_show(model):
-  model.plot()
-  vox_size = 32
-  voxels = pv.voxelize(model, density=model.length / vox_size, check_surface=False)
-  print("TEST")
-  # voxels.compute_implicit_distance(model, inplace=True) # Distance from suface
-  print(voxels)
-  pl = pv.Plotter(lighting='light_kit') # 'three lights'  # 'none'
-  pl.add_mesh(voxels, color='lightblue', show_edges=True, edge_color='black', line_width=2.0, opacity=.90) # , scalars="implicit_distance"
-  # pl.add_mesh(bunny, color="red", opacity=0.5)
-  pl.show(cpos=cpos)
-
-# vox_conv_show(bunny)
-
-def vox_show(vox):
-  print(vox)
-  voxels = pv.UniformGrid()
-  voxels.dimensions = np.array(vox.shape) + 1
-  voxels.origin = (0, 0, 0)
-  voxels.spacing = (1, 1, 1)
-  voxels.cell_data["values"] = vox.flatten(order="F")
-
-  pl = pv.Plotter(lighting='light_kit') # 'three lights'  # 'none'
-  pl.add_mesh(voxels, color='lightblue', show_edges=True, edge_color='black', line_width=2.0, opacity=.90) # , scalars="implicit_distance"
-  # pl.add_mesh(bunny, color="red", opacity=0.5)
-  pl.show(cpos=cpos)
 
 tst_class = '03001627'
-size = 32
-test_index = 2
-src_root = 'pre_stage_3/'+tst_class
-obj_names = os.listdir(src_root)
-obj_names = sorted(obj_names)
-with open(src_root + '/' + obj_names[test_index] + '/vox' + str(size) + '_depth_fusion_5.binvox', 'rb') as f:
-  print(src_root + '/' + obj_names[test_index])
-  m1 = binvox_rw.read_as_3d_array(f)
-print(m1.dims)
+data_res = 32
+random_seed = 1
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+torch.manual_seed(random_seed)
 
-ax = plt.figure().add_subplot(projection='3d')
-ax.set_axis_off()
-vox_data = np.swapaxes(m1.data, 1, 2)
+trainset = torch.utils.data.DataLoader(data_loader.VoxelShapeNet(tst_class, data_res, 'depth_fusion_5'), batch_size=model.batch_size, shuffle=True, drop_last=True)
 
-# Check inside of mesh
-for x in range(32):
-  for y in range(32):
-    for z in range(32):
-      if x >= 16:
-        vox_data[x][y][z] = 0
+# Main
+def main():
+  if torch.cuda.is_available() and device !=  torch.device('cpu'):
+    print("Using device: {}".format(str(torch.cuda.get_device_name(device))))
+    print("Cuda version:", torch.version.cuda)
+  else:
+     print("Using device: {}".format(str(device)))
+  
+  if not os.path.exists('results/img_res/'):
+    os.makedirs('results/img_res/')
+  shutil.copy('model.py', 'results/img_res/model_cpy.py')
+  shutil.copy('main.py', 'results/img_res/main_cpy.py')
 
-ax.voxels(vox_data, facecolors='teal') # edgecolor='k', 
-plt.ioff()
-plt.show()
-# vox_show(m1.data)
+  d_net = model.d_net.to(device)
+  d_criterion = model.d_lossFunc
+  d_optimiser = model.d_optimiser
 
-# pv.save_meshio('bunny.obj', bunny) 
+  g_net = model.g_net.to(device)
+  g_criterion = model.g_lossFunc
+  g_optimiser = model.g_optimiser
 
-# >> ./binvox.exe -d 64 -t vtk bunny.obj
-# binvox = pv.read('bunny.vtk')
-# print(binvox)
-# pl2 = pv.Plotter(lighting='light_kit') # 'three lights'  # 'none'
-# pl2.add_volume(binvox, cmap="magma")#, opacity="sigmoid"
-# pl2.show()
-# f = open("tmp.txt", "a")
-# f.write(str(binvox['voxel_data'].tostring()))
-# f.close()
+  for epoch in range(1, model.epochs+1):
+    total_g_loss = 0
+    total_d_loss = 0
+    total_vox = 0
+    # total_correct = 0
+
+    t0 = time.time()
+    batch_n = 0
+    print()
+    print_progress_bar(0, len(trainset)-1, prefix = 'Epoch '+ str(epoch) + '/' + str(model.epochs) +' Progress:', suffix = 'Complete', length = 50)
+    for batch in trainset:                # Load batch
+      batch_n += 1
+      z = normal.Normal(0.0, 100.0).sample([model.batch_size, model.latent_n]).to(device)
+
+      gen_vox = g_net(z)
+
+      vox = batch[:, None, :, :]
+      vox = vox.to(device, dtype=torch.float)
+
+      # Show training data
+      # show_voxels(vox)
+
+      preds_real = d_net(vox)            # Process discriminator batch
+      preds_fake = d_net(gen_vox)
+      
+      # Train discriminator
+      l1 = d_criterion(preds_real,  torch.ones(model.batch_size, 1).to(device))
+      l2 = d_criterion(preds_fake,  torch.zeros(model.batch_size, 1).to(device))
+      d_loss = (l1 + l2) / 2   # Calculate loss
+      # print("D LOSS", d_loss)
+
+      for param in g_net.parameters():      # Freeze generator params
+        param.requires_grad = False
+
+      d_optimiser.zero_grad()
+      d_loss.backward(retain_graph=True)    # Calculate gradients
+
+      for param in g_net.parameters():      # Freeze generator params
+        param.requires_grad = True
+
+      # Train generator
+      g_loss = g_criterion(preds_fake, torch.ones(model.batch_size, 1).to(device))   # Calculate loss
+      # print("G LOSS", g_loss)
+
+      g_optimiser.zero_grad()
+      g_loss.backward()                     # Calculate gradients
+
+      
+      d_optimiser.step()                    # Update weights
+      g_optimiser.step()
+
+      total_vox += vox.size(0)
+      total_g_loss += g_loss
+      total_d_loss += d_loss
+
+      print_progress_bar(batch_n, len(trainset)-1, prefix = 'Epoch '+ str(epoch) + '/' + str(model.epochs) +' Progress:', suffix = 'Complete', length = 50)
+    
+    # model_accuracy = total_correct / total_images * 100
+    print('epoch {0} | G loss: {2:.4f} | D loss: {2:.4f}'.format(epoch, total_g_loss / total_vox, total_d_loss / total_vox))
+    ## DEBUG ##
+    print("total_vox:", total_vox, " time_taken:", str(int((time.time() - t0)*10)/10)+'s')
+    h = (model.epochs+1 - epoch) * (time.time() - t0) / (60*60)
+    print("Remaining: ~", int(h), "hours", int((h - int(h)) * 60), "minutes")
+
+    show_voxels(gen_vox, save=epoch)
+
+    if epoch % 10 == 0 or epoch == 1:
+      torch.save(d_net.state_dict(), 'models/checkModel.pth')
+      print("      Model saved to 'models/checkModel.pth'")
+
+  # show_images(gen_images, nmax=256)
+  torch.save(d_net.state_dict(), 'models/savedModel.pth')
+  print("   Model saved to 'models/savedModel.pth'")
+
+  # Save data and model
+  l = len(os.listdir('results/'))
+  shutil.move('results/img_res', 'results/img_res_' + str(l-1))
+
+
+if __name__ == '__main__':
+    main()

@@ -3,7 +3,11 @@ processed/
 Cora/
 ShapeNetCore.v2/
 pre_stage_*/
+null_log.txt
 .vscode/
+img_res*/
+results/
+models/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
