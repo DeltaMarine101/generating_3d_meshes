@@ -1,24 +1,20 @@
 '''
-binvox_rw_customised.py from DECOR-GAN's python code (https://github.com/czq142857/DECOR-GAN)
+binvox_rw_faster.py from DECOR-GAN's python code (https://github.com/czq142857/DECOR-GAN)
 '''
 import numpy as np
 import cutils
 import struct
 
+#this file includes *cutils* that uses Cython to speed up writing
+#the original binvox-rw.py can be found here: https://github.com/dimatura/binvox-rw-py
+
+
 class Voxels(object):
     """ Holds a binvox model.
-    data is either a three-dimensional numpy boolean array (dense representation)
-    or a two-dimensional numpy float array (coordinate representation).
+    data is a three-dimensional numpy boolean array (dense representation)
     dims, translate and scale are the model metadata.
     dims are the voxel dimensions, e.g. [32, 32, 32] for a 32x32x32 model.
     scale and translate relate the voxels to the original model coordinates.
-    To translate voxel coordinates i, j, k to original coordinates x, y, z:
-    x_n = (i+.5)/dims[0]
-    y_n = (j+.5)/dims[1]
-    z_n = (k+.5)/dims[2]
-    x = scale*x_n + translate[0]
-    y = scale*y_n + translate[1]
-    z = scale*z_n + translate[2]
     """
 
     def __init__(self, data, dims, translate, scale, axis_order):
@@ -42,7 +38,7 @@ def read_header(fp):
     line = fp.readline()
     return dims, translate, scale
 
-def read_as_3d_array(fp, fix_coords=True):
+def read_as_3d_array(fp, fix_coords=False):
     """ Read binary binvox format as array.
     Returns the model with accompanying metadata.
     Voxels are stored in a three-dimensional numpy array, which is simple and
@@ -81,21 +77,28 @@ def bwrite(fp,s):
 def write_pair(fp,state, ctr):
     fp.write(struct.pack('B',state))
     fp.write(struct.pack('B',ctr))
+    
+def write_voxel(voxel_model, filename):
+    with open(filename, 'wb') as fp:
+        buffer_size = 256*256*32 #change the buffer size if the input voxel is large
+        state_ctr = np.zeros([buffer_size,2], np.int32)
+        dimx,dimy,dimz = voxel_model.shape
+        if voxel_model.dtype != np.uint8:
+            voxel_model = voxel_model.astype(np.uint8)
+        if not voxel_model.flags['C_CONTIGUOUS']:
+            voxel_model = np.ascontiguousarray(voxel_model, dtype=np.uint8)
 
+        cutils.get_state_ctr(voxel_model,state_ctr)
 
-def write(voxel_model, fp, state_ctr):
-    bwrite(fp,'#binvox 1\n')
-    bwrite(fp,'dim '+' '.join(map(str, voxel_model.dims))+'\n')
-    bwrite(fp,'translate '+' '.join(map(str, voxel_model.translate))+'\n')
-    bwrite(fp,'scale '+str(voxel_model.scale)+'\n')
-    bwrite(fp,'data\n')
+        bwrite(fp,'#binvox 1\n')
+        bwrite(fp,'dim '+' '.join(map(str, [dimx,dimy,dimz]))+'\n')
+        bwrite(fp,'translate '+' '.join(map(str, [0, 0, 0]))+'\n')
+        bwrite(fp,'scale '+str(1)+'\n')
+        bwrite(fp,'data\n')
 
-    c = 0
-    while True:
-        write_pair(fp, state_ctr[c,0], state_ctr[c,1])
-        c += 1
-        if state_ctr[c,0]==2: break
+        c = 0
+        while True:
+            write_pair(fp, state_ctr[c,0], state_ctr[c,1])
+            c += 1
+            if state_ctr[c,0]==2: break
 
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()

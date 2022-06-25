@@ -27,7 +27,7 @@ def print_progress_bar (iteration, total, prefix = '', suffix = '', decimals = 1
         print()
 
 # Show multiple voxel results together
-def show_voxels(voxs, shape=None, save=False):
+def show_voxels(voxs, shape=None, save=False, threshhold=1):
   if shape == None:
     ax_l = math.ceil(math.sqrt(len(voxs)))
     shape = (ax_l, ax_l)
@@ -48,7 +48,7 @@ def show_voxels(voxs, shape=None, save=False):
   for x in range(shape[0]):
     for y in range(shape[1]):
       pl.subplot(x, y)
-      pl.add_volume(grids[total], cmap="viridis", opacity=[(i > 5) * 256 for i in range(256)] )#, opacity="sigmoid"
+      pl.add_volume(grids[total], cmap="viridis", opacity=[(i > threshhold) * 256 for i in range(256)] )#, opacity="sigmoid"
       total += 1
       if total >= len(grids):
         break
@@ -62,3 +62,4 @@ def show_voxels(voxs, shape=None, save=False):
     pl.show(screenshot='results/img_res/'+str(save)+'_saved_img.png')
   else:
     pl.show()
+

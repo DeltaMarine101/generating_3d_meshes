@@ -1,3 +1,7 @@
+'''
+cutils.pyx from DECOR-GAN's python code (https://github.com/czq142857/DECOR-GAN)
+'''
+
 import numpy as np
 cimport cython
 

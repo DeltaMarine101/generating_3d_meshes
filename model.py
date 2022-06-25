@@ -8,9 +8,9 @@ import random as r
 
 # Hyperparams
 batch_size = 64
-epochs = 50
-d_lr = 0.0001
-g_lr = 0.0001
+epochs = 80
+d_lr = 0.00005
+g_lr = 0.00005
 latent_n = 256
 
 class DiscrimNetwork(nn.Module):
@@ -30,7 +30,7 @@ class DiscrimNetwork(nn.Module):
     # self.soft = nn.Softmax(dim=1)
 
   def forward(self, x):
-    x = F.leaky_relu(self.conv0(x), 2)
+    x = F.leaky_relu(self.conv0(x))
     x = self.conv1(x)
     x = F.leaky_relu(F.max_pool3d(x, 2))
     x = self.conv2(x)

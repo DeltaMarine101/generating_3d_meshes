@@ -4,8 +4,13 @@
 import torch, time, shutil, os, psutil
 from torch.distributions import normal
 from torchvision import transforms
+import pylab as plt
+import numpy as np
+import matplotlib
+from matplotlib import _pylab_helpers
+from matplotlib.rcsetup import interactive_bk as _interactive_bk
 
-import model, data_loader
+import model, data_loader, evalFID
 from util_functions import print_progress_bar, show_voxels
 
 # High priority for background performance
@@ -22,7 +27,7 @@ torch.manual_seed(random_seed)
 trainset = torch.utils.data.DataLoader(data_loader.VoxelShapeNet(tst_class, data_res, 'depth_fusion_5',
                                                                   transform=transforms.Compose([
                                                                             #data_loader.RandomTranslate(2),
-                                                                            #data_loader.RandomFlip(0.5),
+                                                                            data_loader.RandomFlip(0.5)
                                                                             ])),
                                                                   batch_size=model.batch_size, shuffle=True,
                                                                   drop_last=True)
@@ -48,7 +53,17 @@ def main():
   g_criterion = model.g_lossFunc
   g_optimiser = model.g_optimiser
 
+  plt.ion()
+  plt.rcParams['toolbar'] = 'None'
+  X = np.linspace(0, model.epochs-1, model.epochs)
+  Y = [0]*model.epochs
+  # mask = np.ma.masked_where(Y > 0.7, Y)
+  graph = plt.plot(Y)[0]
+  plt.ylim(0, 10000)
+  fig = plt.gcf()
+
   times = []
+  fid = np.array([])
   for epoch in range(1, model.epochs+1):
     total_g_loss = 0
     total_d_loss = 0
@@ -95,18 +110,37 @@ def main():
       g_optimiser.zero_grad()
       g_loss.backward()                     # Calculate gradients
       
-      if batch_n % d_ratio == 0:
-       d_optimiser.step()                    # Update weights
+      d_optimiser.step()                    # Update weights
       g_optimiser.step()
 
       total_vox += vox.size(0)
       total_g_loss += g_loss
       total_d_loss += d_loss
 
+      fig.canvas.draw()
+      plt.pause(0.001)
+
       print_progress_bar(batch_n, len(trainset)-1, prefix = 'Epoch '+ str(epoch) + '/' + str(model.epochs) +' Progress:', suffix = 'Complete', length = 50)
 
     # model_accuracy = total_correct / total_images * 100
     print('epoch {0} | G loss: {2:.4f} | D loss: {2:.4f}'.format(epoch, total_g_loss / total_vox, total_d_loss / total_vox))
+
+    # show and save FID score
+    fid = np.append(fid, [evalFID.model_FID(g_net)])
+    print('FID score:', round(fid[-1], 2), '(min:', str(round(np.min(fid))) + ')')
+    f = open('results/img_res/fid_score.txt', ('a+', 'w+')[epoch==1])
+    f.write(str(fid[-1]) +  '\n')
+    f.close()
+
+    # graph.set_xdata(np.linspace(0, len(fid), len(fid)))
+    # print(np.linspace(0, len(fid)-1, len(fid)))
+    # print(fid)
+    pad_fid = np.append(fid, np.zeros(model.epochs - len(fid)))
+    graph.set_ydata(pad_fid)
+    plt.ylim(0, np.max(fid))
+    fig.canvas.draw()
+    plt.pause(0.001)
+
     ## DEBUG ##
     print("total_vox:", total_vox, " time_taken:", str(int((time.time() - t0)*10)/10)+'s')
     times += [time.time() - t0]
@@ -116,12 +150,20 @@ def main():
     show_voxels(gen_vox, save=epoch)
 
     if epoch % 10 == 0 or epoch == 1:
-      torch.save(d_net.state_dict(), 'models/checkModel.pth')
-      print("      Model saved to 'models/checkModel.pth'")
+      torch.save(d_net.state_dict(), 'results/img_res/checkModel.pth')
+      print("      Model saved to 'results/img_res/checkModel.pth'")
 
   # show_images(gen_images, nmax=256)
-  torch.save(d_net.state_dict(), 'models/savedModel.pth')
-  print("   Model saved to 'models/savedModel.pth'")
+  torch.save(d_net.state_dict(), 'results/img_res/savedModel.pth')
+  print("   Model saved to 'results/img_res/savedModel.pth'")
+
+  print("Minimum FID was", str(np.min(fid)), "at epoch", np.argmin(fid)+1)
+  f = open('results/img_res/fid_score.txt', 'a+')
+  f.write("Minimum FID was " + str(np.min(fid)) + " at epoch " + str(np.argmin(fid)+1) +  '\n')
+  f.close()
+
+  plt.savefig('results/img_res/fid_graph.png')
+  plt.ioff()
 
   # Save data, time and model
   f = open('results/img_res/time.txt', 'w+')
@@ -131,6 +173,8 @@ def main():
   f.close()
   l = len(os.listdir('results/'))
   shutil.move('results/img_res', 'results/img_res_' + str(l-2))
+  
+  
 
 
 if __name__ == '__main__':
