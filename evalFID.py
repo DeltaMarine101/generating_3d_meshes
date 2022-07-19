@@ -34,6 +34,9 @@ import data_loader, model
 max_num_of_styles = 16
 max_num_of_contents = 100
 
+random_seed = 10
+torch.manual_seed(random_seed)
+
 shapenet_dir = "/local-scratch2/ShapeNetCore.v1.lite/"
 #shapenet_dir = "/home/zhiqinc/zhiqinc/ShapeNetCore.v1.lite/"
 
@@ -507,4 +510,38 @@ def model_FID(model_g_net, tst_class='03001627'):
   _, gt_z = FIDshapenet(gt_vox)
 
   # print("FID score for", tst_class, "is:", calc_fid(gt_z, gen_z))
+  return calc_fid(gt_z, gen_z)
+
+def voxel_FID(gen_vox, tst_class='03001627'):
+  train_classes = ['03001627', '02691156', '02818832', '02828884', '02876657', '02958343', '03046257', '02933112', '03261776', '03928116', '04090263', '04256520', '04379243', '04401088', '04530566', '02808440']
+  voxel_size = 32
+  fill_type = 'depth_fusion_5'
+  
+  if torch.cuda.is_available():
+    device = torch.device('cuda')
+    torch.backends.cudnn.benchmark = True
+  else:
+    device = torch.device('cpu')
+
+  
+  z_dim = 256
+  n_gt = 256
+
+  FIDshapenet = ClassifNetwork(z_dim, len(train_classes))
+  FIDshapenet.to(device)
+  FIDshapenet.load_state_dict(torch.load('evaluation/FIDshapenet_'+str(voxel_size)+'_'+str(fill_type)+'.pth'))
+  
+  gt_dataload = torch.utils.data.DataLoader(data_loader.VoxelShapeNet(tst_class, voxel_size, fill_type),
+                                                                  batch_size=n_gt, shuffle=True,
+                                                                  drop_last=True)
+  
+  gt_vox = next(iter(gt_dataload))
+  gt_vox = gt_vox[:, None, :, :].to(device, dtype=torch.float)
+  
+  # print(gt_vox.shape)
+  # print(torch.from_numpy(np.array([gen_vox])).shape)
+  _, gt_z = FIDshapenet(gt_vox)
+  gen_vox = torch.from_numpy(np.array([gen_vox])).to(device, dtype=torch.float)
+  _, gen_z = FIDshapenet(gen_vox)
+  
   return calc_fid(gt_z, gen_z)

@@ -8,6 +8,8 @@ null_log.txt
 img_res*/
 results/
 models/
+generated_results/
+latent_vecs.npz
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

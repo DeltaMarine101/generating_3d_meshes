@@ -1757,15 +1757,12 @@ static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_dc
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_int(PyObject *, int writable_flag);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_d_dc_char(PyObject *, int writable_flag);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_int(PyObject *, int writable_flag);
 
 /* GCCDiagnostics.proto */
 #if defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6))
 #define __Pyx_HAS_GCC_DIAGNOSTIC
 #endif
-
-/* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_int(PyObject *, int writable_flag);
 
 /* MemviewSliceCopyTemplate.proto */
 static __Pyx_memviewslice
@@ -1774,11 +1771,11 @@ __pyx_memoryview_copy_new_contig(const __Pyx_memviewslice *from_mvs,
                                  size_t sizeof_dtype, int contig_flag,
                                  int dtype_is_object);
 
-/* CIntFromPy.proto */
-static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
-
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
+
+/* CIntFromPy.proto */
+static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
@@ -1815,6 +1812,7 @@ static PyTypeObject *__pyx_array_type = 0;
 static PyTypeObject *__pyx_MemviewEnum_type = 0;
 static PyTypeObject *__pyx_memoryview_type = 0;
 static PyTypeObject *__pyx_memoryviewslice_type = 0;
+static int __pyx_v_6cutils_render_depth_img_size;
 static PyObject *generic = 0;
 static PyObject *strided = 0;
 static PyObject *indirect = 0;
@@ -1872,32 +1870,33 @@ static PyObject *__pyx_builtin_id;
 static PyObject *__pyx_builtin_IndexError;
 static const char __pyx_k_O[] = "O";
 static const char __pyx_k_c[] = "c";
+static const char __pyx_k_d[] = "d";
 static const char __pyx_k_i[] = "i";
 static const char __pyx_k_j[] = "j";
 static const char __pyx_k_k[] = "k";
 static const char __pyx_k_p[] = "p";
+static const char __pyx_k_u[] = "u";
+static const char __pyx_k_v[] = "v";
 static const char __pyx_k_x[] = "x";
 static const char __pyx_k_y[] = "y";
 static const char __pyx_k_z[] = "z";
-static const char __pyx_k_cd[] = "cd";
-static const char __pyx_k_dx[] = "dx";
-static const char __pyx_k_dy[] = "dy";
-static const char __pyx_k_dz[] = "dz";
 static const char __pyx_k_id[] = "id";
 static const char __pyx_k_np[] = "np";
-static const char __pyx_k_sx[] = "sx";
-static const char __pyx_k_sy[] = "sy";
-static const char __pyx_k_sz[] = "sz";
+static const char __pyx_k_pi[] = "pi";
+static const char __pyx_k_pj[] = "pj";
+static const char __pyx_k_pk[] = "pk";
 static const char __pyx_k_ctr[] = "ctr";
 static const char __pyx_k_img[] = "img";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
+static const char __pyx_k_tmp[] = "tmp";
 static const char __pyx_k_base[] = "base";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_dimx[] = "dimx";
 static const char __pyx_k_dimy[] = "dimy";
 static const char __pyx_k_dimz[] = "dimz";
-static const char __pyx_k_edge[] = "edge";
+static const char __pyx_k_flag[] = "flag";
+static const char __pyx_k_hdis[] = "hdis";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_mode[] = "mode";
 static const char __pyx_k_name[] = "name";
@@ -1912,15 +1911,11 @@ static const char __pyx_k_class[] = "__class__";
 static const char __pyx_k_error[] = "error";
 static const char __pyx_k_flags[] = "flags";
 static const char __pyx_k_numpy[] = "numpy";
-static const char __pyx_k_patch[] = "patch";
+static const char __pyx_k_queue[] = "queue";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_shape[] = "shape";
 static const char __pyx_k_start[] = "start";
 static const char __pyx_k_state[] = "state";
-static const char __pyx_k_vnum1[] = "vnum1";
-static const char __pyx_k_vnum2[] = "vnum2";
-static const char __pyx_k_cd_acc[] = "cd_acc";
-static const char __pyx_k_cd_tmp[] = "cd_tmp";
 static const char __pyx_k_cutils[] = "cutils";
 static const char __pyx_k_encode[] = "encode";
 static const char __pyx_k_format[] = "format";
@@ -1931,57 +1926,52 @@ static const char __pyx_k_reduce[] = "__reduce__";
 static const char __pyx_k_struct[] = "struct";
 static const char __pyx_k_unpack[] = "unpack";
 static const char __pyx_k_update[] = "update";
-static const char __pyx_k_dilated[] = "dilated";
 static const char __pyx_k_fortran[] = "fortran";
 static const char __pyx_k_memview[] = "memview";
-static const char __pyx_k_patches[] = "patches";
 static const char __pyx_k_Ellipsis[] = "Ellipsis";
 static const char __pyx_k_getstate[] = "__getstate__";
 static const char __pyx_k_itemsize[] = "itemsize";
 static const char __pyx_k_pyx_type[] = "__pyx_type";
 static const char __pyx_k_setstate[] = "__setstate__";
 static const char __pyx_k_TypeError[] = "TypeError";
-static const char __pyx_k_dict_size[] = "dict_size";
 static const char __pyx_k_enumerate[] = "enumerate";
+static const char __pyx_k_floodfill[] = "floodfill";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
+static const char __pyx_k_queue_end[] = "queue_end";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
+static const char __pyx_k_rendering[] = "rendering";
 static const char __pyx_k_state_ctr[] = "state_ctr";
-static const char __pyx_k_threshold[] = "threshold";
 static const char __pyx_k_IndexError[] = "IndexError";
 static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_cutils_pyx[] = "cutils.pyx";
-static const char __pyx_k_patch_size[] = "patch_size";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_MemoryError[] = "MemoryError";
 static const char __pyx_k_PickleError[] = "PickleError";
-static const char __pyx_k_get_patches[] = "get_patches";
-static const char __pyx_k_margin_size[] = "margin_size";
-static const char __pyx_k_patches_edge[] = "patches_edge";
+static const char __pyx_k_queue_start[] = "queue_start";
+static const char __pyx_k_outside_flag[] = "outside_flag";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_stringsource[] = "stringsource";
-static const char __pyx_k_eval_match_CD[] = "eval_match_CD";
-static const char __pyx_k_get_state_ctr[] = "get_state_ctr";
+static const char __pyx_k_max_queue_len[] = "max_queue_len";
 static const char __pyx_k_pyx_getbuffer[] = "__pyx_getbuffer";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
-static const char __pyx_k_threshold_int1[] = "threshold_int1";
 static const char __pyx_k_View_MemoryView[] = "View.MemoryView";
 static const char __pyx_k_allocate_buffer[] = "allocate_buffer";
 static const char __pyx_k_dtype_is_object[] = "dtype_is_object";
-static const char __pyx_k_patches_dilated[] = "patches_dilated";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
+static const char __pyx_k_depth_fusion_XZY[] = "depth_fusion_XZY";
 static const char __pyx_k_pyx_unpickle_Enum[] = "__pyx_unpickle_Enum";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_get_patches_sparse[] = "get_patches_sparse";
+static const char __pyx_k_expand_then_shrink[] = "expand_then_shrink";
 static const char __pyx_k_strided_and_direct[] = "<strided and direct>";
 static const char __pyx_k_strided_and_indirect[] = "<strided and indirect>";
 static const char __pyx_k_contiguous_and_direct[] = "<contiguous and direct>";
 static const char __pyx_k_MemoryView_of_r_object[] = "<MemoryView of %r object>";
 static const char __pyx_k_MemoryView_of_r_at_0x_x[] = "<MemoryView of %r at 0x%x>";
 static const char __pyx_k_contiguous_and_indirect[] = "<contiguous and indirect>";
+static const char __pyx_k_depth_fusion_XZY_5views[] = "depth_fusion_XZY_5views";
 static const char __pyx_k_Cannot_index_with_type_s[] = "Cannot index with type '%s'";
-static const char __pyx_k_get_patches_edge_dilated[] = "get_patches_edge_dilated";
 static const char __pyx_k_Invalid_shape_in_axis_d_d[] = "Invalid shape in axis %d: %d.";
 static const char __pyx_k_itemsize_0_for_cython_array[] = "itemsize <= 0 for cython.array";
 static const char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
@@ -2026,9 +2016,6 @@ static PyObject *__pyx_n_s_allocate_buffer;
 static PyObject *__pyx_n_s_base;
 static PyObject *__pyx_n_s_c;
 static PyObject *__pyx_n_u_c;
-static PyObject *__pyx_n_s_cd;
-static PyObject *__pyx_n_s_cd_acc;
-static PyObject *__pyx_n_s_cd_tmp;
 static PyObject *__pyx_n_s_class;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_kp_s_contiguous_and_direct;
@@ -2036,31 +2023,27 @@ static PyObject *__pyx_kp_s_contiguous_and_indirect;
 static PyObject *__pyx_n_s_ctr;
 static PyObject *__pyx_n_s_cutils;
 static PyObject *__pyx_kp_s_cutils_pyx;
+static PyObject *__pyx_n_s_d;
+static PyObject *__pyx_n_s_depth_fusion_XZY;
+static PyObject *__pyx_n_s_depth_fusion_XZY_5views;
 static PyObject *__pyx_n_s_dict;
-static PyObject *__pyx_n_s_dict_size;
-static PyObject *__pyx_n_s_dilated;
 static PyObject *__pyx_n_s_dimx;
 static PyObject *__pyx_n_s_dimy;
 static PyObject *__pyx_n_s_dimz;
 static PyObject *__pyx_n_s_dtype_is_object;
-static PyObject *__pyx_n_s_dx;
-static PyObject *__pyx_n_s_dy;
-static PyObject *__pyx_n_s_dz;
-static PyObject *__pyx_n_s_edge;
 static PyObject *__pyx_n_s_encode;
 static PyObject *__pyx_n_s_enumerate;
 static PyObject *__pyx_n_s_error;
-static PyObject *__pyx_n_s_eval_match_CD;
+static PyObject *__pyx_n_s_expand_then_shrink;
+static PyObject *__pyx_n_s_flag;
 static PyObject *__pyx_n_s_flags;
+static PyObject *__pyx_n_s_floodfill;
 static PyObject *__pyx_n_s_format;
 static PyObject *__pyx_n_s_fortran;
 static PyObject *__pyx_n_u_fortran;
-static PyObject *__pyx_n_s_get_patches;
-static PyObject *__pyx_n_s_get_patches_edge_dilated;
-static PyObject *__pyx_n_s_get_patches_sparse;
-static PyObject *__pyx_n_s_get_state_ctr;
 static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_kp_s_got_differing_extents_in_dimensi;
+static PyObject *__pyx_n_s_hdis;
 static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_s_id;
 static PyObject *__pyx_n_s_img;
@@ -2070,7 +2053,7 @@ static PyObject *__pyx_kp_s_itemsize_0_for_cython_array;
 static PyObject *__pyx_n_s_j;
 static PyObject *__pyx_n_s_k;
 static PyObject *__pyx_n_s_main;
-static PyObject *__pyx_n_s_margin_size;
+static PyObject *__pyx_n_s_max_queue_len;
 static PyObject *__pyx_n_s_memview;
 static PyObject *__pyx_n_s_mode;
 static PyObject *__pyx_n_s_name;
@@ -2081,14 +2064,13 @@ static PyObject *__pyx_kp_s_no_default___reduce___due_to_non;
 static PyObject *__pyx_n_s_np;
 static PyObject *__pyx_n_s_numpy;
 static PyObject *__pyx_n_s_obj;
+static PyObject *__pyx_n_s_outside_flag;
 static PyObject *__pyx_n_s_p;
 static PyObject *__pyx_n_s_pack;
-static PyObject *__pyx_n_s_patch;
-static PyObject *__pyx_n_s_patch_size;
-static PyObject *__pyx_n_s_patches;
-static PyObject *__pyx_n_s_patches_dilated;
-static PyObject *__pyx_n_s_patches_edge;
+static PyObject *__pyx_n_s_pi;
 static PyObject *__pyx_n_s_pickle;
+static PyObject *__pyx_n_s_pj;
+static PyObject *__pyx_n_s_pk;
 static PyObject *__pyx_n_s_pyx_PickleError;
 static PyObject *__pyx_n_s_pyx_checksum;
 static PyObject *__pyx_n_s_pyx_getbuffer;
@@ -2097,10 +2079,14 @@ static PyObject *__pyx_n_s_pyx_state;
 static PyObject *__pyx_n_s_pyx_type;
 static PyObject *__pyx_n_s_pyx_unpickle_Enum;
 static PyObject *__pyx_n_s_pyx_vtable;
+static PyObject *__pyx_n_s_queue;
+static PyObject *__pyx_n_s_queue_end;
+static PyObject *__pyx_n_s_queue_start;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
+static PyObject *__pyx_n_s_rendering;
 static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_shape;
@@ -2115,26 +2101,21 @@ static PyObject *__pyx_kp_s_strided_and_direct_or_indirect;
 static PyObject *__pyx_kp_s_strided_and_indirect;
 static PyObject *__pyx_kp_s_stringsource;
 static PyObject *__pyx_n_s_struct;
-static PyObject *__pyx_n_s_sx;
-static PyObject *__pyx_n_s_sy;
-static PyObject *__pyx_n_s_sz;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_n_s_threshold;
-static PyObject *__pyx_n_s_threshold_int1;
+static PyObject *__pyx_n_s_tmp;
+static PyObject *__pyx_n_s_u;
 static PyObject *__pyx_kp_s_unable_to_allocate_array_data;
 static PyObject *__pyx_kp_s_unable_to_allocate_shape_and_str;
 static PyObject *__pyx_n_s_unpack;
 static PyObject *__pyx_n_s_update;
-static PyObject *__pyx_n_s_vnum1;
-static PyObject *__pyx_n_s_vnum2;
+static PyObject *__pyx_n_s_v;
 static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_y;
 static PyObject *__pyx_n_s_z;
-static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_state_ctr); /* proto */
-static PyObject *__pyx_pf_6cutils_2get_patches(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_patches, int __pyx_v_patch_size); /* proto */
-static PyObject *__pyx_pf_6cutils_4get_patches_edge_dilated(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_edge, __Pyx_memviewslice __pyx_v_dilated, __Pyx_memviewslice __pyx_v_patches, __Pyx_memviewslice __pyx_v_patches_edge, __Pyx_memviewslice __pyx_v_patches_dilated, int __pyx_v_patch_size); /* proto */
-static PyObject *__pyx_pf_6cutils_6get_patches_sparse(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_patches, int __pyx_v_patch_size); /* proto */
-static PyObject *__pyx_pf_6cutils_8eval_match_CD(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_patches, float __pyx_v_threshold); /* proto */
+static PyObject *__pyx_pf_6cutils_floodfill(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_queue, __Pyx_memviewslice __pyx_v_state_ctr); /* proto */
+static PyObject *__pyx_pf_6cutils_2expand_then_shrink(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_tmp); /* proto */
+static PyObject *__pyx_pf_6cutils_4depth_fusion_XZY(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_rendering, __Pyx_memviewslice __pyx_v_state_ctr); /* proto */
+static PyObject *__pyx_pf_6cutils_6depth_fusion_XZY_5views(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_rendering, __Pyx_memviewslice __pyx_v_state_ctr); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array_2__getbuffer__(struct __pyx_array_obj *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_array___pyx_pf_15View_dot_MemoryView_5array_4__dealloc__(struct __pyx_array_obj *__pyx_v_self); /* proto */
@@ -2211,42 +2192,1481 @@ static PyObject *__pyx_tuple__22;
 static PyObject *__pyx_tuple__24;
 static PyObject *__pyx_tuple__26;
 static PyObject *__pyx_tuple__28;
+static PyObject *__pyx_tuple__29;
 static PyObject *__pyx_tuple__30;
 static PyObject *__pyx_tuple__31;
 static PyObject *__pyx_tuple__32;
 static PyObject *__pyx_tuple__33;
-static PyObject *__pyx_tuple__34;
-static PyObject *__pyx_tuple__35;
 static PyObject *__pyx_codeobj__21;
 static PyObject *__pyx_codeobj__23;
 static PyObject *__pyx_codeobj__25;
 static PyObject *__pyx_codeobj__27;
-static PyObject *__pyx_codeobj__29;
-static PyObject *__pyx_codeobj__36;
+static PyObject *__pyx_codeobj__34;
 /* Late includes */
 
-/* "cutils.pyx":7
+/* "cutils.pyx":9
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_state_ctr(char[:, :, ::1] img, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
- *     cdef int dimx,dimy,dimz
- *     cdef int state,ctr
+ * def floodfill(char[:, :, ::1] img, int[:, ::1] queue, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
+ *     cdef int dimx,dimy,dimz,max_queue_len
+ *     cdef int pi = 0
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cutils_1get_state_ctr(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6cutils_1get_state_ctr = {"get_state_ctr", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6cutils_1get_state_ctr, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6cutils_1get_state_ctr(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_6cutils_1floodfill(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6cutils_1floodfill = {"floodfill", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6cutils_1floodfill, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_6cutils_1floodfill(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_img = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_queue = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_state_ctr = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_state_ctr (wrapper)", 0);
+  __Pyx_RefNannySetupContext("floodfill (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_state_ctr,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_queue,&__pyx_n_s_state_ctr,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_img)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_queue)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("floodfill", 1, 3, 3, 1); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_state_ctr)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("floodfill", 1, 3, 3, 2); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "floodfill") < 0)) __PYX_ERR(0, 9, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v_img = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_queue = __Pyx_PyObject_to_MemoryviewSlice_d_dc_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_queue.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_state_ctr = __Pyx_PyObject_to_MemoryviewSlice_d_dc_int(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_state_ctr.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("floodfill", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 9, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("cutils.floodfill", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_6cutils_floodfill(__pyx_self, __pyx_v_img, __pyx_v_queue, __pyx_v_state_ctr);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6cutils_floodfill(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_queue, __Pyx_memviewslice __pyx_v_state_ctr) {
+  int __pyx_v_dimx;
+  int __pyx_v_dimy;
+  int __pyx_v_dimz;
+  int __pyx_v_max_queue_len;
+  int __pyx_v_pi;
+  int __pyx_v_pj;
+  int __pyx_v_pk;
+  int __pyx_v_queue_start;
+  int __pyx_v_queue_end;
+  int __pyx_v_state;
+  int __pyx_v_ctr;
+  int __pyx_v_p;
+  int __pyx_v_i;
+  int __pyx_v_j;
+  int __pyx_v_k;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  Py_ssize_t __pyx_t_1;
+  Py_ssize_t __pyx_t_2;
+  Py_ssize_t __pyx_t_3;
+  int __pyx_t_4;
+  int __pyx_t_5;
+  int __pyx_t_6;
+  int __pyx_t_7;
+  int __pyx_t_8;
+  int __pyx_t_9;
+  int __pyx_t_10;
+  int __pyx_t_11;
+  int __pyx_t_12;
+  int __pyx_t_13;
+  int __pyx_t_14;
+  __Pyx_RefNannySetupContext("floodfill", 0);
+
+  /* "cutils.pyx":11
+ * def floodfill(char[:, :, ::1] img, int[:, ::1] queue, int[:, ::1] state_ctr):
+ *     cdef int dimx,dimy,dimz,max_queue_len
+ *     cdef int pi = 0             # <<<<<<<<<<<<<<
+ *     cdef int pj = 0
+ *     cdef int pk = 0
+ */
+  __pyx_v_pi = 0;
+
+  /* "cutils.pyx":12
+ *     cdef int dimx,dimy,dimz,max_queue_len
+ *     cdef int pi = 0
+ *     cdef int pj = 0             # <<<<<<<<<<<<<<
+ *     cdef int pk = 0
+ *     cdef int queue_start = 0
+ */
+  __pyx_v_pj = 0;
+
+  /* "cutils.pyx":13
+ *     cdef int pi = 0
+ *     cdef int pj = 0
+ *     cdef int pk = 0             # <<<<<<<<<<<<<<
+ *     cdef int queue_start = 0
+ *     cdef int queue_end = 1
+ */
+  __pyx_v_pk = 0;
+
+  /* "cutils.pyx":14
+ *     cdef int pj = 0
+ *     cdef int pk = 0
+ *     cdef int queue_start = 0             # <<<<<<<<<<<<<<
+ *     cdef int queue_end = 1
+ * 
+ */
+  __pyx_v_queue_start = 0;
+
+  /* "cutils.pyx":15
+ *     cdef int pk = 0
+ *     cdef int queue_start = 0
+ *     cdef int queue_end = 1             # <<<<<<<<<<<<<<
+ * 
+ *     dimx = img.shape[0]
+ */
+  __pyx_v_queue_end = 1;
+
+  /* "cutils.pyx":17
+ *     cdef int queue_end = 1
+ * 
+ *     dimx = img.shape[0]             # <<<<<<<<<<<<<<
+ *     dimy = img.shape[1]
+ *     dimz = img.shape[2]
+ */
+  __pyx_v_dimx = (__pyx_v_img.shape[0]);
+
+  /* "cutils.pyx":18
+ * 
+ *     dimx = img.shape[0]
+ *     dimy = img.shape[1]             # <<<<<<<<<<<<<<
+ *     dimz = img.shape[2]
+ *     max_queue_len = queue.shape[0]
+ */
+  __pyx_v_dimy = (__pyx_v_img.shape[1]);
+
+  /* "cutils.pyx":19
+ *     dimx = img.shape[0]
+ *     dimy = img.shape[1]
+ *     dimz = img.shape[2]             # <<<<<<<<<<<<<<
+ *     max_queue_len = queue.shape[0]
+ * 
+ */
+  __pyx_v_dimz = (__pyx_v_img.shape[2]);
+
+  /* "cutils.pyx":20
+ *     dimy = img.shape[1]
+ *     dimz = img.shape[2]
+ *     max_queue_len = queue.shape[0]             # <<<<<<<<<<<<<<
+ * 
+ *     img[0,0,0] = 0
+ */
+  __pyx_v_max_queue_len = (__pyx_v_queue.shape[0]);
+
+  /* "cutils.pyx":22
+ *     max_queue_len = queue.shape[0]
+ * 
+ *     img[0,0,0] = 0             # <<<<<<<<<<<<<<
+ *     queue[queue_start,0] = 0
+ *     queue[queue_start,1] = 0
+ */
+  __pyx_t_1 = 0;
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_3)) )) = 0;
+
+  /* "cutils.pyx":23
+ * 
+ *     img[0,0,0] = 0
+ *     queue[queue_start,0] = 0             # <<<<<<<<<<<<<<
+ *     queue[queue_start,1] = 0
+ *     queue[queue_start,2] = 0
+ */
+  __pyx_t_3 = __pyx_v_queue_start;
+  __pyx_t_2 = 0;
+  *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = 0;
+
+  /* "cutils.pyx":24
+ *     img[0,0,0] = 0
+ *     queue[queue_start,0] = 0
+ *     queue[queue_start,1] = 0             # <<<<<<<<<<<<<<
+ *     queue[queue_start,2] = 0
+ * 
+ */
+  __pyx_t_2 = __pyx_v_queue_start;
+  __pyx_t_3 = 1;
+  *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = 0;
+
+  /* "cutils.pyx":25
+ *     queue[queue_start,0] = 0
+ *     queue[queue_start,1] = 0
+ *     queue[queue_start,2] = 0             # <<<<<<<<<<<<<<
+ * 
+ *     while queue_start != queue_end:
+ */
+  __pyx_t_3 = __pyx_v_queue_start;
+  __pyx_t_2 = 2;
+  *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = 0;
+
+  /* "cutils.pyx":27
+ *     queue[queue_start,2] = 0
+ * 
+ *     while queue_start != queue_end:             # <<<<<<<<<<<<<<
+ *         pi = queue[queue_start,0]
+ *         pj = queue[queue_start,1]
+ */
+  while (1) {
+    __pyx_t_4 = ((__pyx_v_queue_start != __pyx_v_queue_end) != 0);
+    if (!__pyx_t_4) break;
+
+    /* "cutils.pyx":28
+ * 
+ *     while queue_start != queue_end:
+ *         pi = queue[queue_start,0]             # <<<<<<<<<<<<<<
+ *         pj = queue[queue_start,1]
+ *         pk = queue[queue_start,2]
+ */
+    __pyx_t_2 = __pyx_v_queue_start;
+    __pyx_t_3 = 0;
+    __pyx_v_pi = (*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )));
+
+    /* "cutils.pyx":29
+ *     while queue_start != queue_end:
+ *         pi = queue[queue_start,0]
+ *         pj = queue[queue_start,1]             # <<<<<<<<<<<<<<
+ *         pk = queue[queue_start,2]
+ *         queue_start += 1
+ */
+    __pyx_t_3 = __pyx_v_queue_start;
+    __pyx_t_2 = 1;
+    __pyx_v_pj = (*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )));
+
+    /* "cutils.pyx":30
+ *         pi = queue[queue_start,0]
+ *         pj = queue[queue_start,1]
+ *         pk = queue[queue_start,2]             # <<<<<<<<<<<<<<
+ *         queue_start += 1
+ *         if queue_start==max_queue_len:
+ */
+    __pyx_t_2 = __pyx_v_queue_start;
+    __pyx_t_3 = 2;
+    __pyx_v_pk = (*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )));
+
+    /* "cutils.pyx":31
+ *         pj = queue[queue_start,1]
+ *         pk = queue[queue_start,2]
+ *         queue_start += 1             # <<<<<<<<<<<<<<
+ *         if queue_start==max_queue_len:
+ *             queue_start = 0
+ */
+    __pyx_v_queue_start = (__pyx_v_queue_start + 1);
+
+    /* "cutils.pyx":32
+ *         pk = queue[queue_start,2]
+ *         queue_start += 1
+ *         if queue_start==max_queue_len:             # <<<<<<<<<<<<<<
+ *             queue_start = 0
+ * 
+ */
+    __pyx_t_4 = ((__pyx_v_queue_start == __pyx_v_max_queue_len) != 0);
+    if (__pyx_t_4) {
+
+      /* "cutils.pyx":33
+ *         queue_start += 1
+ *         if queue_start==max_queue_len:
+ *             queue_start = 0             # <<<<<<<<<<<<<<
+ * 
+ *         pi = pi+1
+ */
+      __pyx_v_queue_start = 0;
+
+      /* "cutils.pyx":32
+ *         pk = queue[queue_start,2]
+ *         queue_start += 1
+ *         if queue_start==max_queue_len:             # <<<<<<<<<<<<<<
+ *             queue_start = 0
+ * 
+ */
+    }
+
+    /* "cutils.pyx":35
+ *             queue_start = 0
+ * 
+ *         pi = pi+1             # <<<<<<<<<<<<<<
+ *         if pi<dimx and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ */
+    __pyx_v_pi = (__pyx_v_pi + 1);
+
+    /* "cutils.pyx":36
+ * 
+ *         pi = pi+1
+ *         if pi<dimx and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    __pyx_t_5 = ((__pyx_v_pi < __pyx_v_dimx) != 0);
+    if (__pyx_t_5) {
+    } else {
+      __pyx_t_4 = __pyx_t_5;
+      goto __pyx_L7_bool_binop_done;
+    }
+    __pyx_t_3 = __pyx_v_pi;
+    __pyx_t_2 = __pyx_v_pj;
+    __pyx_t_1 = __pyx_v_pk;
+    __pyx_t_5 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_3 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_1)) ))) == 1) != 0);
+    __pyx_t_4 = __pyx_t_5;
+    __pyx_L7_bool_binop_done:;
+    if (__pyx_t_4) {
+
+      /* "cutils.pyx":37
+ *         pi = pi+1
+ *         if pi<dimx and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0             # <<<<<<<<<<<<<<
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ */
+      __pyx_t_1 = __pyx_v_pi;
+      __pyx_t_2 = __pyx_v_pj;
+      __pyx_t_3 = __pyx_v_pk;
+      *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_3)) )) = 0;
+
+      /* "cutils.pyx":38
+ *         if pi<dimx and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi             # <<<<<<<<<<<<<<
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ */
+      __pyx_t_3 = __pyx_v_queue_end;
+      __pyx_t_2 = 0;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_pi;
+
+      /* "cutils.pyx":39
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj             # <<<<<<<<<<<<<<
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ */
+      __pyx_t_2 = __pyx_v_queue_end;
+      __pyx_t_3 = 1;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_pj;
+
+      /* "cutils.pyx":40
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk             # <<<<<<<<<<<<<<
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ */
+      __pyx_t_3 = __pyx_v_queue_end;
+      __pyx_t_2 = 2;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_pk;
+
+      /* "cutils.pyx":41
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1             # <<<<<<<<<<<<<<
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0
+ */
+      __pyx_v_queue_end = (__pyx_v_queue_end + 1);
+
+      /* "cutils.pyx":42
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      __pyx_t_4 = ((__pyx_v_queue_end == __pyx_v_max_queue_len) != 0);
+      if (__pyx_t_4) {
+
+        /* "cutils.pyx":43
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0             # <<<<<<<<<<<<<<
+ * 
+ *         pi = pi-2
+ */
+        __pyx_v_queue_end = 0;
+
+        /* "cutils.pyx":42
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      }
+
+      /* "cutils.pyx":36
+ * 
+ *         pi = pi+1
+ *         if pi<dimx and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    }
+
+    /* "cutils.pyx":45
+ *                 queue_end = 0
+ * 
+ *         pi = pi-2             # <<<<<<<<<<<<<<
+ *         if pi>=0 and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ */
+    __pyx_v_pi = (__pyx_v_pi - 2);
+
+    /* "cutils.pyx":46
+ * 
+ *         pi = pi-2
+ *         if pi>=0 and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    __pyx_t_5 = ((__pyx_v_pi >= 0) != 0);
+    if (__pyx_t_5) {
+    } else {
+      __pyx_t_4 = __pyx_t_5;
+      goto __pyx_L11_bool_binop_done;
+    }
+    __pyx_t_2 = __pyx_v_pi;
+    __pyx_t_3 = __pyx_v_pj;
+    __pyx_t_1 = __pyx_v_pk;
+    __pyx_t_5 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_2 * __pyx_v_img.strides[0]) ) + __pyx_t_3 * __pyx_v_img.strides[1]) )) + __pyx_t_1)) ))) == 1) != 0);
+    __pyx_t_4 = __pyx_t_5;
+    __pyx_L11_bool_binop_done:;
+    if (__pyx_t_4) {
+
+      /* "cutils.pyx":47
+ *         pi = pi-2
+ *         if pi>=0 and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0             # <<<<<<<<<<<<<<
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ */
+      __pyx_t_1 = __pyx_v_pi;
+      __pyx_t_3 = __pyx_v_pj;
+      __pyx_t_2 = __pyx_v_pk;
+      *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) ) + __pyx_t_3 * __pyx_v_img.strides[1]) )) + __pyx_t_2)) )) = 0;
+
+      /* "cutils.pyx":48
+ *         if pi>=0 and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi             # <<<<<<<<<<<<<<
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ */
+      __pyx_t_2 = __pyx_v_queue_end;
+      __pyx_t_3 = 0;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_pi;
+
+      /* "cutils.pyx":49
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj             # <<<<<<<<<<<<<<
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ */
+      __pyx_t_3 = __pyx_v_queue_end;
+      __pyx_t_2 = 1;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_pj;
+
+      /* "cutils.pyx":50
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk             # <<<<<<<<<<<<<<
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ */
+      __pyx_t_2 = __pyx_v_queue_end;
+      __pyx_t_3 = 2;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_pk;
+
+      /* "cutils.pyx":51
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1             # <<<<<<<<<<<<<<
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0
+ */
+      __pyx_v_queue_end = (__pyx_v_queue_end + 1);
+
+      /* "cutils.pyx":52
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      __pyx_t_4 = ((__pyx_v_queue_end == __pyx_v_max_queue_len) != 0);
+      if (__pyx_t_4) {
+
+        /* "cutils.pyx":53
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0             # <<<<<<<<<<<<<<
+ * 
+ *         pi = pi+1
+ */
+        __pyx_v_queue_end = 0;
+
+        /* "cutils.pyx":52
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      }
+
+      /* "cutils.pyx":46
+ * 
+ *         pi = pi-2
+ *         if pi>=0 and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    }
+
+    /* "cutils.pyx":55
+ *                 queue_end = 0
+ * 
+ *         pi = pi+1             # <<<<<<<<<<<<<<
+ *         pj = pj+1
+ *         if pj<dimy and img[pi,pj,pk]==1:
+ */
+    __pyx_v_pi = (__pyx_v_pi + 1);
+
+    /* "cutils.pyx":56
+ * 
+ *         pi = pi+1
+ *         pj = pj+1             # <<<<<<<<<<<<<<
+ *         if pj<dimy and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ */
+    __pyx_v_pj = (__pyx_v_pj + 1);
+
+    /* "cutils.pyx":57
+ *         pi = pi+1
+ *         pj = pj+1
+ *         if pj<dimy and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    __pyx_t_5 = ((__pyx_v_pj < __pyx_v_dimy) != 0);
+    if (__pyx_t_5) {
+    } else {
+      __pyx_t_4 = __pyx_t_5;
+      goto __pyx_L15_bool_binop_done;
+    }
+    __pyx_t_3 = __pyx_v_pi;
+    __pyx_t_2 = __pyx_v_pj;
+    __pyx_t_1 = __pyx_v_pk;
+    __pyx_t_5 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_3 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_1)) ))) == 1) != 0);
+    __pyx_t_4 = __pyx_t_5;
+    __pyx_L15_bool_binop_done:;
+    if (__pyx_t_4) {
+
+      /* "cutils.pyx":58
+ *         pj = pj+1
+ *         if pj<dimy and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0             # <<<<<<<<<<<<<<
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ */
+      __pyx_t_1 = __pyx_v_pi;
+      __pyx_t_2 = __pyx_v_pj;
+      __pyx_t_3 = __pyx_v_pk;
+      *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_3)) )) = 0;
+
+      /* "cutils.pyx":59
+ *         if pj<dimy and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi             # <<<<<<<<<<<<<<
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ */
+      __pyx_t_3 = __pyx_v_queue_end;
+      __pyx_t_2 = 0;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_pi;
+
+      /* "cutils.pyx":60
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj             # <<<<<<<<<<<<<<
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ */
+      __pyx_t_2 = __pyx_v_queue_end;
+      __pyx_t_3 = 1;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_pj;
+
+      /* "cutils.pyx":61
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk             # <<<<<<<<<<<<<<
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ */
+      __pyx_t_3 = __pyx_v_queue_end;
+      __pyx_t_2 = 2;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_pk;
+
+      /* "cutils.pyx":62
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1             # <<<<<<<<<<<<<<
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0
+ */
+      __pyx_v_queue_end = (__pyx_v_queue_end + 1);
+
+      /* "cutils.pyx":63
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      __pyx_t_4 = ((__pyx_v_queue_end == __pyx_v_max_queue_len) != 0);
+      if (__pyx_t_4) {
+
+        /* "cutils.pyx":64
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0             # <<<<<<<<<<<<<<
+ * 
+ *         pj = pj-2
+ */
+        __pyx_v_queue_end = 0;
+
+        /* "cutils.pyx":63
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      }
+
+      /* "cutils.pyx":57
+ *         pi = pi+1
+ *         pj = pj+1
+ *         if pj<dimy and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    }
+
+    /* "cutils.pyx":66
+ *                 queue_end = 0
+ * 
+ *         pj = pj-2             # <<<<<<<<<<<<<<
+ *         if pj>=0 and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ */
+    __pyx_v_pj = (__pyx_v_pj - 2);
+
+    /* "cutils.pyx":67
+ * 
+ *         pj = pj-2
+ *         if pj>=0 and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    __pyx_t_5 = ((__pyx_v_pj >= 0) != 0);
+    if (__pyx_t_5) {
+    } else {
+      __pyx_t_4 = __pyx_t_5;
+      goto __pyx_L19_bool_binop_done;
+    }
+    __pyx_t_2 = __pyx_v_pi;
+    __pyx_t_3 = __pyx_v_pj;
+    __pyx_t_1 = __pyx_v_pk;
+    __pyx_t_5 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_2 * __pyx_v_img.strides[0]) ) + __pyx_t_3 * __pyx_v_img.strides[1]) )) + __pyx_t_1)) ))) == 1) != 0);
+    __pyx_t_4 = __pyx_t_5;
+    __pyx_L19_bool_binop_done:;
+    if (__pyx_t_4) {
+
+      /* "cutils.pyx":68
+ *         pj = pj-2
+ *         if pj>=0 and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0             # <<<<<<<<<<<<<<
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ */
+      __pyx_t_1 = __pyx_v_pi;
+      __pyx_t_3 = __pyx_v_pj;
+      __pyx_t_2 = __pyx_v_pk;
+      *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) ) + __pyx_t_3 * __pyx_v_img.strides[1]) )) + __pyx_t_2)) )) = 0;
+
+      /* "cutils.pyx":69
+ *         if pj>=0 and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi             # <<<<<<<<<<<<<<
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ */
+      __pyx_t_2 = __pyx_v_queue_end;
+      __pyx_t_3 = 0;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_pi;
+
+      /* "cutils.pyx":70
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj             # <<<<<<<<<<<<<<
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ */
+      __pyx_t_3 = __pyx_v_queue_end;
+      __pyx_t_2 = 1;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_pj;
+
+      /* "cutils.pyx":71
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk             # <<<<<<<<<<<<<<
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ */
+      __pyx_t_2 = __pyx_v_queue_end;
+      __pyx_t_3 = 2;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_pk;
+
+      /* "cutils.pyx":72
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1             # <<<<<<<<<<<<<<
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0
+ */
+      __pyx_v_queue_end = (__pyx_v_queue_end + 1);
+
+      /* "cutils.pyx":73
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      __pyx_t_4 = ((__pyx_v_queue_end == __pyx_v_max_queue_len) != 0);
+      if (__pyx_t_4) {
+
+        /* "cutils.pyx":74
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0             # <<<<<<<<<<<<<<
+ * 
+ *         pj = pj+1
+ */
+        __pyx_v_queue_end = 0;
+
+        /* "cutils.pyx":73
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      }
+
+      /* "cutils.pyx":67
+ * 
+ *         pj = pj-2
+ *         if pj>=0 and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    }
+
+    /* "cutils.pyx":76
+ *                 queue_end = 0
+ * 
+ *         pj = pj+1             # <<<<<<<<<<<<<<
+ *         pk = pk+1
+ *         if pk<dimz and img[pi,pj,pk]==1:
+ */
+    __pyx_v_pj = (__pyx_v_pj + 1);
+
+    /* "cutils.pyx":77
+ * 
+ *         pj = pj+1
+ *         pk = pk+1             # <<<<<<<<<<<<<<
+ *         if pk<dimz and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ */
+    __pyx_v_pk = (__pyx_v_pk + 1);
+
+    /* "cutils.pyx":78
+ *         pj = pj+1
+ *         pk = pk+1
+ *         if pk<dimz and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    __pyx_t_5 = ((__pyx_v_pk < __pyx_v_dimz) != 0);
+    if (__pyx_t_5) {
+    } else {
+      __pyx_t_4 = __pyx_t_5;
+      goto __pyx_L23_bool_binop_done;
+    }
+    __pyx_t_3 = __pyx_v_pi;
+    __pyx_t_2 = __pyx_v_pj;
+    __pyx_t_1 = __pyx_v_pk;
+    __pyx_t_5 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_3 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_1)) ))) == 1) != 0);
+    __pyx_t_4 = __pyx_t_5;
+    __pyx_L23_bool_binop_done:;
+    if (__pyx_t_4) {
+
+      /* "cutils.pyx":79
+ *         pk = pk+1
+ *         if pk<dimz and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0             # <<<<<<<<<<<<<<
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ */
+      __pyx_t_1 = __pyx_v_pi;
+      __pyx_t_2 = __pyx_v_pj;
+      __pyx_t_3 = __pyx_v_pk;
+      *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_3)) )) = 0;
+
+      /* "cutils.pyx":80
+ *         if pk<dimz and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi             # <<<<<<<<<<<<<<
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ */
+      __pyx_t_3 = __pyx_v_queue_end;
+      __pyx_t_2 = 0;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_pi;
+
+      /* "cutils.pyx":81
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj             # <<<<<<<<<<<<<<
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ */
+      __pyx_t_2 = __pyx_v_queue_end;
+      __pyx_t_3 = 1;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_pj;
+
+      /* "cutils.pyx":82
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk             # <<<<<<<<<<<<<<
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ */
+      __pyx_t_3 = __pyx_v_queue_end;
+      __pyx_t_2 = 2;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_pk;
+
+      /* "cutils.pyx":83
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1             # <<<<<<<<<<<<<<
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0
+ */
+      __pyx_v_queue_end = (__pyx_v_queue_end + 1);
+
+      /* "cutils.pyx":84
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      __pyx_t_4 = ((__pyx_v_queue_end == __pyx_v_max_queue_len) != 0);
+      if (__pyx_t_4) {
+
+        /* "cutils.pyx":85
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0             # <<<<<<<<<<<<<<
+ * 
+ *         pk = pk-2
+ */
+        __pyx_v_queue_end = 0;
+
+        /* "cutils.pyx":84
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      }
+
+      /* "cutils.pyx":78
+ *         pj = pj+1
+ *         pk = pk+1
+ *         if pk<dimz and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    }
+
+    /* "cutils.pyx":87
+ *                 queue_end = 0
+ * 
+ *         pk = pk-2             # <<<<<<<<<<<<<<
+ *         if pk>=0 and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ */
+    __pyx_v_pk = (__pyx_v_pk - 2);
+
+    /* "cutils.pyx":88
+ * 
+ *         pk = pk-2
+ *         if pk>=0 and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    __pyx_t_5 = ((__pyx_v_pk >= 0) != 0);
+    if (__pyx_t_5) {
+    } else {
+      __pyx_t_4 = __pyx_t_5;
+      goto __pyx_L27_bool_binop_done;
+    }
+    __pyx_t_2 = __pyx_v_pi;
+    __pyx_t_3 = __pyx_v_pj;
+    __pyx_t_1 = __pyx_v_pk;
+    __pyx_t_5 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_2 * __pyx_v_img.strides[0]) ) + __pyx_t_3 * __pyx_v_img.strides[1]) )) + __pyx_t_1)) ))) == 1) != 0);
+    __pyx_t_4 = __pyx_t_5;
+    __pyx_L27_bool_binop_done:;
+    if (__pyx_t_4) {
+
+      /* "cutils.pyx":89
+ *         pk = pk-2
+ *         if pk>=0 and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0             # <<<<<<<<<<<<<<
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ */
+      __pyx_t_1 = __pyx_v_pi;
+      __pyx_t_3 = __pyx_v_pj;
+      __pyx_t_2 = __pyx_v_pk;
+      *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) ) + __pyx_t_3 * __pyx_v_img.strides[1]) )) + __pyx_t_2)) )) = 0;
+
+      /* "cutils.pyx":90
+ *         if pk>=0 and img[pi,pj,pk]==1:
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi             # <<<<<<<<<<<<<<
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ */
+      __pyx_t_2 = __pyx_v_queue_end;
+      __pyx_t_3 = 0;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_pi;
+
+      /* "cutils.pyx":91
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj             # <<<<<<<<<<<<<<
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ */
+      __pyx_t_3 = __pyx_v_queue_end;
+      __pyx_t_2 = 1;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_3 * __pyx_v_queue.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_pj;
+
+      /* "cutils.pyx":92
+ *             queue[queue_end,0] = pi
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk             # <<<<<<<<<<<<<<
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ */
+      __pyx_t_2 = __pyx_v_queue_end;
+      __pyx_t_3 = 2;
+      *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_queue.data + __pyx_t_2 * __pyx_v_queue.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_pk;
+
+      /* "cutils.pyx":93
+ *             queue[queue_end,1] = pj
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1             # <<<<<<<<<<<<<<
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0
+ */
+      __pyx_v_queue_end = (__pyx_v_queue_end + 1);
+
+      /* "cutils.pyx":94
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      __pyx_t_4 = ((__pyx_v_queue_end == __pyx_v_max_queue_len) != 0);
+      if (__pyx_t_4) {
+
+        /* "cutils.pyx":95
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:
+ *                 queue_end = 0             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+        __pyx_v_queue_end = 0;
+
+        /* "cutils.pyx":94
+ *             queue[queue_end,2] = pk
+ *             queue_end += 1
+ *             if queue_end==max_queue_len:             # <<<<<<<<<<<<<<
+ *                 queue_end = 0
+ * 
+ */
+      }
+
+      /* "cutils.pyx":88
+ * 
+ *         pk = pk-2
+ *         if pk>=0 and img[pi,pj,pk]==1:             # <<<<<<<<<<<<<<
+ *             img[pi,pj,pk] = 0
+ *             queue[queue_end,0] = pi
+ */
+    }
+  }
+
+  /* "cutils.pyx":98
+ * 
+ * 
+ *     cdef int state = 0             # <<<<<<<<<<<<<<
+ *     cdef int ctr = 0
+ *     cdef int p = 0
+ */
+  __pyx_v_state = 0;
+
+  /* "cutils.pyx":99
+ * 
+ *     cdef int state = 0
+ *     cdef int ctr = 0             # <<<<<<<<<<<<<<
+ *     cdef int p = 0
+ *     cdef int i = 0
+ */
+  __pyx_v_ctr = 0;
+
+  /* "cutils.pyx":100
+ *     cdef int state = 0
+ *     cdef int ctr = 0
+ *     cdef int p = 0             # <<<<<<<<<<<<<<
+ *     cdef int i = 0
+ *     cdef int j = 0
+ */
+  __pyx_v_p = 0;
+
+  /* "cutils.pyx":101
+ *     cdef int ctr = 0
+ *     cdef int p = 0
+ *     cdef int i = 0             # <<<<<<<<<<<<<<
+ *     cdef int j = 0
+ *     cdef int k = 0
+ */
+  __pyx_v_i = 0;
+
+  /* "cutils.pyx":102
+ *     cdef int p = 0
+ *     cdef int i = 0
+ *     cdef int j = 0             # <<<<<<<<<<<<<<
+ *     cdef int k = 0
+ * 
+ */
+  __pyx_v_j = 0;
+
+  /* "cutils.pyx":103
+ *     cdef int i = 0
+ *     cdef int j = 0
+ *     cdef int k = 0             # <<<<<<<<<<<<<<
+ * 
+ *     for i in range(dimx):
+ */
+  __pyx_v_k = 0;
+
+  /* "cutils.pyx":105
+ *     cdef int k = 0
+ * 
+ *     for i in range(dimx):             # <<<<<<<<<<<<<<
+ *         for j in range(dimy):
+ *             for k in range(dimz):
+ */
+  __pyx_t_6 = __pyx_v_dimx;
+  __pyx_t_7 = __pyx_t_6;
+  for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
+    __pyx_v_i = __pyx_t_8;
+
+    /* "cutils.pyx":106
+ * 
+ *     for i in range(dimx):
+ *         for j in range(dimy):             # <<<<<<<<<<<<<<
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:
+ */
+    __pyx_t_9 = __pyx_v_dimy;
+    __pyx_t_10 = __pyx_t_9;
+    for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
+      __pyx_v_j = __pyx_t_11;
+
+      /* "cutils.pyx":107
+ *     for i in range(dimx):
+ *         for j in range(dimy):
+ *             for k in range(dimz):             # <<<<<<<<<<<<<<
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1
+ */
+      __pyx_t_12 = __pyx_v_dimz;
+      __pyx_t_13 = __pyx_t_12;
+      for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
+        __pyx_v_k = __pyx_t_14;
+
+        /* "cutils.pyx":108
+ *         for j in range(dimy):
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:             # <<<<<<<<<<<<<<
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:
+ */
+        __pyx_t_3 = __pyx_v_i;
+        __pyx_t_2 = __pyx_v_j;
+        __pyx_t_1 = __pyx_v_k;
+        __pyx_t_4 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_3 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_1)) ))) > 0) != 0);
+        if (__pyx_t_4) {
+
+          /* "cutils.pyx":109
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1             # <<<<<<<<<<<<<<
+ *                 if img[i,j,k]==state:
+ *                     ctr += 1
+ */
+          __pyx_t_1 = __pyx_v_i;
+          __pyx_t_2 = __pyx_v_j;
+          __pyx_t_3 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_3)) )) = 1;
+
+          /* "cutils.pyx":108
+ *         for j in range(dimy):
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:             # <<<<<<<<<<<<<<
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:
+ */
+        }
+
+        /* "cutils.pyx":110
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:             # <<<<<<<<<<<<<<
+ *                     ctr += 1
+ *                     if ctr==255:
+ */
+        __pyx_t_3 = __pyx_v_i;
+        __pyx_t_2 = __pyx_v_j;
+        __pyx_t_1 = __pyx_v_k;
+        __pyx_t_4 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_3 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_1)) ))) == __pyx_v_state) != 0);
+        if (__pyx_t_4) {
+
+          /* "cutils.pyx":111
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:
+ *                     ctr += 1             # <<<<<<<<<<<<<<
+ *                     if ctr==255:
+ *                         state_ctr[p,0] = state
+ */
+          __pyx_v_ctr = (__pyx_v_ctr + 1);
+
+          /* "cutils.pyx":112
+ *                 if img[i,j,k]==state:
+ *                     ctr += 1
+ *                     if ctr==255:             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ */
+          __pyx_t_4 = ((__pyx_v_ctr == 0xFF) != 0);
+          if (__pyx_t_4) {
+
+            /* "cutils.pyx":113
+ *                     ctr += 1
+ *                     if ctr==255:
+ *                         state_ctr[p,0] = state             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1
+ */
+            __pyx_t_1 = __pyx_v_p;
+            __pyx_t_2 = 0;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_1 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_state;
+
+            /* "cutils.pyx":114
+ *                     if ctr==255:
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr             # <<<<<<<<<<<<<<
+ *                         p += 1
+ *                         ctr = 0
+ */
+            __pyx_t_2 = __pyx_v_p;
+            __pyx_t_1 = 1;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_2 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_1)) )) = __pyx_v_ctr;
+
+            /* "cutils.pyx":115
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1             # <<<<<<<<<<<<<<
+ *                         ctr = 0
+ *                 else:
+ */
+            __pyx_v_p = (__pyx_v_p + 1);
+
+            /* "cutils.pyx":116
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1
+ *                         ctr = 0             # <<<<<<<<<<<<<<
+ *                 else:
+ *                     if ctr>0:
+ */
+            __pyx_v_ctr = 0;
+
+            /* "cutils.pyx":112
+ *                 if img[i,j,k]==state:
+ *                     ctr += 1
+ *                     if ctr==255:             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ */
+          }
+
+          /* "cutils.pyx":110
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:             # <<<<<<<<<<<<<<
+ *                     ctr += 1
+ *                     if ctr==255:
+ */
+          goto __pyx_L37;
+        }
+
+        /* "cutils.pyx":118
+ *                         ctr = 0
+ *                 else:
+ *                     if ctr>0:             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ */
+        /*else*/ {
+          __pyx_t_4 = ((__pyx_v_ctr > 0) != 0);
+          if (__pyx_t_4) {
+
+            /* "cutils.pyx":119
+ *                 else:
+ *                     if ctr>0:
+ *                         state_ctr[p,0] = state             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1
+ */
+            __pyx_t_1 = __pyx_v_p;
+            __pyx_t_2 = 0;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_1 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_state;
+
+            /* "cutils.pyx":120
+ *                     if ctr>0:
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr             # <<<<<<<<<<<<<<
+ *                         p += 1
+ *                     state = img[i,j,k]
+ */
+            __pyx_t_2 = __pyx_v_p;
+            __pyx_t_1 = 1;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_2 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_1)) )) = __pyx_v_ctr;
+
+            /* "cutils.pyx":121
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1             # <<<<<<<<<<<<<<
+ *                     state = img[i,j,k]
+ *                     ctr = 1
+ */
+            __pyx_v_p = (__pyx_v_p + 1);
+
+            /* "cutils.pyx":118
+ *                         ctr = 0
+ *                 else:
+ *                     if ctr>0:             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ */
+          }
+
+          /* "cutils.pyx":122
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1
+ *                     state = img[i,j,k]             # <<<<<<<<<<<<<<
+ *                     ctr = 1
+ * 
+ */
+          __pyx_t_1 = __pyx_v_i;
+          __pyx_t_2 = __pyx_v_j;
+          __pyx_t_3 = __pyx_v_k;
+          __pyx_v_state = (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) ) + __pyx_t_2 * __pyx_v_img.strides[1]) )) + __pyx_t_3)) )));
+
+          /* "cutils.pyx":123
+ *                         p += 1
+ *                     state = img[i,j,k]
+ *                     ctr = 1             # <<<<<<<<<<<<<<
+ * 
+ *     if ctr > 0:
+ */
+          __pyx_v_ctr = 1;
+        }
+        __pyx_L37:;
+      }
+    }
+  }
+
+  /* "cutils.pyx":125
+ *                     ctr = 1
+ * 
+ *     if ctr > 0:             # <<<<<<<<<<<<<<
+ *         state_ctr[p,0] = state
+ *         state_ctr[p,1] = ctr
+ */
+  __pyx_t_4 = ((__pyx_v_ctr > 0) != 0);
+  if (__pyx_t_4) {
+
+    /* "cutils.pyx":126
+ * 
+ *     if ctr > 0:
+ *         state_ctr[p,0] = state             # <<<<<<<<<<<<<<
+ *         state_ctr[p,1] = ctr
+ *         p += 1
+ */
+    __pyx_t_3 = __pyx_v_p;
+    __pyx_t_2 = 0;
+    *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_3 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_2)) )) = __pyx_v_state;
+
+    /* "cutils.pyx":127
+ *     if ctr > 0:
+ *         state_ctr[p,0] = state
+ *         state_ctr[p,1] = ctr             # <<<<<<<<<<<<<<
+ *         p += 1
+ * 
+ */
+    __pyx_t_2 = __pyx_v_p;
+    __pyx_t_3 = 1;
+    *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_2 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_3)) )) = __pyx_v_ctr;
+
+    /* "cutils.pyx":128
+ *         state_ctr[p,0] = state
+ *         state_ctr[p,1] = ctr
+ *         p += 1             # <<<<<<<<<<<<<<
+ * 
+ *     state_ctr[p,0] = 2
+ */
+    __pyx_v_p = (__pyx_v_p + 1);
+
+    /* "cutils.pyx":125
+ *                     ctr = 1
+ * 
+ *     if ctr > 0:             # <<<<<<<<<<<<<<
+ *         state_ctr[p,0] = state
+ *         state_ctr[p,1] = ctr
+ */
+  }
+
+  /* "cutils.pyx":130
+ *         p += 1
+ * 
+ *     state_ctr[p,0] = 2             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_t_3 = __pyx_v_p;
+  __pyx_t_2 = 0;
+  *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_3 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_2)) )) = 2;
+
+  /* "cutils.pyx":9
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * def floodfill(char[:, :, ::1] img, int[:, ::1] queue, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
+ *     cdef int dimx,dimy,dimz,max_queue_len
+ *     cdef int pi = 0
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_img, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_queue, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_state_ctr, 1);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "cutils.pyx":136
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * def expand_then_shrink(char[:, :, ::1] img, char[:, :, ::1] tmp):             # <<<<<<<<<<<<<<
+ *     cdef int dimx,dimy,dimz
+ *     cdef int i = 0
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6cutils_3expand_then_shrink(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6cutils_3expand_then_shrink = {"expand_then_shrink", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6cutils_3expand_then_shrink, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_6cutils_3expand_then_shrink(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __Pyx_memviewslice __pyx_v_img = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_tmp = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("expand_then_shrink (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_tmp,0};
     PyObject* values[2] = {0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
@@ -2266,13 +3686,13 @@ static PyObject *__pyx_pw_6cutils_1get_state_ctr(PyObject *__pyx_self, PyObject 
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_state_ctr)) != 0)) kw_args--;
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_tmp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_state_ctr", 1, 2, 2, 1); __PYX_ERR(0, 7, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expand_then_shrink", 1, 2, 2, 1); __PYX_ERR(0, 136, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_state_ctr") < 0)) __PYX_ERR(0, 7, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "expand_then_shrink") < 0)) __PYX_ERR(0, 136, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2280,34 +3700,1054 @@ static PyObject *__pyx_pw_6cutils_1get_state_ctr(PyObject *__pyx_self, PyObject 
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_img = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img.memview)) __PYX_ERR(0, 7, __pyx_L3_error)
-    __pyx_v_state_ctr = __Pyx_PyObject_to_MemoryviewSlice_d_dc_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_state_ctr.memview)) __PYX_ERR(0, 7, __pyx_L3_error)
+    __pyx_v_img = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img.memview)) __PYX_ERR(0, 136, __pyx_L3_error)
+    __pyx_v_tmp = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_tmp.memview)) __PYX_ERR(0, 136, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_state_ctr", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 7, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("expand_then_shrink", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 136, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("cutils.get_state_ctr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cutils.expand_then_shrink", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cutils_get_state_ctr(__pyx_self, __pyx_v_img, __pyx_v_state_ctr);
+  __pyx_r = __pyx_pf_6cutils_2expand_then_shrink(__pyx_self, __pyx_v_img, __pyx_v_tmp);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_state_ctr) {
+static PyObject *__pyx_pf_6cutils_2expand_then_shrink(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_tmp) {
   int __pyx_v_dimx;
   int __pyx_v_dimy;
   int __pyx_v_dimz;
-  int __pyx_v_state;
-  int __pyx_v_ctr;
-  int __pyx_v_p;
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_k;
+  int __pyx_v_flag;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  long __pyx_t_1;
+  long __pyx_t_2;
+  int __pyx_t_3;
+  long __pyx_t_4;
+  long __pyx_t_5;
+  int __pyx_t_6;
+  long __pyx_t_7;
+  long __pyx_t_8;
+  int __pyx_t_9;
+  Py_ssize_t __pyx_t_10;
+  Py_ssize_t __pyx_t_11;
+  Py_ssize_t __pyx_t_12;
+  int __pyx_t_13;
+  int __pyx_t_14;
+  __Pyx_RefNannySetupContext("expand_then_shrink", 0);
+
+  /* "cutils.pyx":138
+ * def expand_then_shrink(char[:, :, ::1] img, char[:, :, ::1] tmp):
+ *     cdef int dimx,dimy,dimz
+ *     cdef int i = 0             # <<<<<<<<<<<<<<
+ *     cdef int j = 0
+ *     cdef int k = 0
+ */
+  __pyx_v_i = 0;
+
+  /* "cutils.pyx":139
+ *     cdef int dimx,dimy,dimz
+ *     cdef int i = 0
+ *     cdef int j = 0             # <<<<<<<<<<<<<<
+ *     cdef int k = 0
+ *     cdef int flag = 0
+ */
+  __pyx_v_j = 0;
+
+  /* "cutils.pyx":140
+ *     cdef int i = 0
+ *     cdef int j = 0
+ *     cdef int k = 0             # <<<<<<<<<<<<<<
+ *     cdef int flag = 0
+ * 
+ */
+  __pyx_v_k = 0;
+
+  /* "cutils.pyx":141
+ *     cdef int j = 0
+ *     cdef int k = 0
+ *     cdef int flag = 0             # <<<<<<<<<<<<<<
+ * 
+ *     dimx = img.shape[0]
+ */
+  __pyx_v_flag = 0;
+
+  /* "cutils.pyx":143
+ *     cdef int flag = 0
+ * 
+ *     dimx = img.shape[0]             # <<<<<<<<<<<<<<
+ *     dimy = img.shape[1]
+ *     dimz = img.shape[2]
+ */
+  __pyx_v_dimx = (__pyx_v_img.shape[0]);
+
+  /* "cutils.pyx":144
+ * 
+ *     dimx = img.shape[0]
+ *     dimy = img.shape[1]             # <<<<<<<<<<<<<<
+ *     dimz = img.shape[2]
+ * 
+ */
+  __pyx_v_dimy = (__pyx_v_img.shape[1]);
+
+  /* "cutils.pyx":145
+ *     dimx = img.shape[0]
+ *     dimy = img.shape[1]
+ *     dimz = img.shape[2]             # <<<<<<<<<<<<<<
+ * 
+ *     #do it efficiently -> only look at inside voxels, which are far less than outside voxels
+ */
+  __pyx_v_dimz = (__pyx_v_img.shape[2]);
+
+  /* "cutils.pyx":150
+ * 
+ *     #expand
+ *     for i in range(1,dimx-1):             # <<<<<<<<<<<<<<
+ *         for j in range(1,dimy-1):
+ *             for k in range(1,dimz-1):
+ */
+  __pyx_t_1 = (__pyx_v_dimx - 1);
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+
+    /* "cutils.pyx":151
+ *     #expand
+ *     for i in range(1,dimx-1):
+ *         for j in range(1,dimy-1):             # <<<<<<<<<<<<<<
+ *             for k in range(1,dimz-1):
+ *                 if img[i,j,k] == 1:
+ */
+    __pyx_t_4 = (__pyx_v_dimy - 1);
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 1; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_j = __pyx_t_6;
+
+      /* "cutils.pyx":152
+ *     for i in range(1,dimx-1):
+ *         for j in range(1,dimy-1):
+ *             for k in range(1,dimz-1):             # <<<<<<<<<<<<<<
+ *                 if img[i,j,k] == 1:
+ *                     tmp[i-1,j-1,k-1] = 1
+ */
+      __pyx_t_7 = (__pyx_v_dimz - 1);
+      __pyx_t_8 = __pyx_t_7;
+      for (__pyx_t_9 = 1; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
+        __pyx_v_k = __pyx_t_9;
+
+        /* "cutils.pyx":153
+ *         for j in range(1,dimy-1):
+ *             for k in range(1,dimz-1):
+ *                 if img[i,j,k] == 1:             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j-1,k-1] = 1
+ *                     tmp[i-1,j-1,k] = 1
+ */
+        __pyx_t_10 = __pyx_v_i;
+        __pyx_t_11 = __pyx_v_j;
+        __pyx_t_12 = __pyx_v_k;
+        __pyx_t_13 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) ))) == 1) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":154
+ *             for k in range(1,dimz-1):
+ *                 if img[i,j,k] == 1:
+ *                     tmp[i-1,j-1,k-1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j-1,k] = 1
+ *                     tmp[i-1,j-1,k+1] = 1
+ */
+          __pyx_t_12 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_10 = (__pyx_v_k - 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":155
+ *                 if img[i,j,k] == 1:
+ *                     tmp[i-1,j-1,k-1] = 1
+ *                     tmp[i-1,j-1,k] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j-1,k+1] = 1
+ *                     tmp[i-1,j,k-1] = 1
+ */
+          __pyx_t_10 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_12 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":156
+ *                     tmp[i-1,j-1,k-1] = 1
+ *                     tmp[i-1,j-1,k] = 1
+ *                     tmp[i-1,j-1,k+1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j,k-1] = 1
+ *                     tmp[i-1,j,k] = 1
+ */
+          __pyx_t_12 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_10 = (__pyx_v_k + 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":157
+ *                     tmp[i-1,j-1,k] = 1
+ *                     tmp[i-1,j-1,k+1] = 1
+ *                     tmp[i-1,j,k-1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j,k] = 1
+ *                     tmp[i-1,j,k+1] = 1
+ */
+          __pyx_t_10 = (__pyx_v_i - 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = (__pyx_v_k - 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":158
+ *                     tmp[i-1,j-1,k+1] = 1
+ *                     tmp[i-1,j,k-1] = 1
+ *                     tmp[i-1,j,k] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j,k+1] = 1
+ *                     tmp[i-1,j+1,k-1] = 1
+ */
+          __pyx_t_12 = (__pyx_v_i - 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_10 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":159
+ *                     tmp[i-1,j,k-1] = 1
+ *                     tmp[i-1,j,k] = 1
+ *                     tmp[i-1,j,k+1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j+1,k-1] = 1
+ *                     tmp[i-1,j+1,k] = 1
+ */
+          __pyx_t_10 = (__pyx_v_i - 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = (__pyx_v_k + 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":160
+ *                     tmp[i-1,j,k] = 1
+ *                     tmp[i-1,j,k+1] = 1
+ *                     tmp[i-1,j+1,k-1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j+1,k] = 1
+ *                     tmp[i-1,j+1,k+1] = 1
+ */
+          __pyx_t_12 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_10 = (__pyx_v_k - 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":161
+ *                     tmp[i-1,j,k+1] = 1
+ *                     tmp[i-1,j+1,k-1] = 1
+ *                     tmp[i-1,j+1,k] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j+1,k+1] = 1
+ *                     tmp[i,j-1,k-1] = 1
+ */
+          __pyx_t_10 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_12 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":162
+ *                     tmp[i-1,j+1,k-1] = 1
+ *                     tmp[i-1,j+1,k] = 1
+ *                     tmp[i-1,j+1,k+1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i,j-1,k-1] = 1
+ *                     tmp[i,j-1,k] = 1
+ */
+          __pyx_t_12 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_10 = (__pyx_v_k + 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":163
+ *                     tmp[i-1,j+1,k] = 1
+ *                     tmp[i-1,j+1,k+1] = 1
+ *                     tmp[i,j-1,k-1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i,j-1,k] = 1
+ *                     tmp[i,j-1,k+1] = 1
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_12 = (__pyx_v_k - 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":164
+ *                     tmp[i-1,j+1,k+1] = 1
+ *                     tmp[i,j-1,k-1] = 1
+ *                     tmp[i,j-1,k] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i,j-1,k+1] = 1
+ *                     tmp[i,j,k-1] = 1
+ */
+          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_10 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":165
+ *                     tmp[i,j-1,k-1] = 1
+ *                     tmp[i,j-1,k] = 1
+ *                     tmp[i,j-1,k+1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i,j,k-1] = 1
+ *                     tmp[i,j,k] = 1
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_12 = (__pyx_v_k + 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":166
+ *                     tmp[i,j-1,k] = 1
+ *                     tmp[i,j-1,k+1] = 1
+ *                     tmp[i,j,k-1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i,j,k] = 1
+ *                     tmp[i,j,k+1] = 1
+ */
+          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_10 = (__pyx_v_k - 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":167
+ *                     tmp[i,j-1,k+1] = 1
+ *                     tmp[i,j,k-1] = 1
+ *                     tmp[i,j,k] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i,j,k+1] = 1
+ *                     tmp[i,j+1,k-1] = 1
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":168
+ *                     tmp[i,j,k-1] = 1
+ *                     tmp[i,j,k] = 1
+ *                     tmp[i,j,k+1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i,j+1,k-1] = 1
+ *                     tmp[i,j+1,k] = 1
+ */
+          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_10 = (__pyx_v_k + 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":169
+ *                     tmp[i,j,k] = 1
+ *                     tmp[i,j,k+1] = 1
+ *                     tmp[i,j+1,k-1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i,j+1,k] = 1
+ *                     tmp[i,j+1,k+1] = 1
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_12 = (__pyx_v_k - 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":170
+ *                     tmp[i,j,k+1] = 1
+ *                     tmp[i,j+1,k-1] = 1
+ *                     tmp[i,j+1,k] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i,j+1,k+1] = 1
+ *                     tmp[i+1,j-1,k-1] = 1
+ */
+          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_10 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":171
+ *                     tmp[i,j+1,k-1] = 1
+ *                     tmp[i,j+1,k] = 1
+ *                     tmp[i,j+1,k+1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i+1,j-1,k-1] = 1
+ *                     tmp[i+1,j-1,k] = 1
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_12 = (__pyx_v_k + 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":172
+ *                     tmp[i,j+1,k] = 1
+ *                     tmp[i,j+1,k+1] = 1
+ *                     tmp[i+1,j-1,k-1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i+1,j-1,k] = 1
+ *                     tmp[i+1,j-1,k+1] = 1
+ */
+          __pyx_t_12 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_10 = (__pyx_v_k - 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":173
+ *                     tmp[i,j+1,k+1] = 1
+ *                     tmp[i+1,j-1,k-1] = 1
+ *                     tmp[i+1,j-1,k] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i+1,j-1,k+1] = 1
+ *                     tmp[i+1,j,k-1] = 1
+ */
+          __pyx_t_10 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_12 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":174
+ *                     tmp[i+1,j-1,k-1] = 1
+ *                     tmp[i+1,j-1,k] = 1
+ *                     tmp[i+1,j-1,k+1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i+1,j,k-1] = 1
+ *                     tmp[i+1,j,k] = 1
+ */
+          __pyx_t_12 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_10 = (__pyx_v_k + 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":175
+ *                     tmp[i+1,j-1,k] = 1
+ *                     tmp[i+1,j-1,k+1] = 1
+ *                     tmp[i+1,j,k-1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i+1,j,k] = 1
+ *                     tmp[i+1,j,k+1] = 1
+ */
+          __pyx_t_10 = (__pyx_v_i + 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = (__pyx_v_k - 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":176
+ *                     tmp[i+1,j-1,k+1] = 1
+ *                     tmp[i+1,j,k-1] = 1
+ *                     tmp[i+1,j,k] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i+1,j,k+1] = 1
+ *                     tmp[i+1,j+1,k-1] = 1
+ */
+          __pyx_t_12 = (__pyx_v_i + 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_10 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":177
+ *                     tmp[i+1,j,k-1] = 1
+ *                     tmp[i+1,j,k] = 1
+ *                     tmp[i+1,j,k+1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i+1,j+1,k-1] = 1
+ *                     tmp[i+1,j+1,k] = 1
+ */
+          __pyx_t_10 = (__pyx_v_i + 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = (__pyx_v_k + 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":178
+ *                     tmp[i+1,j,k] = 1
+ *                     tmp[i+1,j,k+1] = 1
+ *                     tmp[i+1,j+1,k-1] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i+1,j+1,k] = 1
+ *                     tmp[i+1,j+1,k+1] = 1
+ */
+          __pyx_t_12 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_10 = (__pyx_v_k - 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":179
+ *                     tmp[i+1,j,k+1] = 1
+ *                     tmp[i+1,j+1,k-1] = 1
+ *                     tmp[i+1,j+1,k] = 1             # <<<<<<<<<<<<<<
+ *                     tmp[i+1,j+1,k+1] = 1
+ * 
+ */
+          __pyx_t_10 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_12 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":180
+ *                     tmp[i+1,j+1,k-1] = 1
+ *                     tmp[i+1,j+1,k] = 1
+ *                     tmp[i+1,j+1,k+1] = 1             # <<<<<<<<<<<<<<
+ * 
+ *     #shrink
+ */
+          __pyx_t_12 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_10 = (__pyx_v_k + 1);
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+          /* "cutils.pyx":153
+ *         for j in range(1,dimy-1):
+ *             for k in range(1,dimz-1):
+ *                 if img[i,j,k] == 1:             # <<<<<<<<<<<<<<
+ *                     tmp[i-1,j-1,k-1] = 1
+ *                     tmp[i-1,j-1,k] = 1
+ */
+        }
+      }
+    }
+  }
+
+  /* "cutils.pyx":183
+ * 
+ *     #shrink
+ *     for i in range(1,dimx-1):             # <<<<<<<<<<<<<<
+ *         for j in range(1,dimy-1):
+ *             for k in range(1,dimz-1):
+ */
+  __pyx_t_1 = (__pyx_v_dimx - 1);
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+
+    /* "cutils.pyx":184
+ *     #shrink
+ *     for i in range(1,dimx-1):
+ *         for j in range(1,dimy-1):             # <<<<<<<<<<<<<<
+ *             for k in range(1,dimz-1):
+ *                 if tmp[i,j,k] == 1 and img[i,j,k] == 0:
+ */
+    __pyx_t_4 = (__pyx_v_dimy - 1);
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 1; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_j = __pyx_t_6;
+
+      /* "cutils.pyx":185
+ *     for i in range(1,dimx-1):
+ *         for j in range(1,dimy-1):
+ *             for k in range(1,dimz-1):             # <<<<<<<<<<<<<<
+ *                 if tmp[i,j,k] == 1 and img[i,j,k] == 0:
+ *                     flag = 0
+ */
+      __pyx_t_7 = (__pyx_v_dimz - 1);
+      __pyx_t_8 = __pyx_t_7;
+      for (__pyx_t_9 = 1; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
+        __pyx_v_k = __pyx_t_9;
+
+        /* "cutils.pyx":186
+ *         for j in range(1,dimy-1):
+ *             for k in range(1,dimz-1):
+ *                 if tmp[i,j,k] == 1 and img[i,j,k] == 0:             # <<<<<<<<<<<<<<
+ *                     flag = 0
+ *                     flag += tmp[i-1,j-1,k-1]
+ */
+        __pyx_t_10 = __pyx_v_i;
+        __pyx_t_11 = __pyx_v_j;
+        __pyx_t_12 = __pyx_v_k;
+        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))) == 1) != 0);
+        if (__pyx_t_14) {
+        } else {
+          __pyx_t_13 = __pyx_t_14;
+          goto __pyx_L17_bool_binop_done;
+        }
+        __pyx_t_12 = __pyx_v_i;
+        __pyx_t_11 = __pyx_v_j;
+        __pyx_t_10 = __pyx_v_k;
+        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_12 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_10)) ))) == 0) != 0);
+        __pyx_t_13 = __pyx_t_14;
+        __pyx_L17_bool_binop_done:;
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":187
+ *             for k in range(1,dimz-1):
+ *                 if tmp[i,j,k] == 1 and img[i,j,k] == 0:
+ *                     flag = 0             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i-1,j-1,k-1]
+ *                     flag += tmp[i-1,j-1,k]
+ */
+          __pyx_v_flag = 0;
+
+          /* "cutils.pyx":188
+ *                 if tmp[i,j,k] == 1 and img[i,j,k] == 0:
+ *                     flag = 0
+ *                     flag += tmp[i-1,j-1,k-1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i-1,j-1,k]
+ *                     flag += tmp[i-1,j-1,k+1]
+ */
+          __pyx_t_10 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_12 = (__pyx_v_k - 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":189
+ *                     flag = 0
+ *                     flag += tmp[i-1,j-1,k-1]
+ *                     flag += tmp[i-1,j-1,k]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i-1,j-1,k+1]
+ *                     flag += tmp[i-1,j,k-1]
+ */
+          __pyx_t_12 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_10 = __pyx_v_k;
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":190
+ *                     flag += tmp[i-1,j-1,k-1]
+ *                     flag += tmp[i-1,j-1,k]
+ *                     flag += tmp[i-1,j-1,k+1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i-1,j,k-1]
+ *                     flag += tmp[i-1,j,k]
+ */
+          __pyx_t_10 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_12 = (__pyx_v_k + 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":191
+ *                     flag += tmp[i-1,j-1,k]
+ *                     flag += tmp[i-1,j-1,k+1]
+ *                     flag += tmp[i-1,j,k-1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i-1,j,k]
+ *                     flag += tmp[i-1,j,k+1]
+ */
+          __pyx_t_12 = (__pyx_v_i - 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_10 = (__pyx_v_k - 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":192
+ *                     flag += tmp[i-1,j-1,k+1]
+ *                     flag += tmp[i-1,j,k-1]
+ *                     flag += tmp[i-1,j,k]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i-1,j,k+1]
+ *                     flag += tmp[i-1,j+1,k-1]
+ */
+          __pyx_t_10 = (__pyx_v_i - 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = __pyx_v_k;
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":193
+ *                     flag += tmp[i-1,j,k-1]
+ *                     flag += tmp[i-1,j,k]
+ *                     flag += tmp[i-1,j,k+1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i-1,j+1,k-1]
+ *                     flag += tmp[i-1,j+1,k]
+ */
+          __pyx_t_12 = (__pyx_v_i - 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_10 = (__pyx_v_k + 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":194
+ *                     flag += tmp[i-1,j,k]
+ *                     flag += tmp[i-1,j,k+1]
+ *                     flag += tmp[i-1,j+1,k-1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i-1,j+1,k]
+ *                     flag += tmp[i-1,j+1,k+1]
+ */
+          __pyx_t_10 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_12 = (__pyx_v_k - 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":195
+ *                     flag += tmp[i-1,j,k+1]
+ *                     flag += tmp[i-1,j+1,k-1]
+ *                     flag += tmp[i-1,j+1,k]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i-1,j+1,k+1]
+ *                     flag += tmp[i,j-1,k-1]
+ */
+          __pyx_t_12 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_10 = __pyx_v_k;
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":196
+ *                     flag += tmp[i-1,j+1,k-1]
+ *                     flag += tmp[i-1,j+1,k]
+ *                     flag += tmp[i-1,j+1,k+1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i,j-1,k-1]
+ *                     flag += tmp[i,j-1,k]
+ */
+          __pyx_t_10 = (__pyx_v_i - 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_12 = (__pyx_v_k + 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":197
+ *                     flag += tmp[i-1,j+1,k]
+ *                     flag += tmp[i-1,j+1,k+1]
+ *                     flag += tmp[i,j-1,k-1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i,j-1,k]
+ *                     flag += tmp[i,j-1,k+1]
+ */
+          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_10 = (__pyx_v_k - 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":198
+ *                     flag += tmp[i-1,j+1,k+1]
+ *                     flag += tmp[i,j-1,k-1]
+ *                     flag += tmp[i,j-1,k]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i,j-1,k+1]
+ *                     flag += tmp[i,j,k-1]
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_12 = __pyx_v_k;
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":199
+ *                     flag += tmp[i,j-1,k-1]
+ *                     flag += tmp[i,j-1,k]
+ *                     flag += tmp[i,j-1,k+1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i,j,k-1]
+ *                     flag += tmp[i,j,k]
+ */
+          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_10 = (__pyx_v_k + 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":200
+ *                     flag += tmp[i,j-1,k]
+ *                     flag += tmp[i,j-1,k+1]
+ *                     flag += tmp[i,j,k-1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i,j,k]
+ *                     flag += tmp[i,j,k+1]
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = (__pyx_v_k - 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":201
+ *                     flag += tmp[i,j-1,k+1]
+ *                     flag += tmp[i,j,k-1]
+ *                     flag += tmp[i,j,k]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i,j,k+1]
+ *                     flag += tmp[i,j+1,k-1]
+ */
+          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_10 = __pyx_v_k;
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":202
+ *                     flag += tmp[i,j,k-1]
+ *                     flag += tmp[i,j,k]
+ *                     flag += tmp[i,j,k+1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i,j+1,k-1]
+ *                     flag += tmp[i,j+1,k]
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = (__pyx_v_k + 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":203
+ *                     flag += tmp[i,j,k]
+ *                     flag += tmp[i,j,k+1]
+ *                     flag += tmp[i,j+1,k-1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i,j+1,k]
+ *                     flag += tmp[i,j+1,k+1]
+ */
+          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_10 = (__pyx_v_k - 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":204
+ *                     flag += tmp[i,j,k+1]
+ *                     flag += tmp[i,j+1,k-1]
+ *                     flag += tmp[i,j+1,k]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i,j+1,k+1]
+ *                     flag += tmp[i+1,j-1,k-1]
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_12 = __pyx_v_k;
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":205
+ *                     flag += tmp[i,j+1,k-1]
+ *                     flag += tmp[i,j+1,k]
+ *                     flag += tmp[i,j+1,k+1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i+1,j-1,k-1]
+ *                     flag += tmp[i+1,j-1,k]
+ */
+          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_10 = (__pyx_v_k + 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":206
+ *                     flag += tmp[i,j+1,k]
+ *                     flag += tmp[i,j+1,k+1]
+ *                     flag += tmp[i+1,j-1,k-1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i+1,j-1,k]
+ *                     flag += tmp[i+1,j-1,k+1]
+ */
+          __pyx_t_10 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_12 = (__pyx_v_k - 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":207
+ *                     flag += tmp[i,j+1,k+1]
+ *                     flag += tmp[i+1,j-1,k-1]
+ *                     flag += tmp[i+1,j-1,k]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i+1,j-1,k+1]
+ *                     flag += tmp[i+1,j,k-1]
+ */
+          __pyx_t_12 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_10 = __pyx_v_k;
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":208
+ *                     flag += tmp[i+1,j-1,k-1]
+ *                     flag += tmp[i+1,j-1,k]
+ *                     flag += tmp[i+1,j-1,k+1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i+1,j,k-1]
+ *                     flag += tmp[i+1,j,k]
+ */
+          __pyx_t_10 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j - 1);
+          __pyx_t_12 = (__pyx_v_k + 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":209
+ *                     flag += tmp[i+1,j-1,k]
+ *                     flag += tmp[i+1,j-1,k+1]
+ *                     flag += tmp[i+1,j,k-1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i+1,j,k]
+ *                     flag += tmp[i+1,j,k+1]
+ */
+          __pyx_t_12 = (__pyx_v_i + 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_10 = (__pyx_v_k - 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":210
+ *                     flag += tmp[i+1,j-1,k+1]
+ *                     flag += tmp[i+1,j,k-1]
+ *                     flag += tmp[i+1,j,k]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i+1,j,k+1]
+ *                     flag += tmp[i+1,j+1,k-1]
+ */
+          __pyx_t_10 = (__pyx_v_i + 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = __pyx_v_k;
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":211
+ *                     flag += tmp[i+1,j,k-1]
+ *                     flag += tmp[i+1,j,k]
+ *                     flag += tmp[i+1,j,k+1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i+1,j+1,k-1]
+ *                     flag += tmp[i+1,j+1,k]
+ */
+          __pyx_t_12 = (__pyx_v_i + 1);
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_10 = (__pyx_v_k + 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":212
+ *                     flag += tmp[i+1,j,k]
+ *                     flag += tmp[i+1,j,k+1]
+ *                     flag += tmp[i+1,j+1,k-1]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i+1,j+1,k]
+ *                     flag += tmp[i+1,j+1,k+1]
+ */
+          __pyx_t_10 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_12 = (__pyx_v_k - 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":213
+ *                     flag += tmp[i+1,j,k+1]
+ *                     flag += tmp[i+1,j+1,k-1]
+ *                     flag += tmp[i+1,j+1,k]             # <<<<<<<<<<<<<<
+ *                     flag += tmp[i+1,j+1,k+1]
+ * 
+ */
+          __pyx_t_12 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_10 = __pyx_v_k;
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_12 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_10)) ))));
+
+          /* "cutils.pyx":214
+ *                     flag += tmp[i+1,j+1,k-1]
+ *                     flag += tmp[i+1,j+1,k]
+ *                     flag += tmp[i+1,j+1,k+1]             # <<<<<<<<<<<<<<
+ * 
+ *                     if flag==27:
+ */
+          __pyx_t_10 = (__pyx_v_i + 1);
+          __pyx_t_11 = (__pyx_v_j + 1);
+          __pyx_t_12 = (__pyx_v_k + 1);
+          __pyx_v_flag = (__pyx_v_flag + (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_tmp.data + __pyx_t_10 * __pyx_v_tmp.strides[0]) ) + __pyx_t_11 * __pyx_v_tmp.strides[1]) )) + __pyx_t_12)) ))));
+
+          /* "cutils.pyx":216
+ *                     flag += tmp[i+1,j+1,k+1]
+ * 
+ *                     if flag==27:             # <<<<<<<<<<<<<<
+ *                         img[i,j,k] = 1
+ * 
+ */
+          __pyx_t_13 = ((__pyx_v_flag == 27) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":217
+ * 
+ *                     if flag==27:
+ *                         img[i,j,k] = 1             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+            __pyx_t_12 = __pyx_v_i;
+            __pyx_t_11 = __pyx_v_j;
+            __pyx_t_10 = __pyx_v_k;
+            *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_12 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_10)) )) = 1;
+
+            /* "cutils.pyx":216
+ *                     flag += tmp[i+1,j+1,k+1]
+ * 
+ *                     if flag==27:             # <<<<<<<<<<<<<<
+ *                         img[i,j,k] = 1
+ * 
+ */
+          }
+
+          /* "cutils.pyx":186
+ *         for j in range(1,dimy-1):
+ *             for k in range(1,dimz-1):
+ *                 if tmp[i,j,k] == 1 and img[i,j,k] == 0:             # <<<<<<<<<<<<<<
+ *                     flag = 0
+ *                     flag += tmp[i-1,j-1,k-1]
+ */
+        }
+      }
+    }
+  }
+
+  /* "cutils.pyx":136
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * def expand_then_shrink(char[:, :, ::1] img, char[:, :, ::1] tmp):             # <<<<<<<<<<<<<<
+ *     cdef int dimx,dimy,dimz
+ *     cdef int i = 0
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_img, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_tmp, 1);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "cutils.pyx":224
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * def depth_fusion_XZY(char[:, :, ::1] img, int[:, :, ::1] rendering, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
+ *     cdef int dimx,dimy,dimz
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6cutils_5depth_fusion_XZY(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6cutils_5depth_fusion_XZY = {"depth_fusion_XZY", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6cutils_5depth_fusion_XZY, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_6cutils_5depth_fusion_XZY(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __Pyx_memviewslice __pyx_v_img = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_rendering = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_state_ctr = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("depth_fusion_XZY (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_rendering,&__pyx_n_s_state_ctr,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_img)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_rendering)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("depth_fusion_XZY", 1, 3, 3, 1); __PYX_ERR(0, 224, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_state_ctr)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("depth_fusion_XZY", 1, 3, 3, 2); __PYX_ERR(0, 224, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "depth_fusion_XZY") < 0)) __PYX_ERR(0, 224, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v_img = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img.memview)) __PYX_ERR(0, 224, __pyx_L3_error)
+    __pyx_v_rendering = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_rendering.memview)) __PYX_ERR(0, 224, __pyx_L3_error)
+    __pyx_v_state_ctr = __Pyx_PyObject_to_MemoryviewSlice_d_dc_int(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_state_ctr.memview)) __PYX_ERR(0, 224, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("depth_fusion_XZY", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 224, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("cutils.depth_fusion_XZY", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_6cutils_4depth_fusion_XZY(__pyx_self, __pyx_v_img, __pyx_v_rendering, __pyx_v_state_ctr);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6cutils_4depth_fusion_XZY(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_rendering, __Pyx_memviewslice __pyx_v_state_ctr) {
+  int __pyx_v_dimx;
+  int __pyx_v_dimy;
+  int __pyx_v_dimz;
+  int __pyx_v_hdis;
+  int __pyx_v_c;
+  int __pyx_v_u;
+  int __pyx_v_v;
+  int __pyx_v_d;
+  int __pyx_v_outside_flag;
+  int __pyx_v_x;
+  int __pyx_v_y;
+  int __pyx_v_z;
+  int __pyx_v_i;
+  int __pyx_v_j;
+  int __pyx_v_k;
+  int __pyx_v_state;
+  int __pyx_v_ctr;
+  int __pyx_v_p;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -2323,10 +4763,145 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
   Py_ssize_t __pyx_t_11;
   Py_ssize_t __pyx_t_12;
   int __pyx_t_13;
-  __Pyx_RefNannySetupContext("get_state_ctr", 0);
+  __Pyx_RefNannySetupContext("depth_fusion_XZY", 0);
 
-  /* "cutils.pyx":12
- *     cdef int p,i,j,k
+  /* "cutils.pyx":227
+ *     cdef int dimx,dimy,dimz
+ * 
+ *     cdef int hdis = render_depth_img_size//2 #half depth image size             # <<<<<<<<<<<<<<
+ * 
+ *     cdef int c = 0
+ */
+  __pyx_v_hdis = __Pyx_div_long(__pyx_v_6cutils_render_depth_img_size, 2);
+
+  /* "cutils.pyx":229
+ *     cdef int hdis = render_depth_img_size//2 #half depth image size
+ * 
+ *     cdef int c = 0             # <<<<<<<<<<<<<<
+ *     cdef int u = 0
+ *     cdef int v = 0
+ */
+  __pyx_v_c = 0;
+
+  /* "cutils.pyx":230
+ * 
+ *     cdef int c = 0
+ *     cdef int u = 0             # <<<<<<<<<<<<<<
+ *     cdef int v = 0
+ *     cdef int d = 0
+ */
+  __pyx_v_u = 0;
+
+  /* "cutils.pyx":231
+ *     cdef int c = 0
+ *     cdef int u = 0
+ *     cdef int v = 0             # <<<<<<<<<<<<<<
+ *     cdef int d = 0
+ * 
+ */
+  __pyx_v_v = 0;
+
+  /* "cutils.pyx":232
+ *     cdef int u = 0
+ *     cdef int v = 0
+ *     cdef int d = 0             # <<<<<<<<<<<<<<
+ * 
+ *     cdef int outside_flag = 0
+ */
+  __pyx_v_d = 0;
+
+  /* "cutils.pyx":234
+ *     cdef int d = 0
+ * 
+ *     cdef int outside_flag = 0             # <<<<<<<<<<<<<<
+ * 
+ *     cdef int x = 0
+ */
+  __pyx_v_outside_flag = 0;
+
+  /* "cutils.pyx":236
+ *     cdef int outside_flag = 0
+ * 
+ *     cdef int x = 0             # <<<<<<<<<<<<<<
+ *     cdef int y = 0
+ *     cdef int z = 0
+ */
+  __pyx_v_x = 0;
+
+  /* "cutils.pyx":237
+ * 
+ *     cdef int x = 0
+ *     cdef int y = 0             # <<<<<<<<<<<<<<
+ *     cdef int z = 0
+ * 
+ */
+  __pyx_v_y = 0;
+
+  /* "cutils.pyx":238
+ *     cdef int x = 0
+ *     cdef int y = 0
+ *     cdef int z = 0             # <<<<<<<<<<<<<<
+ * 
+ *     cdef int i = 0
+ */
+  __pyx_v_z = 0;
+
+  /* "cutils.pyx":240
+ *     cdef int z = 0
+ * 
+ *     cdef int i = 0             # <<<<<<<<<<<<<<
+ *     cdef int j = 0
+ *     cdef int k = 0
+ */
+  __pyx_v_i = 0;
+
+  /* "cutils.pyx":241
+ * 
+ *     cdef int i = 0
+ *     cdef int j = 0             # <<<<<<<<<<<<<<
+ *     cdef int k = 0
+ * 
+ */
+  __pyx_v_j = 0;
+
+  /* "cutils.pyx":242
+ *     cdef int i = 0
+ *     cdef int j = 0
+ *     cdef int k = 0             # <<<<<<<<<<<<<<
+ * 
+ *     cdef int state = 0
+ */
+  __pyx_v_k = 0;
+
+  /* "cutils.pyx":244
+ *     cdef int k = 0
+ * 
+ *     cdef int state = 0             # <<<<<<<<<<<<<<
+ *     cdef int ctr = 0
+ *     cdef int p = 0
+ */
+  __pyx_v_state = 0;
+
+  /* "cutils.pyx":245
+ * 
+ *     cdef int state = 0
+ *     cdef int ctr = 0             # <<<<<<<<<<<<<<
+ *     cdef int p = 0
+ * 
+ */
+  __pyx_v_ctr = 0;
+
+  /* "cutils.pyx":246
+ *     cdef int state = 0
+ *     cdef int ctr = 0
+ *     cdef int p = 0             # <<<<<<<<<<<<<<
+ * 
+ *     dimx = img.shape[0]
+ */
+  __pyx_v_p = 0;
+
+  /* "cutils.pyx":248
+ *     cdef int p = 0
  * 
  *     dimx = img.shape[0]             # <<<<<<<<<<<<<<
  *     dimy = img.shape[1]
@@ -2334,53 +4909,3855 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
   __pyx_v_dimx = (__pyx_v_img.shape[0]);
 
-  /* "cutils.pyx":13
+  /* "cutils.pyx":249
  * 
  *     dimx = img.shape[0]
  *     dimy = img.shape[1]             # <<<<<<<<<<<<<<
  *     dimz = img.shape[2]
- *     state = 0
+ * 
  */
   __pyx_v_dimy = (__pyx_v_img.shape[1]);
 
-  /* "cutils.pyx":14
+  /* "cutils.pyx":250
  *     dimx = img.shape[0]
  *     dimy = img.shape[1]
  *     dimz = img.shape[2]             # <<<<<<<<<<<<<<
- *     state = 0
- *     ctr = 0
+ * 
+ *     #--model
  */
   __pyx_v_dimz = (__pyx_v_img.shape[2]);
 
-  /* "cutils.pyx":15
- *     dimy = img.shape[1]
- *     dimz = img.shape[2]
- *     state = 0             # <<<<<<<<<<<<<<
- *     ctr = 0
- *     p = 0
+  /* "cutils.pyx":265
+ * 
+ *     #get rendering
+ *     for x in range(dimx):             # <<<<<<<<<<<<<<
+ *         for y in range(dimy):
+ *             for z in range(dimz):
  */
-  __pyx_v_state = 0;
+  __pyx_t_1 = __pyx_v_dimx;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_x = __pyx_t_3;
 
-  /* "cutils.pyx":16
- *     dimz = img.shape[2]
- *     state = 0
- *     ctr = 0             # <<<<<<<<<<<<<<
- *     p = 0
+    /* "cutils.pyx":266
+ *     #get rendering
+ *     for x in range(dimx):
+ *         for y in range(dimy):             # <<<<<<<<<<<<<<
+ *             for z in range(dimz):
+ *                 if img[x,z,y]>0:
+ */
+    __pyx_t_4 = __pyx_v_dimy;
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_y = __pyx_t_6;
+
+      /* "cutils.pyx":267
+ *     for x in range(dimx):
+ *         for y in range(dimy):
+ *             for z in range(dimz):             # <<<<<<<<<<<<<<
+ *                 if img[x,z,y]>0:
+ *                     #z-buffering
+ */
+      __pyx_t_7 = __pyx_v_dimz;
+      __pyx_t_8 = __pyx_t_7;
+      for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
+        __pyx_v_z = __pyx_t_9;
+
+        /* "cutils.pyx":268
+ *         for y in range(dimy):
+ *             for z in range(dimz):
+ *                 if img[x,z,y]>0:             # <<<<<<<<<<<<<<
+ *                     #z-buffering
  * 
  */
-  __pyx_v_ctr = 0;
+        __pyx_t_10 = __pyx_v_x;
+        __pyx_t_11 = __pyx_v_z;
+        __pyx_t_12 = __pyx_v_y;
+        __pyx_t_13 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) ))) > 0) != 0);
+        if (__pyx_t_13) {
 
-  /* "cutils.pyx":17
- *     state = 0
- *     ctr = 0
- *     p = 0             # <<<<<<<<<<<<<<
+          /* "cutils.pyx":271
+ *                     #z-buffering
  * 
- *     for i in range(dimx):
+ *                     c = 0             # <<<<<<<<<<<<<<
+ *                     u = x + hdis
+ *                     v = z + hdis
  */
-  __pyx_v_p = 0;
+          __pyx_v_c = 0;
 
-  /* "cutils.pyx":19
- *     p = 0
+          /* "cutils.pyx":272
+ * 
+ *                     c = 0
+ *                     u = x + hdis             # <<<<<<<<<<<<<<
+ *                     v = z + hdis
+ *                     d = -y #y must always be negative in d to render from top
+ */
+          __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+          /* "cutils.pyx":273
+ *                     c = 0
+ *                     u = x + hdis
+ *                     v = z + hdis             # <<<<<<<<<<<<<<
+ *                     d = -y #y must always be negative in d to render from top
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+          /* "cutils.pyx":274
+ *                     u = x + hdis
+ *                     v = z + hdis
+ *                     d = -y #y must always be negative in d to render from top             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (-__pyx_v_y);
+
+          /* "cutils.pyx":275
+ *                     v = z + hdis
+ *                     d = -y #y must always be negative in d to render from top
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":276
+ *                     d = -y #y must always be negative in d to render from top
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 1
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":275
+ *                     v = z + hdis
+ *                     d = -y #y must always be negative in d to render from top
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":278
+ *                         rendering[u,v,c]=d
+ * 
+ *                     c = 1             # <<<<<<<<<<<<<<
+ *                     u = y + hdis
+ *                     v = z + hdis
+ */
+          __pyx_v_c = 1;
+
+          /* "cutils.pyx":279
+ * 
+ *                     c = 1
+ *                     u = y + hdis             # <<<<<<<<<<<<<<
+ *                     v = z + hdis
+ *                     d = x
+ */
+          __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":280
+ *                     c = 1
+ *                     u = y + hdis
+ *                     v = z + hdis             # <<<<<<<<<<<<<<
+ *                     d = x
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+          /* "cutils.pyx":281
+ *                     u = y + hdis
+ *                     v = z + hdis
+ *                     d = x             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = __pyx_v_x;
+
+          /* "cutils.pyx":282
+ *                     v = z + hdis
+ *                     d = x
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":283
+ *                     d = x
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 2
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":282
+ *                     v = z + hdis
+ *                     d = x
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":285
+ *                         rendering[u,v,c]=d
+ * 
+ *                     c = 2             # <<<<<<<<<<<<<<
+ *                     u = y + hdis
+ *                     v = z + hdis
+ */
+          __pyx_v_c = 2;
+
+          /* "cutils.pyx":286
+ * 
+ *                     c = 2
+ *                     u = y + hdis             # <<<<<<<<<<<<<<
+ *                     v = z + hdis
+ *                     d = -x
+ */
+          __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":287
+ *                     c = 2
+ *                     u = y + hdis
+ *                     v = z + hdis             # <<<<<<<<<<<<<<
+ *                     d = -x
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+          /* "cutils.pyx":288
+ *                     u = y + hdis
+ *                     v = z + hdis
+ *                     d = -x             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (-__pyx_v_x);
+
+          /* "cutils.pyx":289
+ *                     v = z + hdis
+ *                     d = -x
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":290
+ *                     d = -x
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 3
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":289
+ *                     v = z + hdis
+ *                     d = -x
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":292
+ *                         rendering[u,v,c]=d
+ * 
+ *                     c = 3             # <<<<<<<<<<<<<<
+ *                     u = x + hdis
+ *                     v = y + hdis
+ */
+          __pyx_v_c = 3;
+
+          /* "cutils.pyx":293
+ * 
+ *                     c = 3
+ *                     u = x + hdis             # <<<<<<<<<<<<<<
+ *                     v = y + hdis
+ *                     d = z
+ */
+          __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+          /* "cutils.pyx":294
+ *                     c = 3
+ *                     u = x + hdis
+ *                     v = y + hdis             # <<<<<<<<<<<<<<
+ *                     d = z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":295
+ *                     u = x + hdis
+ *                     v = y + hdis
+ *                     d = z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = __pyx_v_z;
+
+          /* "cutils.pyx":296
+ *                     v = y + hdis
+ *                     d = z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":297
+ *                     d = z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 4
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":296
+ *                     v = y + hdis
+ *                     d = z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":299
+ *                         rendering[u,v,c]=d
+ * 
+ *                     c = 4             # <<<<<<<<<<<<<<
+ *                     u = x + hdis
+ *                     v = y + hdis
+ */
+          __pyx_v_c = 4;
+
+          /* "cutils.pyx":300
+ * 
+ *                     c = 4
+ *                     u = x + hdis             # <<<<<<<<<<<<<<
+ *                     v = y + hdis
+ *                     d = -z
+ */
+          __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+          /* "cutils.pyx":301
+ *                     c = 4
+ *                     u = x + hdis
+ *                     v = y + hdis             # <<<<<<<<<<<<<<
+ *                     d = -z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":302
+ *                     u = x + hdis
+ *                     v = y + hdis
+ *                     d = -z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (-__pyx_v_z);
+
+          /* "cutils.pyx":303
+ *                     v = y + hdis
+ *                     d = -z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":304
+ *                     d = -z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 5
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":303
+ *                     v = y + hdis
+ *                     d = -z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":306
+ *                         rendering[u,v,c]=d
+ * 
+ *                     c = 5             # <<<<<<<<<<<<<<
+ *                     u = y + hdis
+ *                     v = x-z + hdis
+ */
+          __pyx_v_c = 5;
+
+          /* "cutils.pyx":307
+ * 
+ *                     c = 5
+ *                     u = y + hdis             # <<<<<<<<<<<<<<
+ *                     v = x-z + hdis
+ *                     d = x+z
+ */
+          __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":308
+ *                     c = 5
+ *                     u = y + hdis
+ *                     v = x-z + hdis             # <<<<<<<<<<<<<<
+ *                     d = x+z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = ((__pyx_v_x - __pyx_v_z) + __pyx_v_hdis);
+
+          /* "cutils.pyx":309
+ *                     u = y + hdis
+ *                     v = x-z + hdis
+ *                     d = x+z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (__pyx_v_x + __pyx_v_z);
+
+          /* "cutils.pyx":310
+ *                     v = x-z + hdis
+ *                     d = x+z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":311
+ *                     d = x+z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":310
+ *                     v = x-z + hdis
+ *                     d = x+z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":312
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":313
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":312
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":314
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":315
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 6
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":314
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":317
+ *                         rendering[u,v-1,c]=d
+ * 
+ *                     c = 6             # <<<<<<<<<<<<<<
+ *                     u = y + hdis
+ *                     v = x+z + hdis
+ */
+          __pyx_v_c = 6;
+
+          /* "cutils.pyx":318
+ * 
+ *                     c = 6
+ *                     u = y + hdis             # <<<<<<<<<<<<<<
+ *                     v = x+z + hdis
+ *                     d = x-z
+ */
+          __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":319
+ *                     c = 6
+ *                     u = y + hdis
+ *                     v = x+z + hdis             # <<<<<<<<<<<<<<
+ *                     d = x-z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = ((__pyx_v_x + __pyx_v_z) + __pyx_v_hdis);
+
+          /* "cutils.pyx":320
+ *                     u = y + hdis
+ *                     v = x+z + hdis
+ *                     d = x-z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (__pyx_v_x - __pyx_v_z);
+
+          /* "cutils.pyx":321
+ *                     v = x+z + hdis
+ *                     d = x-z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":322
+ *                     d = x-z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":321
+ *                     v = x+z + hdis
+ *                     d = x-z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":323
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":324
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":323
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":325
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":326
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 7
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":325
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":328
+ *                         rendering[u,v-1,c]=d
+ * 
+ *                     c = 7             # <<<<<<<<<<<<<<
+ *                     u = y + hdis
+ *                     v = -x-z + hdis
+ */
+          __pyx_v_c = 7;
+
+          /* "cutils.pyx":329
+ * 
+ *                     c = 7
+ *                     u = y + hdis             # <<<<<<<<<<<<<<
+ *                     v = -x-z + hdis
+ *                     d = -x+z
+ */
+          __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":330
+ *                     c = 7
+ *                     u = y + hdis
+ *                     v = -x-z + hdis             # <<<<<<<<<<<<<<
+ *                     d = -x+z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (((-__pyx_v_x) - __pyx_v_z) + __pyx_v_hdis);
+
+          /* "cutils.pyx":331
+ *                     u = y + hdis
+ *                     v = -x-z + hdis
+ *                     d = -x+z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = ((-__pyx_v_x) + __pyx_v_z);
+
+          /* "cutils.pyx":332
+ *                     v = -x-z + hdis
+ *                     d = -x+z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":333
+ *                     d = -x+z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":332
+ *                     v = -x-z + hdis
+ *                     d = -x+z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":334
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":335
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":334
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":336
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":337
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 8
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":336
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":339
+ *                         rendering[u,v-1,c]=d
+ * 
+ *                     c = 8             # <<<<<<<<<<<<<<
+ *                     u = y + hdis
+ *                     v = -x+z + hdis
+ */
+          __pyx_v_c = 8;
+
+          /* "cutils.pyx":340
+ * 
+ *                     c = 8
+ *                     u = y + hdis             # <<<<<<<<<<<<<<
+ *                     v = -x+z + hdis
+ *                     d = -x-z
+ */
+          __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":341
+ *                     c = 8
+ *                     u = y + hdis
+ *                     v = -x+z + hdis             # <<<<<<<<<<<<<<
+ *                     d = -x-z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (((-__pyx_v_x) + __pyx_v_z) + __pyx_v_hdis);
+
+          /* "cutils.pyx":342
+ *                     u = y + hdis
+ *                     v = -x+z + hdis
+ *                     d = -x-z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = ((-__pyx_v_x) - __pyx_v_z);
+
+          /* "cutils.pyx":343
+ *                     v = -x+z + hdis
+ *                     d = -x-z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":344
+ *                     d = -x-z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":343
+ *                     v = -x+z + hdis
+ *                     d = -x-z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":345
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":346
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":345
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":347
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":348
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 9
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":347
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":350
+ *                         rendering[u,v-1,c]=d
+ * 
+ *                     c = 9             # <<<<<<<<<<<<<<
+ *                     u = z + hdis
+ *                     v = x+y + hdis
+ */
+          __pyx_v_c = 9;
+
+          /* "cutils.pyx":351
+ * 
+ *                     c = 9
+ *                     u = z + hdis             # <<<<<<<<<<<<<<
+ *                     v = x+y + hdis
+ *                     d = x-y
+ */
+          __pyx_v_u = (__pyx_v_z + __pyx_v_hdis);
+
+          /* "cutils.pyx":352
+ *                     c = 9
+ *                     u = z + hdis
+ *                     v = x+y + hdis             # <<<<<<<<<<<<<<
+ *                     d = x-y
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = ((__pyx_v_x + __pyx_v_y) + __pyx_v_hdis);
+
+          /* "cutils.pyx":353
+ *                     u = z + hdis
+ *                     v = x+y + hdis
+ *                     d = x-y             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (__pyx_v_x - __pyx_v_y);
+
+          /* "cutils.pyx":354
+ *                     v = x+y + hdis
+ *                     d = x-y
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":355
+ *                     d = x-y
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":354
+ *                     v = x+y + hdis
+ *                     d = x-y
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":356
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":357
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":356
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":358
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":359
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 10
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":358
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":361
+ *                         rendering[u,v-1,c]=d
+ * 
+ *                     c = 10             # <<<<<<<<<<<<<<
+ *                     u = z + hdis
+ *                     v = -x+y + hdis
+ */
+          __pyx_v_c = 10;
+
+          /* "cutils.pyx":362
+ * 
+ *                     c = 10
+ *                     u = z + hdis             # <<<<<<<<<<<<<<
+ *                     v = -x+y + hdis
+ *                     d = -x-y
+ */
+          __pyx_v_u = (__pyx_v_z + __pyx_v_hdis);
+
+          /* "cutils.pyx":363
+ *                     c = 10
+ *                     u = z + hdis
+ *                     v = -x+y + hdis             # <<<<<<<<<<<<<<
+ *                     d = -x-y
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (((-__pyx_v_x) + __pyx_v_y) + __pyx_v_hdis);
+
+          /* "cutils.pyx":364
+ *                     u = z + hdis
+ *                     v = -x+y + hdis
+ *                     d = -x-y             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = ((-__pyx_v_x) - __pyx_v_y);
+
+          /* "cutils.pyx":365
+ *                     v = -x+y + hdis
+ *                     d = -x-y
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":366
+ *                     d = -x-y
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":365
+ *                     v = -x+y + hdis
+ *                     d = -x-y
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":367
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":368
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":367
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":369
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":370
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 11
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":369
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":372
+ *                         rendering[u,v-1,c]=d
+ * 
+ *                     c = 11             # <<<<<<<<<<<<<<
+ *                     u = x + hdis
+ *                     v = z+y + hdis
+ */
+          __pyx_v_c = 11;
+
+          /* "cutils.pyx":373
+ * 
+ *                     c = 11
+ *                     u = x + hdis             # <<<<<<<<<<<<<<
+ *                     v = z+y + hdis
+ *                     d = z-y
+ */
+          __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+          /* "cutils.pyx":374
+ *                     c = 11
+ *                     u = x + hdis
+ *                     v = z+y + hdis             # <<<<<<<<<<<<<<
+ *                     d = z-y
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = ((__pyx_v_z + __pyx_v_y) + __pyx_v_hdis);
+
+          /* "cutils.pyx":375
+ *                     u = x + hdis
+ *                     v = z+y + hdis
+ *                     d = z-y             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (__pyx_v_z - __pyx_v_y);
+
+          /* "cutils.pyx":376
+ *                     v = z+y + hdis
+ *                     d = z-y
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":377
+ *                     d = z-y
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":376
+ *                     v = z+y + hdis
+ *                     d = z-y
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":378
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":379
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":378
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":380
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":381
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 12
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":380
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":383
+ *                         rendering[u,v-1,c]=d
+ * 
+ *                     c = 12             # <<<<<<<<<<<<<<
+ *                     u = x + hdis
+ *                     v = -z+y + hdis
+ */
+          __pyx_v_c = 12;
+
+          /* "cutils.pyx":384
+ * 
+ *                     c = 12
+ *                     u = x + hdis             # <<<<<<<<<<<<<<
+ *                     v = -z+y + hdis
+ *                     d = -z-y
+ */
+          __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+          /* "cutils.pyx":385
+ *                     c = 12
+ *                     u = x + hdis
+ *                     v = -z+y + hdis             # <<<<<<<<<<<<<<
+ *                     d = -z-y
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (((-__pyx_v_z) + __pyx_v_y) + __pyx_v_hdis);
+
+          /* "cutils.pyx":386
+ *                     u = x + hdis
+ *                     v = -z+y + hdis
+ *                     d = -z-y             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = ((-__pyx_v_z) - __pyx_v_y);
+
+          /* "cutils.pyx":387
+ *                     v = -z+y + hdis
+ *                     d = -z-y
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":388
+ *                     d = -z-y
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":387
+ *                     v = -z+y + hdis
+ *                     d = -z-y
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":389
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":390
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":389
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ */
+          }
+
+          /* "cutils.pyx":391
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":392
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 13
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":391
+ *                     if rendering[u,v+1,c]>d: #block 2
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 2             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":394
+ *                         rendering[u,v-1,c]=d
+ * 
+ *                     c = 13             # <<<<<<<<<<<<<<
+ *                     u = x+y + hdis
+ *                     v = -y-z + hdis
+ */
+          __pyx_v_c = 13;
+
+          /* "cutils.pyx":395
+ * 
+ *                     c = 13
+ *                     u = x+y + hdis             # <<<<<<<<<<<<<<
+ *                     v = -y-z + hdis
+ *                     d = x-y+z
+ */
+          __pyx_v_u = ((__pyx_v_x + __pyx_v_y) + __pyx_v_hdis);
+
+          /* "cutils.pyx":396
+ *                     c = 13
+ *                     u = x+y + hdis
+ *                     v = -y-z + hdis             # <<<<<<<<<<<<<<
+ *                     d = x-y+z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (((-__pyx_v_y) - __pyx_v_z) + __pyx_v_hdis);
+
+          /* "cutils.pyx":397
+ *                     u = x+y + hdis
+ *                     v = -y-z + hdis
+ *                     d = x-y+z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = ((__pyx_v_x - __pyx_v_y) + __pyx_v_z);
+
+          /* "cutils.pyx":398
+ *                     v = -y-z + hdis
+ *                     d = x-y+z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":399
+ *                     d = x-y+z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":398
+ *                     v = -y-z + hdis
+ *                     d = x-y+z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":400
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u + 1);
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":401
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u + 1);
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":400
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":402
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u - 1);
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":403
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u - 1);
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":402
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":404
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":405
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":404
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":406
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":407
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":406
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":408
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u + 1);
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":409
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ *                         rendering[u-1,v+1,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u + 1);
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":408
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":410
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ */
+          __pyx_t_12 = (__pyx_v_u - 1);
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":411
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ *                         rendering[u-1,v+1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 14
+ */
+            __pyx_t_10 = (__pyx_v_u - 1);
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":410
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":413
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ *                     c = 14             # <<<<<<<<<<<<<<
+ *                     u = -x+y + hdis
+ *                     v = -y-z + hdis
+ */
+          __pyx_v_c = 14;
+
+          /* "cutils.pyx":414
+ * 
+ *                     c = 14
+ *                     u = -x+y + hdis             # <<<<<<<<<<<<<<
+ *                     v = -y-z + hdis
+ *                     d = -x-y+z
+ */
+          __pyx_v_u = (((-__pyx_v_x) + __pyx_v_y) + __pyx_v_hdis);
+
+          /* "cutils.pyx":415
+ *                     c = 14
+ *                     u = -x+y + hdis
+ *                     v = -y-z + hdis             # <<<<<<<<<<<<<<
+ *                     d = -x-y+z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (((-__pyx_v_y) - __pyx_v_z) + __pyx_v_hdis);
+
+          /* "cutils.pyx":416
+ *                     u = -x+y + hdis
+ *                     v = -y-z + hdis
+ *                     d = -x-y+z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (((-__pyx_v_x) - __pyx_v_y) + __pyx_v_z);
+
+          /* "cutils.pyx":417
+ *                     v = -y-z + hdis
+ *                     d = -x-y+z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":418
+ *                     d = -x-y+z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":417
+ *                     v = -y-z + hdis
+ *                     d = -x-y+z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":419
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u + 1);
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":420
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u + 1);
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":419
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":421
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u - 1);
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":422
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u - 1);
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":421
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":423
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":424
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":423
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":425
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":426
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":425
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":427
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u + 1);
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":428
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ *                         rendering[u-1,v+1,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u + 1);
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":427
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":429
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ */
+          __pyx_t_12 = (__pyx_v_u - 1);
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":430
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ *                         rendering[u-1,v+1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 15
+ */
+            __pyx_t_10 = (__pyx_v_u - 1);
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":429
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":432
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ *                     c = 15             # <<<<<<<<<<<<<<
+ *                     u = x+y + hdis
+ *                     v = -y+z + hdis
+ */
+          __pyx_v_c = 15;
+
+          /* "cutils.pyx":433
+ * 
+ *                     c = 15
+ *                     u = x+y + hdis             # <<<<<<<<<<<<<<
+ *                     v = -y+z + hdis
+ *                     d = x-y-z
+ */
+          __pyx_v_u = ((__pyx_v_x + __pyx_v_y) + __pyx_v_hdis);
+
+          /* "cutils.pyx":434
+ *                     c = 15
+ *                     u = x+y + hdis
+ *                     v = -y+z + hdis             # <<<<<<<<<<<<<<
+ *                     d = x-y-z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (((-__pyx_v_y) + __pyx_v_z) + __pyx_v_hdis);
+
+          /* "cutils.pyx":435
+ *                     u = x+y + hdis
+ *                     v = -y+z + hdis
+ *                     d = x-y-z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = ((__pyx_v_x - __pyx_v_y) - __pyx_v_z);
+
+          /* "cutils.pyx":436
+ *                     v = -y+z + hdis
+ *                     d = x-y-z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":437
+ *                     d = x-y-z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":436
+ *                     v = -y+z + hdis
+ *                     d = x-y-z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":438
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u + 1);
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":439
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u + 1);
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":438
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":440
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u - 1);
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":441
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u - 1);
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":440
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":442
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":443
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":442
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":444
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":445
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":444
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":446
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u + 1);
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":447
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ *                         rendering[u-1,v+1,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u + 1);
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":446
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":448
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ */
+          __pyx_t_12 = (__pyx_v_u - 1);
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":449
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ *                         rendering[u-1,v+1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 16
+ */
+            __pyx_t_10 = (__pyx_v_u - 1);
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":448
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":451
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ *                     c = 16             # <<<<<<<<<<<<<<
+ *                     u = -x+y + hdis
+ *                     v = -y+z + hdis
+ */
+          __pyx_v_c = 16;
+
+          /* "cutils.pyx":452
+ * 
+ *                     c = 16
+ *                     u = -x+y + hdis             # <<<<<<<<<<<<<<
+ *                     v = -y+z + hdis
+ *                     d = -x-y-z
+ */
+          __pyx_v_u = (((-__pyx_v_x) + __pyx_v_y) + __pyx_v_hdis);
+
+          /* "cutils.pyx":453
+ *                     c = 16
+ *                     u = -x+y + hdis
+ *                     v = -y+z + hdis             # <<<<<<<<<<<<<<
+ *                     d = -x-y-z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (((-__pyx_v_y) + __pyx_v_z) + __pyx_v_hdis);
+
+          /* "cutils.pyx":454
+ *                     u = -x+y + hdis
+ *                     v = -y+z + hdis
+ *                     d = -x-y-z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (((-__pyx_v_x) - __pyx_v_y) - __pyx_v_z);
+
+          /* "cutils.pyx":455
+ *                     v = -y+z + hdis
+ *                     d = -x-y-z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":456
+ *                     d = -x-y-z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":455
+ *                     v = -y+z + hdis
+ *                     d = -x-y-z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":457
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u + 1);
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":458
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u + 1);
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":457
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ *                     if rendering[u+1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":459
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u - 1);
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":460
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u - 1);
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":459
+ *                     if rendering[u+1,v,c]>d: #block 6
+ *                         rendering[u+1,v,c]=d
+ *                     if rendering[u-1,v,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":461
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":462
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":461
+ *                     if rendering[u-1,v,c]>d: #block 6
+ *                         rendering[u-1,v,c]=d
+ *                     if rendering[u,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":463
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":464
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":463
+ *                     if rendering[u,v+1,c]>d: #block 6
+ *                         rendering[u,v+1,c]=d
+ *                     if rendering[u,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":465
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ */
+          __pyx_t_12 = (__pyx_v_u + 1);
+          __pyx_t_11 = (__pyx_v_v - 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":466
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d             # <<<<<<<<<<<<<<
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ *                         rendering[u-1,v+1,c]=d
+ */
+            __pyx_t_10 = (__pyx_v_u + 1);
+            __pyx_t_11 = (__pyx_v_v - 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":465
+ *                     if rendering[u,v-1,c]>d: #block 6
+ *                         rendering[u,v-1,c]=d
+ *                     if rendering[u+1,v-1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ */
+          }
+
+          /* "cutils.pyx":467
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ */
+          __pyx_t_12 = (__pyx_v_u - 1);
+          __pyx_t_11 = (__pyx_v_v + 1);
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":468
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6
+ *                         rendering[u-1,v+1,c]=d             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+            __pyx_t_10 = (__pyx_v_u - 1);
+            __pyx_t_11 = (__pyx_v_v + 1);
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":467
+ *                     if rendering[u+1,v-1,c]>d: #block 6
+ *                         rendering[u+1,v-1,c]=d
+ *                     if rendering[u-1,v+1,c]>d: #block 6             # <<<<<<<<<<<<<<
+ *                         rendering[u-1,v+1,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":268
+ *         for y in range(dimy):
+ *             for z in range(dimz):
+ *                 if img[x,z,y]>0:             # <<<<<<<<<<<<<<
+ *                     #z-buffering
+ * 
+ */
+        }
+      }
+    }
+  }
+
+  /* "cutils.pyx":473
+ * 
+ *     #depth fusion
+ *     for x in range(dimx):             # <<<<<<<<<<<<<<
+ *         for y in range(dimy):
+ *             for z in range(dimz):
+ */
+  __pyx_t_1 = __pyx_v_dimx;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_x = __pyx_t_3;
+
+    /* "cutils.pyx":474
+ *     #depth fusion
+ *     for x in range(dimx):
+ *         for y in range(dimy):             # <<<<<<<<<<<<<<
+ *             for z in range(dimz):
+ *                 outside_flag = 0
+ */
+    __pyx_t_4 = __pyx_v_dimy;
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_y = __pyx_t_6;
+
+      /* "cutils.pyx":475
+ *     for x in range(dimx):
+ *         for y in range(dimy):
+ *             for z in range(dimz):             # <<<<<<<<<<<<<<
+ *                 outside_flag = 0
+ * 
+ */
+      __pyx_t_7 = __pyx_v_dimz;
+      __pyx_t_8 = __pyx_t_7;
+      for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
+        __pyx_v_z = __pyx_t_9;
+
+        /* "cutils.pyx":476
+ *         for y in range(dimy):
+ *             for z in range(dimz):
+ *                 outside_flag = 0             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 0
+ */
+        __pyx_v_outside_flag = 0;
+
+        /* "cutils.pyx":478
+ *                 outside_flag = 0
+ * 
+ *                 c = 0             # <<<<<<<<<<<<<<
+ *                 u = x + hdis
+ *                 v = z + hdis
+ */
+        __pyx_v_c = 0;
+
+        /* "cutils.pyx":479
+ * 
+ *                 c = 0
+ *                 u = x + hdis             # <<<<<<<<<<<<<<
+ *                 v = z + hdis
+ *                 d = -y
+ */
+        __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+        /* "cutils.pyx":480
+ *                 c = 0
+ *                 u = x + hdis
+ *                 v = z + hdis             # <<<<<<<<<<<<<<
+ *                 d = -y
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+        /* "cutils.pyx":481
+ *                 u = x + hdis
+ *                 v = z + hdis
+ *                 d = -y             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (-__pyx_v_y);
+
+        /* "cutils.pyx":482
+ *                 v = z + hdis
+ *                 d = -y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":483
+ *                 d = -y
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 1
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":482
+ *                 v = z + hdis
+ *                 d = -y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":485
+ *                     outside_flag += 1
+ * 
+ *                 c = 1             # <<<<<<<<<<<<<<
+ *                 u = y + hdis
+ *                 v = z + hdis
+ */
+        __pyx_v_c = 1;
+
+        /* "cutils.pyx":486
+ * 
+ *                 c = 1
+ *                 u = y + hdis             # <<<<<<<<<<<<<<
+ *                 v = z + hdis
+ *                 d = x
+ */
+        __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":487
+ *                 c = 1
+ *                 u = y + hdis
+ *                 v = z + hdis             # <<<<<<<<<<<<<<
+ *                 d = x
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+        /* "cutils.pyx":488
+ *                 u = y + hdis
+ *                 v = z + hdis
+ *                 d = x             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = __pyx_v_x;
+
+        /* "cutils.pyx":489
+ *                 v = z + hdis
+ *                 d = x
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":490
+ *                 d = x
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 2
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":489
+ *                 v = z + hdis
+ *                 d = x
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":492
+ *                     outside_flag += 1
+ * 
+ *                 c = 2             # <<<<<<<<<<<<<<
+ *                 u = y + hdis
+ *                 v = z + hdis
+ */
+        __pyx_v_c = 2;
+
+        /* "cutils.pyx":493
+ * 
+ *                 c = 2
+ *                 u = y + hdis             # <<<<<<<<<<<<<<
+ *                 v = z + hdis
+ *                 d = -x
+ */
+        __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":494
+ *                 c = 2
+ *                 u = y + hdis
+ *                 v = z + hdis             # <<<<<<<<<<<<<<
+ *                 d = -x
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+        /* "cutils.pyx":495
+ *                 u = y + hdis
+ *                 v = z + hdis
+ *                 d = -x             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (-__pyx_v_x);
+
+        /* "cutils.pyx":496
+ *                 v = z + hdis
+ *                 d = -x
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":497
+ *                 d = -x
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 3
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":496
+ *                 v = z + hdis
+ *                 d = -x
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":499
+ *                     outside_flag += 1
+ * 
+ *                 c = 3             # <<<<<<<<<<<<<<
+ *                 u = x + hdis
+ *                 v = y + hdis
+ */
+        __pyx_v_c = 3;
+
+        /* "cutils.pyx":500
+ * 
+ *                 c = 3
+ *                 u = x + hdis             # <<<<<<<<<<<<<<
+ *                 v = y + hdis
+ *                 d = z
+ */
+        __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+        /* "cutils.pyx":501
+ *                 c = 3
+ *                 u = x + hdis
+ *                 v = y + hdis             # <<<<<<<<<<<<<<
+ *                 d = z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":502
+ *                 u = x + hdis
+ *                 v = y + hdis
+ *                 d = z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = __pyx_v_z;
+
+        /* "cutils.pyx":503
+ *                 v = y + hdis
+ *                 d = z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":504
+ *                 d = z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 4
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":503
+ *                 v = y + hdis
+ *                 d = z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":506
+ *                     outside_flag += 1
+ * 
+ *                 c = 4             # <<<<<<<<<<<<<<
+ *                 u = x + hdis
+ *                 v = y + hdis
+ */
+        __pyx_v_c = 4;
+
+        /* "cutils.pyx":507
+ * 
+ *                 c = 4
+ *                 u = x + hdis             # <<<<<<<<<<<<<<
+ *                 v = y + hdis
+ *                 d = -z
+ */
+        __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+        /* "cutils.pyx":508
+ *                 c = 4
+ *                 u = x + hdis
+ *                 v = y + hdis             # <<<<<<<<<<<<<<
+ *                 d = -z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":509
+ *                 u = x + hdis
+ *                 v = y + hdis
+ *                 d = -z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (-__pyx_v_z);
+
+        /* "cutils.pyx":510
+ *                 v = y + hdis
+ *                 d = -z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":511
+ *                 d = -z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 5
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":510
+ *                 v = y + hdis
+ *                 d = -z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":513
+ *                     outside_flag += 1
+ * 
+ *                 c = 5             # <<<<<<<<<<<<<<
+ *                 u = y + hdis
+ *                 v = x-z + hdis
+ */
+        __pyx_v_c = 5;
+
+        /* "cutils.pyx":514
+ * 
+ *                 c = 5
+ *                 u = y + hdis             # <<<<<<<<<<<<<<
+ *                 v = x-z + hdis
+ *                 d = x+z
+ */
+        __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":515
+ *                 c = 5
+ *                 u = y + hdis
+ *                 v = x-z + hdis             # <<<<<<<<<<<<<<
+ *                 d = x+z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = ((__pyx_v_x - __pyx_v_z) + __pyx_v_hdis);
+
+        /* "cutils.pyx":516
+ *                 u = y + hdis
+ *                 v = x-z + hdis
+ *                 d = x+z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (__pyx_v_x + __pyx_v_z);
+
+        /* "cutils.pyx":517
+ *                 v = x-z + hdis
+ *                 d = x+z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":518
+ *                 d = x+z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 6
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":517
+ *                 v = x-z + hdis
+ *                 d = x+z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":520
+ *                     outside_flag += 1
+ * 
+ *                 c = 6             # <<<<<<<<<<<<<<
+ *                 u = y + hdis
+ *                 v = x+z + hdis
+ */
+        __pyx_v_c = 6;
+
+        /* "cutils.pyx":521
+ * 
+ *                 c = 6
+ *                 u = y + hdis             # <<<<<<<<<<<<<<
+ *                 v = x+z + hdis
+ *                 d = x-z
+ */
+        __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":522
+ *                 c = 6
+ *                 u = y + hdis
+ *                 v = x+z + hdis             # <<<<<<<<<<<<<<
+ *                 d = x-z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = ((__pyx_v_x + __pyx_v_z) + __pyx_v_hdis);
+
+        /* "cutils.pyx":523
+ *                 u = y + hdis
+ *                 v = x+z + hdis
+ *                 d = x-z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (__pyx_v_x - __pyx_v_z);
+
+        /* "cutils.pyx":524
+ *                 v = x+z + hdis
+ *                 d = x-z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":525
+ *                 d = x-z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 7
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":524
+ *                 v = x+z + hdis
+ *                 d = x-z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":527
+ *                     outside_flag += 1
+ * 
+ *                 c = 7             # <<<<<<<<<<<<<<
+ *                 u = y + hdis
+ *                 v = -x-z + hdis
+ */
+        __pyx_v_c = 7;
+
+        /* "cutils.pyx":528
+ * 
+ *                 c = 7
+ *                 u = y + hdis             # <<<<<<<<<<<<<<
+ *                 v = -x-z + hdis
+ *                 d = -x+z
+ */
+        __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":529
+ *                 c = 7
+ *                 u = y + hdis
+ *                 v = -x-z + hdis             # <<<<<<<<<<<<<<
+ *                 d = -x+z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (((-__pyx_v_x) - __pyx_v_z) + __pyx_v_hdis);
+
+        /* "cutils.pyx":530
+ *                 u = y + hdis
+ *                 v = -x-z + hdis
+ *                 d = -x+z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = ((-__pyx_v_x) + __pyx_v_z);
+
+        /* "cutils.pyx":531
+ *                 v = -x-z + hdis
+ *                 d = -x+z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":532
+ *                 d = -x+z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 8
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":531
+ *                 v = -x-z + hdis
+ *                 d = -x+z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":534
+ *                     outside_flag += 1
+ * 
+ *                 c = 8             # <<<<<<<<<<<<<<
+ *                 u = y + hdis
+ *                 v = -x+z + hdis
+ */
+        __pyx_v_c = 8;
+
+        /* "cutils.pyx":535
+ * 
+ *                 c = 8
+ *                 u = y + hdis             # <<<<<<<<<<<<<<
+ *                 v = -x+z + hdis
+ *                 d = -x-z
+ */
+        __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":536
+ *                 c = 8
+ *                 u = y + hdis
+ *                 v = -x+z + hdis             # <<<<<<<<<<<<<<
+ *                 d = -x-z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (((-__pyx_v_x) + __pyx_v_z) + __pyx_v_hdis);
+
+        /* "cutils.pyx":537
+ *                 u = y + hdis
+ *                 v = -x+z + hdis
+ *                 d = -x-z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = ((-__pyx_v_x) - __pyx_v_z);
+
+        /* "cutils.pyx":538
+ *                 v = -x+z + hdis
+ *                 d = -x-z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":539
+ *                 d = -x-z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 9
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":538
+ *                 v = -x+z + hdis
+ *                 d = -x-z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":541
+ *                     outside_flag += 1
+ * 
+ *                 c = 9             # <<<<<<<<<<<<<<
+ *                 u = z + hdis
+ *                 v = x+y + hdis
+ */
+        __pyx_v_c = 9;
+
+        /* "cutils.pyx":542
+ * 
+ *                 c = 9
+ *                 u = z + hdis             # <<<<<<<<<<<<<<
+ *                 v = x+y + hdis
+ *                 d = x-y
+ */
+        __pyx_v_u = (__pyx_v_z + __pyx_v_hdis);
+
+        /* "cutils.pyx":543
+ *                 c = 9
+ *                 u = z + hdis
+ *                 v = x+y + hdis             # <<<<<<<<<<<<<<
+ *                 d = x-y
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = ((__pyx_v_x + __pyx_v_y) + __pyx_v_hdis);
+
+        /* "cutils.pyx":544
+ *                 u = z + hdis
+ *                 v = x+y + hdis
+ *                 d = x-y             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (__pyx_v_x - __pyx_v_y);
+
+        /* "cutils.pyx":545
+ *                 v = x+y + hdis
+ *                 d = x-y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":546
+ *                 d = x-y
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 10
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":545
+ *                 v = x+y + hdis
+ *                 d = x-y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":548
+ *                     outside_flag += 1
+ * 
+ *                 c = 10             # <<<<<<<<<<<<<<
+ *                 u = z + hdis
+ *                 v = -x+y + hdis
+ */
+        __pyx_v_c = 10;
+
+        /* "cutils.pyx":549
+ * 
+ *                 c = 10
+ *                 u = z + hdis             # <<<<<<<<<<<<<<
+ *                 v = -x+y + hdis
+ *                 d = -x-y
+ */
+        __pyx_v_u = (__pyx_v_z + __pyx_v_hdis);
+
+        /* "cutils.pyx":550
+ *                 c = 10
+ *                 u = z + hdis
+ *                 v = -x+y + hdis             # <<<<<<<<<<<<<<
+ *                 d = -x-y
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (((-__pyx_v_x) + __pyx_v_y) + __pyx_v_hdis);
+
+        /* "cutils.pyx":551
+ *                 u = z + hdis
+ *                 v = -x+y + hdis
+ *                 d = -x-y             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = ((-__pyx_v_x) - __pyx_v_y);
+
+        /* "cutils.pyx":552
+ *                 v = -x+y + hdis
+ *                 d = -x-y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":553
+ *                 d = -x-y
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 11
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":552
+ *                 v = -x+y + hdis
+ *                 d = -x-y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":555
+ *                     outside_flag += 1
+ * 
+ *                 c = 11             # <<<<<<<<<<<<<<
+ *                 u = x + hdis
+ *                 v = z+y + hdis
+ */
+        __pyx_v_c = 11;
+
+        /* "cutils.pyx":556
+ * 
+ *                 c = 11
+ *                 u = x + hdis             # <<<<<<<<<<<<<<
+ *                 v = z+y + hdis
+ *                 d = z-y
+ */
+        __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+        /* "cutils.pyx":557
+ *                 c = 11
+ *                 u = x + hdis
+ *                 v = z+y + hdis             # <<<<<<<<<<<<<<
+ *                 d = z-y
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = ((__pyx_v_z + __pyx_v_y) + __pyx_v_hdis);
+
+        /* "cutils.pyx":558
+ *                 u = x + hdis
+ *                 v = z+y + hdis
+ *                 d = z-y             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (__pyx_v_z - __pyx_v_y);
+
+        /* "cutils.pyx":559
+ *                 v = z+y + hdis
+ *                 d = z-y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":560
+ *                 d = z-y
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 12
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":559
+ *                 v = z+y + hdis
+ *                 d = z-y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":562
+ *                     outside_flag += 1
+ * 
+ *                 c = 12             # <<<<<<<<<<<<<<
+ *                 u = x + hdis
+ *                 v = -z+y + hdis
+ */
+        __pyx_v_c = 12;
+
+        /* "cutils.pyx":563
+ * 
+ *                 c = 12
+ *                 u = x + hdis             # <<<<<<<<<<<<<<
+ *                 v = -z+y + hdis
+ *                 d = -z-y
+ */
+        __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+        /* "cutils.pyx":564
+ *                 c = 12
+ *                 u = x + hdis
+ *                 v = -z+y + hdis             # <<<<<<<<<<<<<<
+ *                 d = -z-y
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (((-__pyx_v_z) + __pyx_v_y) + __pyx_v_hdis);
+
+        /* "cutils.pyx":565
+ *                 u = x + hdis
+ *                 v = -z+y + hdis
+ *                 d = -z-y             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = ((-__pyx_v_z) - __pyx_v_y);
+
+        /* "cutils.pyx":566
+ *                 v = -z+y + hdis
+ *                 d = -z-y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":567
+ *                 d = -z-y
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 13
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":566
+ *                 v = -z+y + hdis
+ *                 d = -z-y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":569
+ *                     outside_flag += 1
+ * 
+ *                 c = 13             # <<<<<<<<<<<<<<
+ *                 u = x+y + hdis
+ *                 v = -y-z + hdis
+ */
+        __pyx_v_c = 13;
+
+        /* "cutils.pyx":570
+ * 
+ *                 c = 13
+ *                 u = x+y + hdis             # <<<<<<<<<<<<<<
+ *                 v = -y-z + hdis
+ *                 d = x-y+z
+ */
+        __pyx_v_u = ((__pyx_v_x + __pyx_v_y) + __pyx_v_hdis);
+
+        /* "cutils.pyx":571
+ *                 c = 13
+ *                 u = x+y + hdis
+ *                 v = -y-z + hdis             # <<<<<<<<<<<<<<
+ *                 d = x-y+z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (((-__pyx_v_y) - __pyx_v_z) + __pyx_v_hdis);
+
+        /* "cutils.pyx":572
+ *                 u = x+y + hdis
+ *                 v = -y-z + hdis
+ *                 d = x-y+z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = ((__pyx_v_x - __pyx_v_y) + __pyx_v_z);
+
+        /* "cutils.pyx":573
+ *                 v = -y-z + hdis
+ *                 d = x-y+z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":574
+ *                 d = x-y+z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 14
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":573
+ *                 v = -y-z + hdis
+ *                 d = x-y+z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":576
+ *                     outside_flag += 1
+ * 
+ *                 c = 14             # <<<<<<<<<<<<<<
+ *                 u = -x+y + hdis
+ *                 v = -y-z + hdis
+ */
+        __pyx_v_c = 14;
+
+        /* "cutils.pyx":577
+ * 
+ *                 c = 14
+ *                 u = -x+y + hdis             # <<<<<<<<<<<<<<
+ *                 v = -y-z + hdis
+ *                 d = -x-y+z
+ */
+        __pyx_v_u = (((-__pyx_v_x) + __pyx_v_y) + __pyx_v_hdis);
+
+        /* "cutils.pyx":578
+ *                 c = 14
+ *                 u = -x+y + hdis
+ *                 v = -y-z + hdis             # <<<<<<<<<<<<<<
+ *                 d = -x-y+z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (((-__pyx_v_y) - __pyx_v_z) + __pyx_v_hdis);
+
+        /* "cutils.pyx":579
+ *                 u = -x+y + hdis
+ *                 v = -y-z + hdis
+ *                 d = -x-y+z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (((-__pyx_v_x) - __pyx_v_y) + __pyx_v_z);
+
+        /* "cutils.pyx":580
+ *                 v = -y-z + hdis
+ *                 d = -x-y+z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":581
+ *                 d = -x-y+z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 15
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":580
+ *                 v = -y-z + hdis
+ *                 d = -x-y+z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":583
+ *                     outside_flag += 1
+ * 
+ *                 c = 15             # <<<<<<<<<<<<<<
+ *                 u = x+y + hdis
+ *                 v = -y+z + hdis
+ */
+        __pyx_v_c = 15;
+
+        /* "cutils.pyx":584
+ * 
+ *                 c = 15
+ *                 u = x+y + hdis             # <<<<<<<<<<<<<<
+ *                 v = -y+z + hdis
+ *                 d = x-y-z
+ */
+        __pyx_v_u = ((__pyx_v_x + __pyx_v_y) + __pyx_v_hdis);
+
+        /* "cutils.pyx":585
+ *                 c = 15
+ *                 u = x+y + hdis
+ *                 v = -y+z + hdis             # <<<<<<<<<<<<<<
+ *                 d = x-y-z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (((-__pyx_v_y) + __pyx_v_z) + __pyx_v_hdis);
+
+        /* "cutils.pyx":586
+ *                 u = x+y + hdis
+ *                 v = -y+z + hdis
+ *                 d = x-y-z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = ((__pyx_v_x - __pyx_v_y) - __pyx_v_z);
+
+        /* "cutils.pyx":587
+ *                 v = -y+z + hdis
+ *                 d = x-y-z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":588
+ *                 d = x-y-z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 16
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":587
+ *                 v = -y+z + hdis
+ *                 d = x-y-z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":590
+ *                     outside_flag += 1
+ * 
+ *                 c = 16             # <<<<<<<<<<<<<<
+ *                 u = -x+y + hdis
+ *                 v = -y+z + hdis
+ */
+        __pyx_v_c = 16;
+
+        /* "cutils.pyx":591
+ * 
+ *                 c = 16
+ *                 u = -x+y + hdis             # <<<<<<<<<<<<<<
+ *                 v = -y+z + hdis
+ *                 d = -x-y-z
+ */
+        __pyx_v_u = (((-__pyx_v_x) + __pyx_v_y) + __pyx_v_hdis);
+
+        /* "cutils.pyx":592
+ *                 c = 16
+ *                 u = -x+y + hdis
+ *                 v = -y+z + hdis             # <<<<<<<<<<<<<<
+ *                 d = -x-y-z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (((-__pyx_v_y) + __pyx_v_z) + __pyx_v_hdis);
+
+        /* "cutils.pyx":593
+ *                 u = -x+y + hdis
+ *                 v = -y+z + hdis
+ *                 d = -x-y-z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (((-__pyx_v_x) - __pyx_v_y) - __pyx_v_z);
+
+        /* "cutils.pyx":594
+ *                 v = -y+z + hdis
+ *                 d = -x-y-z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":595
+ *                 d = -x-y-z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 if outside_flag==0:
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":594
+ *                 v = -y+z + hdis
+ *                 d = -x-y-z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":597
+ *                     outside_flag += 1
+ * 
+ *                 if outside_flag==0:             # <<<<<<<<<<<<<<
+ *                     img[x,z,y] = 1
+ * 
+ */
+        __pyx_t_13 = ((__pyx_v_outside_flag == 0) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":598
+ * 
+ *                 if outside_flag==0:
+ *                     img[x,z,y] = 1             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+          __pyx_t_10 = __pyx_v_x;
+          __pyx_t_11 = __pyx_v_z;
+          __pyx_t_12 = __pyx_v_y;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":597
+ *                     outside_flag += 1
+ * 
+ *                 if outside_flag==0:             # <<<<<<<<<<<<<<
+ *                     img[x,z,y] = 1
+ * 
+ */
+        }
+      }
+    }
+  }
+
+  /* "cutils.pyx":604
+ * 
  * 
  *     for i in range(dimx):             # <<<<<<<<<<<<<<
  *         for j in range(dimy):
@@ -2391,45 +8768,79 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "cutils.pyx":20
+    /* "cutils.pyx":605
  * 
  *     for i in range(dimx):
  *         for j in range(dimy):             # <<<<<<<<<<<<<<
  *             for k in range(dimz):
- *                 if img[i,j,k]==state:
+ *                 if img[i,j,k]>0:
  */
     __pyx_t_4 = __pyx_v_dimy;
     __pyx_t_5 = __pyx_t_4;
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "cutils.pyx":21
+      /* "cutils.pyx":606
  *     for i in range(dimx):
  *         for j in range(dimy):
  *             for k in range(dimz):             # <<<<<<<<<<<<<<
- *                 if img[i,j,k]==state:
- *                     ctr += 1
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1
  */
       __pyx_t_7 = __pyx_v_dimz;
       __pyx_t_8 = __pyx_t_7;
       for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
         __pyx_v_k = __pyx_t_9;
 
-        /* "cutils.pyx":22
+        /* "cutils.pyx":607
  *         for j in range(dimy):
  *             for k in range(dimz):
+ *                 if img[i,j,k]>0:             # <<<<<<<<<<<<<<
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:
+ */
+        __pyx_t_12 = __pyx_v_i;
+        __pyx_t_11 = __pyx_v_j;
+        __pyx_t_10 = __pyx_v_k;
+        __pyx_t_13 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_12 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_10)) ))) > 0) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":608
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1             # <<<<<<<<<<<<<<
+ *                 if img[i,j,k]==state:
+ *                     ctr += 1
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":607
+ *         for j in range(dimy):
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:             # <<<<<<<<<<<<<<
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:
+ */
+        }
+
+        /* "cutils.pyx":609
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1
  *                 if img[i,j,k]==state:             # <<<<<<<<<<<<<<
  *                     ctr += 1
  *                     if ctr==255:
  */
-        __pyx_t_10 = __pyx_v_i;
+        __pyx_t_12 = __pyx_v_i;
         __pyx_t_11 = __pyx_v_j;
-        __pyx_t_12 = __pyx_v_k;
-        __pyx_t_13 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) ))) == __pyx_v_state) != 0);
+        __pyx_t_10 = __pyx_v_k;
+        __pyx_t_13 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_12 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_10)) ))) == __pyx_v_state) != 0);
         if (__pyx_t_13) {
 
-          /* "cutils.pyx":23
- *             for k in range(dimz):
+          /* "cutils.pyx":610
+ *                     img[i,j,k] = 1
  *                 if img[i,j,k]==state:
  *                     ctr += 1             # <<<<<<<<<<<<<<
  *                     if ctr==255:
@@ -2437,7 +8848,7 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
           __pyx_v_ctr = (__pyx_v_ctr + 1);
 
-          /* "cutils.pyx":24
+          /* "cutils.pyx":611
  *                 if img[i,j,k]==state:
  *                     ctr += 1
  *                     if ctr==255:             # <<<<<<<<<<<<<<
@@ -2447,18 +8858,18 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
           __pyx_t_13 = ((__pyx_v_ctr == 0xFF) != 0);
           if (__pyx_t_13) {
 
-            /* "cutils.pyx":25
+            /* "cutils.pyx":612
  *                     ctr += 1
  *                     if ctr==255:
  *                         state_ctr[p,0] = state             # <<<<<<<<<<<<<<
  *                         state_ctr[p,1] = ctr
  *                         p += 1
  */
-            __pyx_t_12 = __pyx_v_p;
+            __pyx_t_10 = __pyx_v_p;
             __pyx_t_11 = 0;
-            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_12 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = __pyx_v_state;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_10 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = __pyx_v_state;
 
-            /* "cutils.pyx":26
+            /* "cutils.pyx":613
  *                     if ctr==255:
  *                         state_ctr[p,0] = state
  *                         state_ctr[p,1] = ctr             # <<<<<<<<<<<<<<
@@ -2466,10 +8877,10 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  *                         ctr = 0
  */
             __pyx_t_11 = __pyx_v_p;
-            __pyx_t_12 = 1;
-            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_11 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_12)) )) = __pyx_v_ctr;
+            __pyx_t_10 = 1;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_11 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_10)) )) = __pyx_v_ctr;
 
-            /* "cutils.pyx":27
+            /* "cutils.pyx":614
  *                         state_ctr[p,0] = state
  *                         state_ctr[p,1] = ctr
  *                         p += 1             # <<<<<<<<<<<<<<
@@ -2478,7 +8889,7 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
             __pyx_v_p = (__pyx_v_p + 1);
 
-            /* "cutils.pyx":28
+            /* "cutils.pyx":615
  *                         state_ctr[p,1] = ctr
  *                         p += 1
  *                         ctr = 0             # <<<<<<<<<<<<<<
@@ -2487,7 +8898,7 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
             __pyx_v_ctr = 0;
 
-            /* "cutils.pyx":24
+            /* "cutils.pyx":611
  *                 if img[i,j,k]==state:
  *                     ctr += 1
  *                     if ctr==255:             # <<<<<<<<<<<<<<
@@ -2496,17 +8907,17 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
           }
 
-          /* "cutils.pyx":22
- *         for j in range(dimy):
- *             for k in range(dimz):
+          /* "cutils.pyx":609
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1
  *                 if img[i,j,k]==state:             # <<<<<<<<<<<<<<
  *                     ctr += 1
  *                     if ctr==255:
  */
-          goto __pyx_L9;
+          goto __pyx_L98;
         }
 
-        /* "cutils.pyx":30
+        /* "cutils.pyx":617
  *                         ctr = 0
  *                 else:
  *                     if ctr>0:             # <<<<<<<<<<<<<<
@@ -2517,18 +8928,18 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
           __pyx_t_13 = ((__pyx_v_ctr > 0) != 0);
           if (__pyx_t_13) {
 
-            /* "cutils.pyx":31
+            /* "cutils.pyx":618
  *                 else:
  *                     if ctr>0:
  *                         state_ctr[p,0] = state             # <<<<<<<<<<<<<<
  *                         state_ctr[p,1] = ctr
  *                         p += 1
  */
-            __pyx_t_12 = __pyx_v_p;
+            __pyx_t_10 = __pyx_v_p;
             __pyx_t_11 = 0;
-            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_12 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = __pyx_v_state;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_10 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = __pyx_v_state;
 
-            /* "cutils.pyx":32
+            /* "cutils.pyx":619
  *                     if ctr>0:
  *                         state_ctr[p,0] = state
  *                         state_ctr[p,1] = ctr             # <<<<<<<<<<<<<<
@@ -2536,10 +8947,10 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  *                     state = img[i,j,k]
  */
             __pyx_t_11 = __pyx_v_p;
-            __pyx_t_12 = 1;
-            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_11 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_12)) )) = __pyx_v_ctr;
+            __pyx_t_10 = 1;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_11 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_10)) )) = __pyx_v_ctr;
 
-            /* "cutils.pyx":33
+            /* "cutils.pyx":620
  *                         state_ctr[p,0] = state
  *                         state_ctr[p,1] = ctr
  *                         p += 1             # <<<<<<<<<<<<<<
@@ -2548,7 +8959,7 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
             __pyx_v_p = (__pyx_v_p + 1);
 
-            /* "cutils.pyx":30
+            /* "cutils.pyx":617
  *                         ctr = 0
  *                 else:
  *                     if ctr>0:             # <<<<<<<<<<<<<<
@@ -2557,19 +8968,19 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
           }
 
-          /* "cutils.pyx":34
+          /* "cutils.pyx":621
  *                         state_ctr[p,1] = ctr
  *                         p += 1
  *                     state = img[i,j,k]             # <<<<<<<<<<<<<<
  *                     ctr = 1
  * 
  */
-          __pyx_t_12 = __pyx_v_i;
+          __pyx_t_10 = __pyx_v_i;
           __pyx_t_11 = __pyx_v_j;
-          __pyx_t_10 = __pyx_v_k;
-          __pyx_v_state = (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_12 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_10)) )));
+          __pyx_t_12 = __pyx_v_k;
+          __pyx_v_state = (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) )));
 
-          /* "cutils.pyx":35
+          /* "cutils.pyx":622
  *                         p += 1
  *                     state = img[i,j,k]
  *                     ctr = 1             # <<<<<<<<<<<<<<
@@ -2578,12 +8989,12 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
           __pyx_v_ctr = 1;
         }
-        __pyx_L9:;
+        __pyx_L98:;
       }
     }
   }
 
-  /* "cutils.pyx":37
+  /* "cutils.pyx":624
  *                     ctr = 1
  * 
  *     if ctr > 0:             # <<<<<<<<<<<<<<
@@ -2593,18 +9004,18 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
   __pyx_t_13 = ((__pyx_v_ctr > 0) != 0);
   if (__pyx_t_13) {
 
-    /* "cutils.pyx":38
+    /* "cutils.pyx":625
  * 
  *     if ctr > 0:
  *         state_ctr[p,0] = state             # <<<<<<<<<<<<<<
  *         state_ctr[p,1] = ctr
  *         p += 1
  */
-    __pyx_t_10 = __pyx_v_p;
+    __pyx_t_12 = __pyx_v_p;
     __pyx_t_11 = 0;
-    *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_10 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = __pyx_v_state;
+    *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_12 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = __pyx_v_state;
 
-    /* "cutils.pyx":39
+    /* "cutils.pyx":626
  *     if ctr > 0:
  *         state_ctr[p,0] = state
  *         state_ctr[p,1] = ctr             # <<<<<<<<<<<<<<
@@ -2612,10 +9023,10 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  * 
  */
     __pyx_t_11 = __pyx_v_p;
-    __pyx_t_10 = 1;
-    *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_11 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_10)) )) = __pyx_v_ctr;
+    __pyx_t_12 = 1;
+    *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_11 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_12)) )) = __pyx_v_ctr;
 
-    /* "cutils.pyx":40
+    /* "cutils.pyx":627
  *         state_ctr[p,0] = state
  *         state_ctr[p,1] = ctr
  *         p += 1             # <<<<<<<<<<<<<<
@@ -2624,7 +9035,7 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
     __pyx_v_p = (__pyx_v_p + 1);
 
-    /* "cutils.pyx":37
+    /* "cutils.pyx":624
  *                     ctr = 1
  * 
  *     if ctr > 0:             # <<<<<<<<<<<<<<
@@ -2633,57 +9044,58 @@ static PyObject *__pyx_pf_6cutils_get_state_ctr(CYTHON_UNUSED PyObject *__pyx_se
  */
   }
 
-  /* "cutils.pyx":42
+  /* "cutils.pyx":629
  *         p += 1
  * 
  *     state_ctr[p,0] = 2             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_10 = __pyx_v_p;
+  __pyx_t_12 = __pyx_v_p;
   __pyx_t_11 = 0;
-  *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_10 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = 2;
+  *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_12 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = 2;
 
-  /* "cutils.pyx":7
+  /* "cutils.pyx":224
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_state_ctr(char[:, :, ::1] img, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
+ * def depth_fusion_XZY(char[:, :, ::1] img, int[:, :, ::1] rendering, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
  *     cdef int dimx,dimy,dimz
- *     cdef int state,ctr
+ * 
  */
 
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   __PYX_XDEC_MEMVIEW(&__pyx_v_img, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_rendering, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_v_state_ctr, 1);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "cutils.pyx":50
+/* "cutils.pyx":643
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_patches(char[:, :, ::1] img, char[:, :, :, ::1] patches, int patch_size):             # <<<<<<<<<<<<<<
+ * def depth_fusion_XZY_5views(char[:, :, ::1] img, int[:, :, ::1] rendering, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
  *     cdef int dimx,dimy,dimz
- *     #cdef int buffer_size
+ * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6cutils_3get_patches(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6cutils_3get_patches = {"get_patches", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6cutils_3get_patches, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6cutils_3get_patches(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_6cutils_7depth_fusion_XZY_5views(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6cutils_7depth_fusion_XZY_5views = {"depth_fusion_XZY_5views", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6cutils_7depth_fusion_XZY_5views, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_6cutils_7depth_fusion_XZY_5views(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_img = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_memviewslice __pyx_v_patches = { 0, 0, { 0 }, { 0 }, { 0 } };
-  int __pyx_v_patch_size;
+  __Pyx_memviewslice __pyx_v_rendering = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_state_ctr = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_patches (wrapper)", 0);
+  __Pyx_RefNannySetupContext("depth_fusion_XZY_5views (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_patches,&__pyx_n_s_patch_size,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_rendering,&__pyx_n_s_state_ctr,0};
     PyObject* values[3] = {0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
@@ -2705,19 +9117,19 @@ static PyObject *__pyx_pw_6cutils_3get_patches(PyObject *__pyx_self, PyObject *_
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_patches)) != 0)) kw_args--;
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_rendering)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_patches", 1, 3, 3, 1); __PYX_ERR(0, 50, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("depth_fusion_XZY_5views", 1, 3, 3, 1); __PYX_ERR(0, 643, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_patch_size)) != 0)) kw_args--;
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_state_ctr)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_patches", 1, 3, 3, 2); __PYX_ERR(0, 50, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("depth_fusion_XZY_5views", 1, 3, 3, 2); __PYX_ERR(0, 643, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_patches") < 0)) __PYX_ERR(0, 50, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "depth_fusion_XZY_5views") < 0)) __PYX_ERR(0, 643, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -2726,2147 +9138,1360 @@ static PyObject *__pyx_pw_6cutils_3get_patches(PyObject *__pyx_self, PyObject *_
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_img = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img.memview)) __PYX_ERR(0, 50, __pyx_L3_error)
-    __pyx_v_patches = __Pyx_PyObject_to_MemoryviewSlice_d_d_d_dc_char(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_patches.memview)) __PYX_ERR(0, 50, __pyx_L3_error)
-    __pyx_v_patch_size = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_patch_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 50, __pyx_L3_error)
+    __pyx_v_img = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img.memview)) __PYX_ERR(0, 643, __pyx_L3_error)
+    __pyx_v_rendering = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_rendering.memview)) __PYX_ERR(0, 643, __pyx_L3_error)
+    __pyx_v_state_ctr = __Pyx_PyObject_to_MemoryviewSlice_d_dc_int(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_state_ctr.memview)) __PYX_ERR(0, 643, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_patches", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 50, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("depth_fusion_XZY_5views", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 643, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("cutils.get_patches", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cutils.depth_fusion_XZY_5views", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cutils_2get_patches(__pyx_self, __pyx_v_img, __pyx_v_patches, __pyx_v_patch_size);
+  __pyx_r = __pyx_pf_6cutils_6depth_fusion_XZY_5views(__pyx_self, __pyx_v_img, __pyx_v_rendering, __pyx_v_state_ctr);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6cutils_2get_patches(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_patches, int __pyx_v_patch_size) {
+static PyObject *__pyx_pf_6cutils_6depth_fusion_XZY_5views(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_rendering, __Pyx_memviewslice __pyx_v_state_ctr) {
   int __pyx_v_dimx;
   int __pyx_v_dimy;
   int __pyx_v_dimz;
-  int __pyx_v_margin_size;
-  int __pyx_v_p;
-  int __pyx_v_i;
-  int __pyx_v_j;
-  int __pyx_v_k;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  long __pyx_t_1;
-  long __pyx_t_2;
-  int __pyx_t_3;
-  long __pyx_t_4;
-  long __pyx_t_5;
-  int __pyx_t_6;
-  long __pyx_t_7;
-  long __pyx_t_8;
-  int __pyx_t_9;
-  int __pyx_t_10;
-  Py_ssize_t __pyx_t_11;
-  Py_ssize_t __pyx_t_12;
-  Py_ssize_t __pyx_t_13;
-  int __pyx_t_14;
-  __Pyx_memviewslice __pyx_t_15 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  int __pyx_t_16;
-  __Pyx_memviewslice __pyx_t_17 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  PyObject *__pyx_t_18 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("get_patches", 0);
-
-  /* "cutils.pyx":56
- *     cdef int p,i,j,k
- * 
- *     dimx = img.shape[0]             # <<<<<<<<<<<<<<
- *     dimy = img.shape[1]
- *     dimz = img.shape[2]
- */
-  __pyx_v_dimx = (__pyx_v_img.shape[0]);
-
-  /* "cutils.pyx":57
- * 
- *     dimx = img.shape[0]
- *     dimy = img.shape[1]             # <<<<<<<<<<<<<<
- *     dimz = img.shape[2]
- *     #buffer_size = patches.shape[0]
- */
-  __pyx_v_dimy = (__pyx_v_img.shape[1]);
-
-  /* "cutils.pyx":58
- *     dimx = img.shape[0]
- *     dimy = img.shape[1]
- *     dimz = img.shape[2]             # <<<<<<<<<<<<<<
- *     #buffer_size = patches.shape[0]
- *     margin_size = (patch_size-2)//2
- */
-  __pyx_v_dimz = (__pyx_v_img.shape[2]);
-
-  /* "cutils.pyx":60
- *     dimz = img.shape[2]
- *     #buffer_size = patches.shape[0]
- *     margin_size = (patch_size-2)//2             # <<<<<<<<<<<<<<
- *     p = 0
- * 
- */
-  __pyx_v_margin_size = __Pyx_div_long((__pyx_v_patch_size - 2), 2);
-
-  /* "cutils.pyx":61
- *     #buffer_size = patches.shape[0]
- *     margin_size = (patch_size-2)//2
- *     p = 0             # <<<<<<<<<<<<<<
- * 
- *     for i in range(margin_size,dimx-margin_size-1):
- */
-  __pyx_v_p = 0;
-
-  /* "cutils.pyx":63
- *     p = 0
- * 
- *     for i in range(margin_size,dimx-margin_size-1):             # <<<<<<<<<<<<<<
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):
- */
-  __pyx_t_1 = ((__pyx_v_dimx - __pyx_v_margin_size) - 1);
-  __pyx_t_2 = __pyx_t_1;
-  for (__pyx_t_3 = __pyx_v_margin_size; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
-    __pyx_v_i = __pyx_t_3;
-
-    /* "cutils.pyx":64
- * 
- *     for i in range(margin_size,dimx-margin_size-1):
- *         for j in range(margin_size,dimy-margin_size-1):             # <<<<<<<<<<<<<<
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- */
-    __pyx_t_4 = ((__pyx_v_dimy - __pyx_v_margin_size) - 1);
-    __pyx_t_5 = __pyx_t_4;
-    for (__pyx_t_6 = __pyx_v_margin_size; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
-      __pyx_v_j = __pyx_t_6;
-
-      /* "cutils.pyx":65
- *     for i in range(margin_size,dimx-margin_size-1):
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):             # <<<<<<<<<<<<<<
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- */
-      __pyx_t_7 = ((__pyx_v_dimz - __pyx_v_margin_size) - 1);
-      __pyx_t_8 = __pyx_t_7;
-      for (__pyx_t_9 = __pyx_v_margin_size; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
-        __pyx_v_k = __pyx_t_9;
-
-        /* "cutils.pyx":66
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):             # <<<<<<<<<<<<<<
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     p += 1
- */
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_L11_next_and:;
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        __pyx_t_10 = __pyx_t_14;
-        __pyx_L10_bool_binop_done:;
-        if (__pyx_t_10) {
-
-          /* "cutils.pyx":67
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]             # <<<<<<<<<<<<<<
- *                     p += 1
- * 
- */
-          __pyx_t_15.data = __pyx_v_img.data;
-          __pyx_t_15.memview = __pyx_v_img.memview;
-          __PYX_INC_MEMVIEW(&__pyx_t_15, 0);
-          __pyx_t_16 = -1;
-          if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_img.shape[0], __pyx_v_img.strides[0], __pyx_v_img.suboffsets[0],
-    0,
-    0,
-    &__pyx_t_16,
-    (__pyx_v_i - __pyx_v_margin_size),
-    ((__pyx_v_i + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 67, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_img.shape[1], __pyx_v_img.strides[1], __pyx_v_img.suboffsets[1],
-    1,
-    1,
-    &__pyx_t_16,
-    (__pyx_v_j - __pyx_v_margin_size),
-    ((__pyx_v_j + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 67, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_img.shape[2], __pyx_v_img.strides[2], __pyx_v_img.suboffsets[2],
-    2,
-    2,
-    &__pyx_t_16,
-    (__pyx_v_k - __pyx_v_margin_size),
-    ((__pyx_v_k + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 67, __pyx_L1_error)
-}
-
-__pyx_t_17.data = __pyx_v_patches.data;
-          __pyx_t_17.memview = __pyx_v_patches.memview;
-          __PYX_INC_MEMVIEW(&__pyx_t_17, 0);
-          {
-    Py_ssize_t __pyx_tmp_idx = __pyx_v_p;
-    Py_ssize_t __pyx_tmp_stride = __pyx_v_patches.strides[0];
-        __pyx_t_17.data += __pyx_tmp_idx * __pyx_tmp_stride;
-}
-
-__pyx_t_17.shape[0] = __pyx_v_patches.shape[1];
-__pyx_t_17.strides[0] = __pyx_v_patches.strides[1];
-    __pyx_t_17.suboffsets[0] = -1;
-
-__pyx_t_17.shape[1] = __pyx_v_patches.shape[2];
-__pyx_t_17.strides[1] = __pyx_v_patches.strides[2];
-    __pyx_t_17.suboffsets[1] = -1;
-
-__pyx_t_17.shape[2] = __pyx_v_patches.shape[3];
-__pyx_t_17.strides[2] = __pyx_v_patches.strides[3];
-    __pyx_t_17.suboffsets[2] = -1;
-
-if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_15, __pyx_t_17, 3, 3, 0) < 0)) __PYX_ERR(0, 67, __pyx_L1_error)
-          __PYX_XDEC_MEMVIEW(&__pyx_t_17, 1);
-          __pyx_t_17.memview = NULL;
-          __pyx_t_17.data = NULL;
-          __PYX_XDEC_MEMVIEW(&__pyx_t_15, 1);
-          __pyx_t_15.memview = NULL;
-          __pyx_t_15.data = NULL;
-
-          /* "cutils.pyx":68
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     p += 1             # <<<<<<<<<<<<<<
- * 
- *     return p
- */
-          __pyx_v_p = (__pyx_v_p + 1);
-
-          /* "cutils.pyx":66
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):             # <<<<<<<<<<<<<<
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     p += 1
- */
-        }
-      }
-    }
-  }
-
-  /* "cutils.pyx":70
- *                     p += 1
- * 
- *     return p             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_18 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 70, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_18);
-  __pyx_r = __pyx_t_18;
-  __pyx_t_18 = 0;
-  goto __pyx_L0;
-
-  /* "cutils.pyx":50
- * @cython.boundscheck(False)
- * @cython.wraparound(False)
- * def get_patches(char[:, :, ::1] img, char[:, :, :, ::1] patches, int patch_size):             # <<<<<<<<<<<<<<
- *     cdef int dimx,dimy,dimz
- *     #cdef int buffer_size
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __PYX_XDEC_MEMVIEW(&__pyx_t_15, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_17, 1);
-  __Pyx_XDECREF(__pyx_t_18);
-  __Pyx_AddTraceback("cutils.get_patches", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __PYX_XDEC_MEMVIEW(&__pyx_v_img, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_patches, 1);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "cutils.pyx":78
- * @cython.boundscheck(False)
- * @cython.wraparound(False)
- * def get_patches_edge_dilated(char[:, :, ::1] img, char[:, :, ::1] edge, char[:, :, ::1] dilated, char[:, :, :, ::1] patches,  char[:, :, :, ::1] patches_edge, char[:, :, :, ::1] patches_dilated, int patch_size):             # <<<<<<<<<<<<<<
- *     cdef int dimx,dimy,dimz
- *     cdef int margin_size
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6cutils_5get_patches_edge_dilated(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6cutils_5get_patches_edge_dilated = {"get_patches_edge_dilated", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6cutils_5get_patches_edge_dilated, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6cutils_5get_patches_edge_dilated(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  __Pyx_memviewslice __pyx_v_img = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_memviewslice __pyx_v_edge = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_memviewslice __pyx_v_dilated = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_memviewslice __pyx_v_patches = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_memviewslice __pyx_v_patches_edge = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_memviewslice __pyx_v_patches_dilated = { 0, 0, { 0 }, { 0 }, { 0 } };
-  int __pyx_v_patch_size;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_patches_edge_dilated (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_edge,&__pyx_n_s_dilated,&__pyx_n_s_patches,&__pyx_n_s_patches_edge,&__pyx_n_s_patches_dilated,&__pyx_n_s_patch_size,0};
-    PyObject* values[7] = {0,0,0,0,0,0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
-        CYTHON_FALLTHROUGH;
-        case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
-        CYTHON_FALLTHROUGH;
-        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
-        CYTHON_FALLTHROUGH;
-        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
-        CYTHON_FALLTHROUGH;
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        CYTHON_FALLTHROUGH;
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_img)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_edge)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("get_patches_edge_dilated", 1, 7, 7, 1); __PYX_ERR(0, 78, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dilated)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("get_patches_edge_dilated", 1, 7, 7, 2); __PYX_ERR(0, 78, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  3:
-        if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_patches)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("get_patches_edge_dilated", 1, 7, 7, 3); __PYX_ERR(0, 78, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  4:
-        if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_patches_edge)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("get_patches_edge_dilated", 1, 7, 7, 4); __PYX_ERR(0, 78, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  5:
-        if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_patches_dilated)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("get_patches_edge_dilated", 1, 7, 7, 5); __PYX_ERR(0, 78, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  6:
-        if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_patch_size)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("get_patches_edge_dilated", 1, 7, 7, 6); __PYX_ERR(0, 78, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_patches_edge_dilated") < 0)) __PYX_ERR(0, 78, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 7) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
-      values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
-      values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
-      values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
-    }
-    __pyx_v_img = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img.memview)) __PYX_ERR(0, 78, __pyx_L3_error)
-    __pyx_v_edge = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_edge.memview)) __PYX_ERR(0, 78, __pyx_L3_error)
-    __pyx_v_dilated = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dilated.memview)) __PYX_ERR(0, 78, __pyx_L3_error)
-    __pyx_v_patches = __Pyx_PyObject_to_MemoryviewSlice_d_d_d_dc_char(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_patches.memview)) __PYX_ERR(0, 78, __pyx_L3_error)
-    __pyx_v_patches_edge = __Pyx_PyObject_to_MemoryviewSlice_d_d_d_dc_char(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_patches_edge.memview)) __PYX_ERR(0, 78, __pyx_L3_error)
-    __pyx_v_patches_dilated = __Pyx_PyObject_to_MemoryviewSlice_d_d_d_dc_char(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_patches_dilated.memview)) __PYX_ERR(0, 78, __pyx_L3_error)
-    __pyx_v_patch_size = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_patch_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L3_error)
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_patches_edge_dilated", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 78, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("cutils.get_patches_edge_dilated", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cutils_4get_patches_edge_dilated(__pyx_self, __pyx_v_img, __pyx_v_edge, __pyx_v_dilated, __pyx_v_patches, __pyx_v_patches_edge, __pyx_v_patches_dilated, __pyx_v_patch_size);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6cutils_4get_patches_edge_dilated(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_edge, __Pyx_memviewslice __pyx_v_dilated, __Pyx_memviewslice __pyx_v_patches, __Pyx_memviewslice __pyx_v_patches_edge, __Pyx_memviewslice __pyx_v_patches_dilated, int __pyx_v_patch_size) {
-  int __pyx_v_dimx;
-  int __pyx_v_dimy;
-  int __pyx_v_dimz;
-  int __pyx_v_margin_size;
-  int __pyx_v_p;
-  int __pyx_v_i;
-  int __pyx_v_j;
-  int __pyx_v_k;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  long __pyx_t_1;
-  long __pyx_t_2;
-  int __pyx_t_3;
-  long __pyx_t_4;
-  long __pyx_t_5;
-  int __pyx_t_6;
-  long __pyx_t_7;
-  long __pyx_t_8;
-  int __pyx_t_9;
-  int __pyx_t_10;
-  Py_ssize_t __pyx_t_11;
-  Py_ssize_t __pyx_t_12;
-  Py_ssize_t __pyx_t_13;
-  int __pyx_t_14;
-  __Pyx_memviewslice __pyx_t_15 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  int __pyx_t_16;
-  __Pyx_memviewslice __pyx_t_17 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  PyObject *__pyx_t_18 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("get_patches_edge_dilated", 0);
-
-  /* "cutils.pyx":83
- *     cdef int p,i,j,k
- * 
- *     dimx = img.shape[0]             # <<<<<<<<<<<<<<
- *     dimy = img.shape[1]
- *     dimz = img.shape[2]
- */
-  __pyx_v_dimx = (__pyx_v_img.shape[0]);
-
-  /* "cutils.pyx":84
- * 
- *     dimx = img.shape[0]
- *     dimy = img.shape[1]             # <<<<<<<<<<<<<<
- *     dimz = img.shape[2]
- *     margin_size = (patch_size-2)//2
- */
-  __pyx_v_dimy = (__pyx_v_img.shape[1]);
-
-  /* "cutils.pyx":85
- *     dimx = img.shape[0]
- *     dimy = img.shape[1]
- *     dimz = img.shape[2]             # <<<<<<<<<<<<<<
- *     margin_size = (patch_size-2)//2
- *     p = 0
- */
-  __pyx_v_dimz = (__pyx_v_img.shape[2]);
-
-  /* "cutils.pyx":86
- *     dimy = img.shape[1]
- *     dimz = img.shape[2]
- *     margin_size = (patch_size-2)//2             # <<<<<<<<<<<<<<
- *     p = 0
- * 
- */
-  __pyx_v_margin_size = __Pyx_div_long((__pyx_v_patch_size - 2), 2);
-
-  /* "cutils.pyx":87
- *     dimz = img.shape[2]
- *     margin_size = (patch_size-2)//2
- *     p = 0             # <<<<<<<<<<<<<<
- * 
- *     for i in range(margin_size,dimx-margin_size-1):
- */
-  __pyx_v_p = 0;
-
-  /* "cutils.pyx":89
- *     p = 0
- * 
- *     for i in range(margin_size,dimx-margin_size-1):             # <<<<<<<<<<<<<<
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):
- */
-  __pyx_t_1 = ((__pyx_v_dimx - __pyx_v_margin_size) - 1);
-  __pyx_t_2 = __pyx_t_1;
-  for (__pyx_t_3 = __pyx_v_margin_size; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
-    __pyx_v_i = __pyx_t_3;
-
-    /* "cutils.pyx":90
- * 
- *     for i in range(margin_size,dimx-margin_size-1):
- *         for j in range(margin_size,dimy-margin_size-1):             # <<<<<<<<<<<<<<
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- */
-    __pyx_t_4 = ((__pyx_v_dimy - __pyx_v_margin_size) - 1);
-    __pyx_t_5 = __pyx_t_4;
-    for (__pyx_t_6 = __pyx_v_margin_size; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
-      __pyx_v_j = __pyx_t_6;
-
-      /* "cutils.pyx":91
- *     for i in range(margin_size,dimx-margin_size-1):
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):             # <<<<<<<<<<<<<<
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- */
-      __pyx_t_7 = ((__pyx_v_dimz - __pyx_v_margin_size) - 1);
-      __pyx_t_8 = __pyx_t_7;
-      for (__pyx_t_9 = __pyx_v_margin_size; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
-        __pyx_v_k = __pyx_t_9;
-
-        /* "cutils.pyx":92
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):             # <<<<<<<<<<<<<<
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     patches_edge[p] = edge[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- */
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_L11_next_and:;
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        __pyx_t_10 = __pyx_t_14;
-        __pyx_L10_bool_binop_done:;
-        if (__pyx_t_10) {
-
-          /* "cutils.pyx":93
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]             # <<<<<<<<<<<<<<
- *                     patches_edge[p] = edge[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     patches_dilated[p] = dilated[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- */
-          __pyx_t_15.data = __pyx_v_img.data;
-          __pyx_t_15.memview = __pyx_v_img.memview;
-          __PYX_INC_MEMVIEW(&__pyx_t_15, 0);
-          __pyx_t_16 = -1;
-          if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_img.shape[0], __pyx_v_img.strides[0], __pyx_v_img.suboffsets[0],
-    0,
-    0,
-    &__pyx_t_16,
-    (__pyx_v_i - __pyx_v_margin_size),
-    ((__pyx_v_i + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 93, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_img.shape[1], __pyx_v_img.strides[1], __pyx_v_img.suboffsets[1],
-    1,
-    1,
-    &__pyx_t_16,
-    (__pyx_v_j - __pyx_v_margin_size),
-    ((__pyx_v_j + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 93, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_img.shape[2], __pyx_v_img.strides[2], __pyx_v_img.suboffsets[2],
-    2,
-    2,
-    &__pyx_t_16,
-    (__pyx_v_k - __pyx_v_margin_size),
-    ((__pyx_v_k + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 93, __pyx_L1_error)
-}
-
-__pyx_t_17.data = __pyx_v_patches.data;
-          __pyx_t_17.memview = __pyx_v_patches.memview;
-          __PYX_INC_MEMVIEW(&__pyx_t_17, 0);
-          {
-    Py_ssize_t __pyx_tmp_idx = __pyx_v_p;
-    Py_ssize_t __pyx_tmp_stride = __pyx_v_patches.strides[0];
-        __pyx_t_17.data += __pyx_tmp_idx * __pyx_tmp_stride;
-}
-
-__pyx_t_17.shape[0] = __pyx_v_patches.shape[1];
-__pyx_t_17.strides[0] = __pyx_v_patches.strides[1];
-    __pyx_t_17.suboffsets[0] = -1;
-
-__pyx_t_17.shape[1] = __pyx_v_patches.shape[2];
-__pyx_t_17.strides[1] = __pyx_v_patches.strides[2];
-    __pyx_t_17.suboffsets[1] = -1;
-
-__pyx_t_17.shape[2] = __pyx_v_patches.shape[3];
-__pyx_t_17.strides[2] = __pyx_v_patches.strides[3];
-    __pyx_t_17.suboffsets[2] = -1;
-
-if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_15, __pyx_t_17, 3, 3, 0) < 0)) __PYX_ERR(0, 93, __pyx_L1_error)
-          __PYX_XDEC_MEMVIEW(&__pyx_t_17, 1);
-          __pyx_t_17.memview = NULL;
-          __pyx_t_17.data = NULL;
-          __PYX_XDEC_MEMVIEW(&__pyx_t_15, 1);
-          __pyx_t_15.memview = NULL;
-          __pyx_t_15.data = NULL;
-
-          /* "cutils.pyx":94
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     patches_edge[p] = edge[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]             # <<<<<<<<<<<<<<
- *                     patches_dilated[p] = dilated[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     p += 1
- */
-          __pyx_t_15.data = __pyx_v_edge.data;
-          __pyx_t_15.memview = __pyx_v_edge.memview;
-          __PYX_INC_MEMVIEW(&__pyx_t_15, 0);
-          __pyx_t_16 = -1;
-          if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_edge.shape[0], __pyx_v_edge.strides[0], __pyx_v_edge.suboffsets[0],
-    0,
-    0,
-    &__pyx_t_16,
-    (__pyx_v_i - __pyx_v_margin_size),
-    ((__pyx_v_i + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 94, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_edge.shape[1], __pyx_v_edge.strides[1], __pyx_v_edge.suboffsets[1],
-    1,
-    1,
-    &__pyx_t_16,
-    (__pyx_v_j - __pyx_v_margin_size),
-    ((__pyx_v_j + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 94, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_edge.shape[2], __pyx_v_edge.strides[2], __pyx_v_edge.suboffsets[2],
-    2,
-    2,
-    &__pyx_t_16,
-    (__pyx_v_k - __pyx_v_margin_size),
-    ((__pyx_v_k + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 94, __pyx_L1_error)
-}
-
-__pyx_t_17.data = __pyx_v_patches_edge.data;
-          __pyx_t_17.memview = __pyx_v_patches_edge.memview;
-          __PYX_INC_MEMVIEW(&__pyx_t_17, 0);
-          {
-    Py_ssize_t __pyx_tmp_idx = __pyx_v_p;
-    Py_ssize_t __pyx_tmp_stride = __pyx_v_patches_edge.strides[0];
-        __pyx_t_17.data += __pyx_tmp_idx * __pyx_tmp_stride;
-}
-
-__pyx_t_17.shape[0] = __pyx_v_patches_edge.shape[1];
-__pyx_t_17.strides[0] = __pyx_v_patches_edge.strides[1];
-    __pyx_t_17.suboffsets[0] = -1;
-
-__pyx_t_17.shape[1] = __pyx_v_patches_edge.shape[2];
-__pyx_t_17.strides[1] = __pyx_v_patches_edge.strides[2];
-    __pyx_t_17.suboffsets[1] = -1;
-
-__pyx_t_17.shape[2] = __pyx_v_patches_edge.shape[3];
-__pyx_t_17.strides[2] = __pyx_v_patches_edge.strides[3];
-    __pyx_t_17.suboffsets[2] = -1;
-
-if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_15, __pyx_t_17, 3, 3, 0) < 0)) __PYX_ERR(0, 94, __pyx_L1_error)
-          __PYX_XDEC_MEMVIEW(&__pyx_t_17, 1);
-          __pyx_t_17.memview = NULL;
-          __pyx_t_17.data = NULL;
-          __PYX_XDEC_MEMVIEW(&__pyx_t_15, 1);
-          __pyx_t_15.memview = NULL;
-          __pyx_t_15.data = NULL;
-
-          /* "cutils.pyx":95
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     patches_edge[p] = edge[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     patches_dilated[p] = dilated[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]             # <<<<<<<<<<<<<<
- *                     p += 1
- * 
- */
-          __pyx_t_15.data = __pyx_v_dilated.data;
-          __pyx_t_15.memview = __pyx_v_dilated.memview;
-          __PYX_INC_MEMVIEW(&__pyx_t_15, 0);
-          __pyx_t_16 = -1;
-          if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_dilated.shape[0], __pyx_v_dilated.strides[0], __pyx_v_dilated.suboffsets[0],
-    0,
-    0,
-    &__pyx_t_16,
-    (__pyx_v_i - __pyx_v_margin_size),
-    ((__pyx_v_i + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 95, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_dilated.shape[1], __pyx_v_dilated.strides[1], __pyx_v_dilated.suboffsets[1],
-    1,
-    1,
-    &__pyx_t_16,
-    (__pyx_v_j - __pyx_v_margin_size),
-    ((__pyx_v_j + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 95, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_15,
-    __pyx_v_dilated.shape[2], __pyx_v_dilated.strides[2], __pyx_v_dilated.suboffsets[2],
-    2,
-    2,
-    &__pyx_t_16,
-    (__pyx_v_k - __pyx_v_margin_size),
-    ((__pyx_v_k + __pyx_v_margin_size) + 2),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 95, __pyx_L1_error)
-}
-
-__pyx_t_17.data = __pyx_v_patches_dilated.data;
-          __pyx_t_17.memview = __pyx_v_patches_dilated.memview;
-          __PYX_INC_MEMVIEW(&__pyx_t_17, 0);
-          {
-    Py_ssize_t __pyx_tmp_idx = __pyx_v_p;
-    Py_ssize_t __pyx_tmp_stride = __pyx_v_patches_dilated.strides[0];
-        __pyx_t_17.data += __pyx_tmp_idx * __pyx_tmp_stride;
-}
-
-__pyx_t_17.shape[0] = __pyx_v_patches_dilated.shape[1];
-__pyx_t_17.strides[0] = __pyx_v_patches_dilated.strides[1];
-    __pyx_t_17.suboffsets[0] = -1;
-
-__pyx_t_17.shape[1] = __pyx_v_patches_dilated.shape[2];
-__pyx_t_17.strides[1] = __pyx_v_patches_dilated.strides[2];
-    __pyx_t_17.suboffsets[1] = -1;
-
-__pyx_t_17.shape[2] = __pyx_v_patches_dilated.shape[3];
-__pyx_t_17.strides[2] = __pyx_v_patches_dilated.strides[3];
-    __pyx_t_17.suboffsets[2] = -1;
-
-if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_15, __pyx_t_17, 3, 3, 0) < 0)) __PYX_ERR(0, 95, __pyx_L1_error)
-          __PYX_XDEC_MEMVIEW(&__pyx_t_17, 1);
-          __pyx_t_17.memview = NULL;
-          __pyx_t_17.data = NULL;
-          __PYX_XDEC_MEMVIEW(&__pyx_t_15, 1);
-          __pyx_t_15.memview = NULL;
-          __pyx_t_15.data = NULL;
-
-          /* "cutils.pyx":96
- *                     patches_edge[p] = edge[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     patches_dilated[p] = dilated[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     p += 1             # <<<<<<<<<<<<<<
- * 
- *     return p
- */
-          __pyx_v_p = (__pyx_v_p + 1);
-
-          /* "cutils.pyx":92
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):             # <<<<<<<<<<<<<<
- *                     patches[p] = img[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- *                     patches_edge[p] = edge[i-margin_size:i+margin_size+2,j-margin_size:j+margin_size+2,k-margin_size:k+margin_size+2]
- */
-        }
-      }
-    }
-  }
-
-  /* "cutils.pyx":98
- *                     p += 1
- * 
- *     return p             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_18 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 98, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_18);
-  __pyx_r = __pyx_t_18;
-  __pyx_t_18 = 0;
-  goto __pyx_L0;
-
-  /* "cutils.pyx":78
- * @cython.boundscheck(False)
- * @cython.wraparound(False)
- * def get_patches_edge_dilated(char[:, :, ::1] img, char[:, :, ::1] edge, char[:, :, ::1] dilated, char[:, :, :, ::1] patches,  char[:, :, :, ::1] patches_edge, char[:, :, :, ::1] patches_dilated, int patch_size):             # <<<<<<<<<<<<<<
- *     cdef int dimx,dimy,dimz
- *     cdef int margin_size
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __PYX_XDEC_MEMVIEW(&__pyx_t_15, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_17, 1);
-  __Pyx_XDECREF(__pyx_t_18);
-  __Pyx_AddTraceback("cutils.get_patches_edge_dilated", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __PYX_XDEC_MEMVIEW(&__pyx_v_img, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_edge, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_dilated, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_patches, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_patches_edge, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_patches_dilated, 1);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "cutils.pyx":106
- * @cython.boundscheck(False)
- * @cython.wraparound(False)
- * def get_patches_sparse(char[:, :, ::1] img, int[:, :, ::1] patches, int patch_size):             # <<<<<<<<<<<<<<
- *     cdef int dimx,dimy,dimz
- *     #cdef int buffer_size
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6cutils_7get_patches_sparse(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6cutils_7get_patches_sparse = {"get_patches_sparse", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6cutils_7get_patches_sparse, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6cutils_7get_patches_sparse(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  __Pyx_memviewslice __pyx_v_img = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_memviewslice __pyx_v_patches = { 0, 0, { 0 }, { 0 }, { 0 } };
-  int __pyx_v_patch_size;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_patches_sparse (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_patches,&__pyx_n_s_patch_size,0};
-    PyObject* values[3] = {0,0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        CYTHON_FALLTHROUGH;
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_img)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_patches)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("get_patches_sparse", 1, 3, 3, 1); __PYX_ERR(0, 106, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_patch_size)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("get_patches_sparse", 1, 3, 3, 2); __PYX_ERR(0, 106, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_patches_sparse") < 0)) __PYX_ERR(0, 106, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-    }
-    __pyx_v_img = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img.memview)) __PYX_ERR(0, 106, __pyx_L3_error)
-    __pyx_v_patches = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_patches.memview)) __PYX_ERR(0, 106, __pyx_L3_error)
-    __pyx_v_patch_size = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_patch_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 106, __pyx_L3_error)
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_patches_sparse", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 106, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("cutils.get_patches_sparse", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cutils_6get_patches_sparse(__pyx_self, __pyx_v_img, __pyx_v_patches, __pyx_v_patch_size);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6cutils_6get_patches_sparse(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_patches, int __pyx_v_patch_size) {
-  int __pyx_v_dimx;
-  int __pyx_v_dimy;
-  int __pyx_v_dimz;
-  int __pyx_v_margin_size;
-  int __pyx_v_p;
-  int __pyx_v_i;
-  int __pyx_v_j;
-  int __pyx_v_k;
-  int __pyx_v_x;
-  int __pyx_v_y;
-  int __pyx_v_z;
-  int __pyx_v_sx;
-  int __pyx_v_sy;
-  int __pyx_v_sz;
+  int __pyx_v_hdis;
   int __pyx_v_c;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  long __pyx_t_1;
-  long __pyx_t_2;
-  int __pyx_t_3;
-  long __pyx_t_4;
-  long __pyx_t_5;
-  int __pyx_t_6;
-  long __pyx_t_7;
-  long __pyx_t_8;
-  int __pyx_t_9;
-  int __pyx_t_10;
-  Py_ssize_t __pyx_t_11;
-  Py_ssize_t __pyx_t_12;
-  Py_ssize_t __pyx_t_13;
-  int __pyx_t_14;
-  int __pyx_t_15;
-  int __pyx_t_16;
-  int __pyx_t_17;
-  int __pyx_t_18;
-  int __pyx_t_19;
-  int __pyx_t_20;
-  int __pyx_t_21;
-  int __pyx_t_22;
-  int __pyx_t_23;
-  PyObject *__pyx_t_24 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("get_patches_sparse", 0);
-
-  /* "cutils.pyx":112
- *     cdef int p,i,j,k,x,y,z,sx,sy,sz,c
- * 
- *     dimx = img.shape[0]             # <<<<<<<<<<<<<<
- *     dimy = img.shape[1]
- *     dimz = img.shape[2]
- */
-  __pyx_v_dimx = (__pyx_v_img.shape[0]);
-
-  /* "cutils.pyx":113
- * 
- *     dimx = img.shape[0]
- *     dimy = img.shape[1]             # <<<<<<<<<<<<<<
- *     dimz = img.shape[2]
- *     #buffer_size = patches.shape[0]
- */
-  __pyx_v_dimy = (__pyx_v_img.shape[1]);
-
-  /* "cutils.pyx":114
- *     dimx = img.shape[0]
- *     dimy = img.shape[1]
- *     dimz = img.shape[2]             # <<<<<<<<<<<<<<
- *     #buffer_size = patches.shape[0]
- *     margin_size = (patch_size-2)//2
- */
-  __pyx_v_dimz = (__pyx_v_img.shape[2]);
-
-  /* "cutils.pyx":116
- *     dimz = img.shape[2]
- *     #buffer_size = patches.shape[0]
- *     margin_size = (patch_size-2)//2             # <<<<<<<<<<<<<<
- *     p = 0
- * 
- */
-  __pyx_v_margin_size = __Pyx_div_long((__pyx_v_patch_size - 2), 2);
-
-  /* "cutils.pyx":117
- *     #buffer_size = patches.shape[0]
- *     margin_size = (patch_size-2)//2
- *     p = 0             # <<<<<<<<<<<<<<
- * 
- *     for i in range(margin_size,dimx-margin_size-1):
- */
-  __pyx_v_p = 0;
-
-  /* "cutils.pyx":119
- *     p = 0
- * 
- *     for i in range(margin_size,dimx-margin_size-1):             # <<<<<<<<<<<<<<
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):
- */
-  __pyx_t_1 = ((__pyx_v_dimx - __pyx_v_margin_size) - 1);
-  __pyx_t_2 = __pyx_t_1;
-  for (__pyx_t_3 = __pyx_v_margin_size; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
-    __pyx_v_i = __pyx_t_3;
-
-    /* "cutils.pyx":120
- * 
- *     for i in range(margin_size,dimx-margin_size-1):
- *         for j in range(margin_size,dimy-margin_size-1):             # <<<<<<<<<<<<<<
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- */
-    __pyx_t_4 = ((__pyx_v_dimy - __pyx_v_margin_size) - 1);
-    __pyx_t_5 = __pyx_t_4;
-    for (__pyx_t_6 = __pyx_v_margin_size; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
-      __pyx_v_j = __pyx_t_6;
-
-      /* "cutils.pyx":121
- *     for i in range(margin_size,dimx-margin_size-1):
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):             # <<<<<<<<<<<<<<
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- *                     #sparse
- */
-      __pyx_t_7 = ((__pyx_v_dimz - __pyx_v_margin_size) - 1);
-      __pyx_t_8 = __pyx_t_7;
-      for (__pyx_t_9 = __pyx_v_margin_size; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
-        __pyx_v_k = __pyx_t_9;
-
-        /* "cutils.pyx":122
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):             # <<<<<<<<<<<<<<
- *                     #sparse
- *                     sx = i-margin_size
- */
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 0) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          goto __pyx_L11_next_and;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 0) != 0);
-        if (__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_L11_next_and:;
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = __pyx_v_i;
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = __pyx_v_j;
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_11 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_13 = __pyx_v_k;
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-        if (!__pyx_t_14) {
-        } else {
-          __pyx_t_10 = __pyx_t_14;
-          goto __pyx_L10_bool_binop_done;
-        }
-        __pyx_t_13 = (__pyx_v_i + 1);
-        __pyx_t_12 = (__pyx_v_j + 1);
-        __pyx_t_11 = (__pyx_v_k + 1);
-        __pyx_t_14 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_13 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_11)) ))) == 1) != 0);
-        __pyx_t_10 = __pyx_t_14;
-        __pyx_L10_bool_binop_done:;
-        if (__pyx_t_10) {
-
-          /* "cutils.pyx":124
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):
- *                     #sparse
- *                     sx = i-margin_size             # <<<<<<<<<<<<<<
- *                     sy = j-margin_size
- *                     sz = k-margin_size
- */
-          __pyx_v_sx = (__pyx_v_i - __pyx_v_margin_size);
-
-          /* "cutils.pyx":125
- *                     #sparse
- *                     sx = i-margin_size
- *                     sy = j-margin_size             # <<<<<<<<<<<<<<
- *                     sz = k-margin_size
- *                     c = 1
- */
-          __pyx_v_sy = (__pyx_v_j - __pyx_v_margin_size);
-
-          /* "cutils.pyx":126
- *                     sx = i-margin_size
- *                     sy = j-margin_size
- *                     sz = k-margin_size             # <<<<<<<<<<<<<<
- *                     c = 1
- *                     for x in range(patch_size):
- */
-          __pyx_v_sz = (__pyx_v_k - __pyx_v_margin_size);
-
-          /* "cutils.pyx":127
- *                     sy = j-margin_size
- *                     sz = k-margin_size
- *                     c = 1             # <<<<<<<<<<<<<<
- *                     for x in range(patch_size):
- *                         for y in range(patch_size):
- */
-          __pyx_v_c = 1;
-
-          /* "cutils.pyx":128
- *                     sz = k-margin_size
- *                     c = 1
- *                     for x in range(patch_size):             # <<<<<<<<<<<<<<
- *                         for y in range(patch_size):
- *                             for z in range(patch_size):
- */
-          __pyx_t_15 = __pyx_v_patch_size;
-          __pyx_t_16 = __pyx_t_15;
-          for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
-            __pyx_v_x = __pyx_t_17;
-
-            /* "cutils.pyx":129
- *                     c = 1
- *                     for x in range(patch_size):
- *                         for y in range(patch_size):             # <<<<<<<<<<<<<<
- *                             for z in range(patch_size):
- *                                 if img[sx+x,sy+y,sz+z]==1:
- */
-            __pyx_t_18 = __pyx_v_patch_size;
-            __pyx_t_19 = __pyx_t_18;
-            for (__pyx_t_20 = 0; __pyx_t_20 < __pyx_t_19; __pyx_t_20+=1) {
-              __pyx_v_y = __pyx_t_20;
-
-              /* "cutils.pyx":130
- *                     for x in range(patch_size):
- *                         for y in range(patch_size):
- *                             for z in range(patch_size):             # <<<<<<<<<<<<<<
- *                                 if img[sx+x,sy+y,sz+z]==1:
- *                                     patches[p,c,0] = x
- */
-              __pyx_t_21 = __pyx_v_patch_size;
-              __pyx_t_22 = __pyx_t_21;
-              for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
-                __pyx_v_z = __pyx_t_23;
-
-                /* "cutils.pyx":131
- *                         for y in range(patch_size):
- *                             for z in range(patch_size):
- *                                 if img[sx+x,sy+y,sz+z]==1:             # <<<<<<<<<<<<<<
- *                                     patches[p,c,0] = x
- *                                     patches[p,c,1] = y
- */
-                __pyx_t_11 = (__pyx_v_sx + __pyx_v_x);
-                __pyx_t_12 = (__pyx_v_sy + __pyx_v_y);
-                __pyx_t_13 = (__pyx_v_sz + __pyx_v_z);
-                __pyx_t_10 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_11 * __pyx_v_img.strides[0]) ) + __pyx_t_12 * __pyx_v_img.strides[1]) )) + __pyx_t_13)) ))) == 1) != 0);
-                if (__pyx_t_10) {
-
-                  /* "cutils.pyx":132
- *                             for z in range(patch_size):
- *                                 if img[sx+x,sy+y,sz+z]==1:
- *                                     patches[p,c,0] = x             # <<<<<<<<<<<<<<
- *                                     patches[p,c,1] = y
- *                                     patches[p,c,2] = z
- */
-                  __pyx_t_13 = __pyx_v_p;
-                  __pyx_t_12 = __pyx_v_c;
-                  __pyx_t_11 = 0;
-                  *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_patches.data + __pyx_t_13 * __pyx_v_patches.strides[0]) ) + __pyx_t_12 * __pyx_v_patches.strides[1]) )) + __pyx_t_11)) )) = __pyx_v_x;
-
-                  /* "cutils.pyx":133
- *                                 if img[sx+x,sy+y,sz+z]==1:
- *                                     patches[p,c,0] = x
- *                                     patches[p,c,1] = y             # <<<<<<<<<<<<<<
- *                                     patches[p,c,2] = z
- *                                     c += 1
- */
-                  __pyx_t_11 = __pyx_v_p;
-                  __pyx_t_12 = __pyx_v_c;
-                  __pyx_t_13 = 1;
-                  *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_patches.data + __pyx_t_11 * __pyx_v_patches.strides[0]) ) + __pyx_t_12 * __pyx_v_patches.strides[1]) )) + __pyx_t_13)) )) = __pyx_v_y;
-
-                  /* "cutils.pyx":134
- *                                     patches[p,c,0] = x
- *                                     patches[p,c,1] = y
- *                                     patches[p,c,2] = z             # <<<<<<<<<<<<<<
- *                                     c += 1
- *                     patches[p,0,0] = c-1
- */
-                  __pyx_t_13 = __pyx_v_p;
-                  __pyx_t_12 = __pyx_v_c;
-                  __pyx_t_11 = 2;
-                  *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_patches.data + __pyx_t_13 * __pyx_v_patches.strides[0]) ) + __pyx_t_12 * __pyx_v_patches.strides[1]) )) + __pyx_t_11)) )) = __pyx_v_z;
-
-                  /* "cutils.pyx":135
- *                                     patches[p,c,1] = y
- *                                     patches[p,c,2] = z
- *                                     c += 1             # <<<<<<<<<<<<<<
- *                     patches[p,0,0] = c-1
- *                     p += 1
- */
-                  __pyx_v_c = (__pyx_v_c + 1);
-
-                  /* "cutils.pyx":131
- *                         for y in range(patch_size):
- *                             for z in range(patch_size):
- *                                 if img[sx+x,sy+y,sz+z]==1:             # <<<<<<<<<<<<<<
- *                                     patches[p,c,0] = x
- *                                     patches[p,c,1] = y
- */
-                }
-              }
-            }
-          }
-
-          /* "cutils.pyx":136
- *                                     patches[p,c,2] = z
- *                                     c += 1
- *                     patches[p,0,0] = c-1             # <<<<<<<<<<<<<<
- *                     p += 1
- * 
- */
-          __pyx_t_11 = __pyx_v_p;
-          __pyx_t_12 = 0;
-          __pyx_t_13 = 0;
-          *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_patches.data + __pyx_t_11 * __pyx_v_patches.strides[0]) ) + __pyx_t_12 * __pyx_v_patches.strides[1]) )) + __pyx_t_13)) )) = (__pyx_v_c - 1);
-
-          /* "cutils.pyx":137
- *                                     c += 1
- *                     patches[p,0,0] = c-1
- *                     p += 1             # <<<<<<<<<<<<<<
- * 
- *     return p
- */
-          __pyx_v_p = (__pyx_v_p + 1);
-
-          /* "cutils.pyx":122
- *         for j in range(margin_size,dimy-margin_size-1):
- *             for k in range(margin_size,dimz-margin_size-1):
- *                 if (img[i,j,k]==0 or img[i,j,k+1]==0 or img[i,j+1,k]==0 or img[i,j+1,k+1]==0 or img[i+1,j,k]==0 or img[i+1,j,k+1]==0 or img[i+1,j+1,k]==0 or img[i+1,j+1,k+1]==0) and (img[i,j,k]==1 or img[i,j,k+1]==1 or img[i,j+1,k]==1 or img[i,j+1,k+1]==1 or img[i+1,j,k]==1 or img[i+1,j,k+1]==1 or img[i+1,j+1,k]==1 or img[i+1,j+1,k+1]==1):             # <<<<<<<<<<<<<<
- *                     #sparse
- *                     sx = i-margin_size
- */
-        }
-      }
-    }
-  }
-
-  /* "cutils.pyx":139
- *                     p += 1
- * 
- *     return p             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_24 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 139, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_24);
-  __pyx_r = __pyx_t_24;
-  __pyx_t_24 = 0;
-  goto __pyx_L0;
-
-  /* "cutils.pyx":106
- * @cython.boundscheck(False)
- * @cython.wraparound(False)
- * def get_patches_sparse(char[:, :, ::1] img, int[:, :, ::1] patches, int patch_size):             # <<<<<<<<<<<<<<
- *     cdef int dimx,dimy,dimz
- *     #cdef int buffer_size
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_24);
-  __Pyx_AddTraceback("cutils.get_patches_sparse", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __PYX_XDEC_MEMVIEW(&__pyx_v_img, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_patches, 1);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "cutils.pyx":148
- * @cython.boundscheck(False)
- * @cython.wraparound(False)
- * def eval_match_CD(int[:, ::1] img, int[:, :, ::1] patches, float threshold):             # <<<<<<<<<<<<<<
- *     cdef int dict_size
- *     cdef int p,i,j,x,y,z,dx,dy,dz,cd,cd_acc,cd_tmp,vnum1,vnum2,threshold_int1
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6cutils_9eval_match_CD(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6cutils_9eval_match_CD = {"eval_match_CD", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6cutils_9eval_match_CD, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6cutils_9eval_match_CD(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  __Pyx_memviewslice __pyx_v_img = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_memviewslice __pyx_v_patches = { 0, 0, { 0 }, { 0 }, { 0 } };
-  float __pyx_v_threshold;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("eval_match_CD (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_patches,&__pyx_n_s_threshold,0};
-    PyObject* values[3] = {0,0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        CYTHON_FALLTHROUGH;
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_img)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_patches)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("eval_match_CD", 1, 3, 3, 1); __PYX_ERR(0, 148, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_threshold)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("eval_match_CD", 1, 3, 3, 2); __PYX_ERR(0, 148, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "eval_match_CD") < 0)) __PYX_ERR(0, 148, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-    }
-    __pyx_v_img = __Pyx_PyObject_to_MemoryviewSlice_d_dc_int(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img.memview)) __PYX_ERR(0, 148, __pyx_L3_error)
-    __pyx_v_patches = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_patches.memview)) __PYX_ERR(0, 148, __pyx_L3_error)
-    __pyx_v_threshold = __pyx_PyFloat_AsFloat(values[2]); if (unlikely((__pyx_v_threshold == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L3_error)
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("eval_match_CD", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 148, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("cutils.eval_match_CD", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6cutils_8eval_match_CD(__pyx_self, __pyx_v_img, __pyx_v_patches, __pyx_v_threshold);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6cutils_8eval_match_CD(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_img, __Pyx_memviewslice __pyx_v_patches, float __pyx_v_threshold) {
-  int __pyx_v_dict_size;
-  int __pyx_v_p;
-  int __pyx_v_i;
-  int __pyx_v_j;
+  int __pyx_v_u;
+  int __pyx_v_v;
+  int __pyx_v_d;
+  int __pyx_v_outside_flag;
   int __pyx_v_x;
   int __pyx_v_y;
   int __pyx_v_z;
-  int __pyx_v_dx;
-  int __pyx_v_dy;
-  int __pyx_v_dz;
-  int __pyx_v_cd;
-  int __pyx_v_cd_acc;
-  int __pyx_v_cd_tmp;
-  int __pyx_v_vnum1;
-  int __pyx_v_vnum2;
-  int __pyx_v_threshold_int1;
-  __Pyx_memviewslice __pyx_v_patch = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_i;
+  int __pyx_v_j;
+  int __pyx_v_k;
+  int __pyx_v_state;
+  int __pyx_v_ctr;
+  int __pyx_v_p;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  Py_ssize_t __pyx_t_1;
-  Py_ssize_t __pyx_t_2;
+  int __pyx_t_1;
+  int __pyx_t_2;
   int __pyx_t_3;
   int __pyx_t_4;
   int __pyx_t_5;
-  __Pyx_memviewslice __pyx_t_6 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  long __pyx_t_7;
-  long __pyx_t_8;
+  int __pyx_t_6;
+  int __pyx_t_7;
+  int __pyx_t_8;
   int __pyx_t_9;
-  long __pyx_t_10;
-  long __pyx_t_11;
-  int __pyx_t_12;
+  Py_ssize_t __pyx_t_10;
+  Py_ssize_t __pyx_t_11;
+  Py_ssize_t __pyx_t_12;
   int __pyx_t_13;
-  __Pyx_RefNannySetupContext("eval_match_CD", 0);
+  __Pyx_RefNannySetupContext("depth_fusion_XZY_5views", 0);
 
-  /* "cutils.pyx":153
- *     cdef int [:, ::1] patch
+  /* "cutils.pyx":646
+ *     cdef int dimx,dimy,dimz
  * 
- *     dict_size = patches.shape[0]             # <<<<<<<<<<<<<<
- *     vnum1 = img[0,0]
- *     threshold_int1 = int(threshold*vnum1)
+ *     cdef int hdis = render_depth_img_size//2 #half depth image size             # <<<<<<<<<<<<<<
+ * 
+ *     cdef int c = 0
  */
-  __pyx_v_dict_size = (__pyx_v_patches.shape[0]);
+  __pyx_v_hdis = __Pyx_div_long(__pyx_v_6cutils_render_depth_img_size, 2);
 
-  /* "cutils.pyx":154
+  /* "cutils.pyx":648
+ *     cdef int hdis = render_depth_img_size//2 #half depth image size
  * 
- *     dict_size = patches.shape[0]
- *     vnum1 = img[0,0]             # <<<<<<<<<<<<<<
- *     threshold_int1 = int(threshold*vnum1)
- * 
+ *     cdef int c = 0             # <<<<<<<<<<<<<<
+ *     cdef int u = 0
+ *     cdef int v = 0
  */
-  __pyx_t_1 = 0;
-  __pyx_t_2 = 0;
-  __pyx_v_vnum1 = (*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) )) + __pyx_t_2)) )));
+  __pyx_v_c = 0;
 
-  /* "cutils.pyx":155
- *     dict_size = patches.shape[0]
- *     vnum1 = img[0,0]
- *     threshold_int1 = int(threshold*vnum1)             # <<<<<<<<<<<<<<
+  /* "cutils.pyx":649
  * 
- *     for p in range(dict_size):
+ *     cdef int c = 0
+ *     cdef int u = 0             # <<<<<<<<<<<<<<
+ *     cdef int v = 0
+ *     cdef int d = 0
  */
-  __pyx_v_threshold_int1 = ((int)(__pyx_v_threshold * __pyx_v_vnum1));
+  __pyx_v_u = 0;
 
-  /* "cutils.pyx":157
- *     threshold_int1 = int(threshold*vnum1)
- * 
- *     for p in range(dict_size):             # <<<<<<<<<<<<<<
- *         patch = patches[p]
- *         vnum2 = patch[0,0]
- */
-  __pyx_t_3 = __pyx_v_dict_size;
-  __pyx_t_4 = __pyx_t_3;
-  for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
-    __pyx_v_p = __pyx_t_5;
-
-    /* "cutils.pyx":158
- * 
- *     for p in range(dict_size):
- *         patch = patches[p]             # <<<<<<<<<<<<<<
- *         vnum2 = patch[0,0]
- *         cd = 0
- */
-    __pyx_t_6.data = __pyx_v_patches.data;
-    __pyx_t_6.memview = __pyx_v_patches.memview;
-    __PYX_INC_MEMVIEW(&__pyx_t_6, 0);
-    {
-    Py_ssize_t __pyx_tmp_idx = __pyx_v_p;
-    Py_ssize_t __pyx_tmp_stride = __pyx_v_patches.strides[0];
-        __pyx_t_6.data += __pyx_tmp_idx * __pyx_tmp_stride;
-}
-
-__pyx_t_6.shape[0] = __pyx_v_patches.shape[1];
-__pyx_t_6.strides[0] = __pyx_v_patches.strides[1];
-    __pyx_t_6.suboffsets[0] = -1;
-
-__pyx_t_6.shape[1] = __pyx_v_patches.shape[2];
-__pyx_t_6.strides[1] = __pyx_v_patches.strides[2];
-    __pyx_t_6.suboffsets[1] = -1;
-
-__PYX_XDEC_MEMVIEW(&__pyx_v_patch, 1);
-    __pyx_v_patch = __pyx_t_6;
-    __pyx_t_6.memview = NULL;
-    __pyx_t_6.data = NULL;
-
-    /* "cutils.pyx":159
- *     for p in range(dict_size):
- *         patch = patches[p]
- *         vnum2 = patch[0,0]             # <<<<<<<<<<<<<<
- *         cd = 0
+  /* "cutils.pyx":650
+ *     cdef int c = 0
+ *     cdef int u = 0
+ *     cdef int v = 0             # <<<<<<<<<<<<<<
+ *     cdef int d = 0
  * 
  */
-    __pyx_t_2 = 0;
-    __pyx_t_1 = 0;
-    __pyx_v_vnum2 = (*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_patch.data + __pyx_t_2 * __pyx_v_patch.strides[0]) )) + __pyx_t_1)) )));
+  __pyx_v_v = 0;
 
-    /* "cutils.pyx":160
- *         patch = patches[p]
- *         vnum2 = patch[0,0]
- *         cd = 0             # <<<<<<<<<<<<<<
+  /* "cutils.pyx":651
+ *     cdef int u = 0
+ *     cdef int v = 0
+ *     cdef int d = 0             # <<<<<<<<<<<<<<
  * 
- *         for i in range(1,vnum1+1):
+ *     cdef int outside_flag = 0
  */
-    __pyx_v_cd = 0;
+  __pyx_v_d = 0;
 
-    /* "cutils.pyx":162
- *         cd = 0
+  /* "cutils.pyx":653
+ *     cdef int d = 0
  * 
- *         for i in range(1,vnum1+1):             # <<<<<<<<<<<<<<
- *             cd_acc = 32768
- *             x = img[i,0]
- */
-    __pyx_t_7 = (__pyx_v_vnum1 + 1);
-    __pyx_t_8 = __pyx_t_7;
-    for (__pyx_t_9 = 1; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
-      __pyx_v_i = __pyx_t_9;
-
-      /* "cutils.pyx":163
+ *     cdef int outside_flag = 0             # <<<<<<<<<<<<<<
  * 
- *         for i in range(1,vnum1+1):
- *             cd_acc = 32768             # <<<<<<<<<<<<<<
- *             x = img[i,0]
- *             y = img[i,1]
+ *     cdef int x = 0
  */
-      __pyx_v_cd_acc = 0x8000;
+  __pyx_v_outside_flag = 0;
 
-      /* "cutils.pyx":164
- *         for i in range(1,vnum1+1):
- *             cd_acc = 32768
- *             x = img[i,0]             # <<<<<<<<<<<<<<
- *             y = img[i,1]
- *             z = img[i,2]
+  /* "cutils.pyx":655
+ *     cdef int outside_flag = 0
+ * 
+ *     cdef int x = 0             # <<<<<<<<<<<<<<
+ *     cdef int y = 0
+ *     cdef int z = 0
  */
-      __pyx_t_1 = __pyx_v_i;
-      __pyx_t_2 = 0;
-      __pyx_v_x = (*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) )) + __pyx_t_2)) )));
+  __pyx_v_x = 0;
 
-      /* "cutils.pyx":165
- *             cd_acc = 32768
- *             x = img[i,0]
- *             y = img[i,1]             # <<<<<<<<<<<<<<
- *             z = img[i,2]
- *             for j in range(1,vnum2+1):
+  /* "cutils.pyx":656
+ * 
+ *     cdef int x = 0
+ *     cdef int y = 0             # <<<<<<<<<<<<<<
+ *     cdef int z = 0
+ * 
  */
-      __pyx_t_2 = __pyx_v_i;
-      __pyx_t_1 = 1;
-      __pyx_v_y = (*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_img.data + __pyx_t_2 * __pyx_v_img.strides[0]) )) + __pyx_t_1)) )));
+  __pyx_v_y = 0;
 
-      /* "cutils.pyx":166
- *             x = img[i,0]
- *             y = img[i,1]
- *             z = img[i,2]             # <<<<<<<<<<<<<<
- *             for j in range(1,vnum2+1):
- *                 dx = patch[j,0] - x
+  /* "cutils.pyx":657
+ *     cdef int x = 0
+ *     cdef int y = 0
+ *     cdef int z = 0             # <<<<<<<<<<<<<<
+ * 
+ *     cdef int i = 0
  */
-      __pyx_t_1 = __pyx_v_i;
-      __pyx_t_2 = 2;
-      __pyx_v_z = (*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_img.data + __pyx_t_1 * __pyx_v_img.strides[0]) )) + __pyx_t_2)) )));
+  __pyx_v_z = 0;
 
-      /* "cutils.pyx":167
- *             y = img[i,1]
- *             z = img[i,2]
- *             for j in range(1,vnum2+1):             # <<<<<<<<<<<<<<
- *                 dx = patch[j,0] - x
- *                 dy = patch[j,1] - y
+  /* "cutils.pyx":659
+ *     cdef int z = 0
+ * 
+ *     cdef int i = 0             # <<<<<<<<<<<<<<
+ *     cdef int j = 0
+ *     cdef int k = 0
  */
-      __pyx_t_10 = (__pyx_v_vnum2 + 1);
-      __pyx_t_11 = __pyx_t_10;
-      for (__pyx_t_12 = 1; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
-        __pyx_v_j = __pyx_t_12;
+  __pyx_v_i = 0;
 
-        /* "cutils.pyx":168
- *             z = img[i,2]
- *             for j in range(1,vnum2+1):
- *                 dx = patch[j,0] - x             # <<<<<<<<<<<<<<
- *                 dy = patch[j,1] - y
- *                 dz = patch[j,2] - z
+  /* "cutils.pyx":660
+ * 
+ *     cdef int i = 0
+ *     cdef int j = 0             # <<<<<<<<<<<<<<
+ *     cdef int k = 0
+ * 
  */
-        __pyx_t_2 = __pyx_v_j;
-        __pyx_t_1 = 0;
-        __pyx_v_dx = ((*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_patch.data + __pyx_t_2 * __pyx_v_patch.strides[0]) )) + __pyx_t_1)) ))) - __pyx_v_x);
+  __pyx_v_j = 0;
 
-        /* "cutils.pyx":169
- *             for j in range(1,vnum2+1):
- *                 dx = patch[j,0] - x
- *                 dy = patch[j,1] - y             # <<<<<<<<<<<<<<
- *                 dz = patch[j,2] - z
- *                 cd_tmp = dx*dx + dy*dy + dz*dz
+  /* "cutils.pyx":661
+ *     cdef int i = 0
+ *     cdef int j = 0
+ *     cdef int k = 0             # <<<<<<<<<<<<<<
+ * 
+ *     cdef int state = 0
  */
-        __pyx_t_1 = __pyx_v_j;
-        __pyx_t_2 = 1;
-        __pyx_v_dy = ((*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_patch.data + __pyx_t_1 * __pyx_v_patch.strides[0]) )) + __pyx_t_2)) ))) - __pyx_v_y);
+  __pyx_v_k = 0;
 
-        /* "cutils.pyx":170
- *                 dx = patch[j,0] - x
- *                 dy = patch[j,1] - y
- *                 dz = patch[j,2] - z             # <<<<<<<<<<<<<<
- *                 cd_tmp = dx*dx + dy*dy + dz*dz
- *                 if cd_tmp<cd_acc:
+  /* "cutils.pyx":663
+ *     cdef int k = 0
+ * 
+ *     cdef int state = 0             # <<<<<<<<<<<<<<
+ *     cdef int ctr = 0
+ *     cdef int p = 0
  */
-        __pyx_t_2 = __pyx_v_j;
-        __pyx_t_1 = 2;
-        __pyx_v_dz = ((*((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_patch.data + __pyx_t_2 * __pyx_v_patch.strides[0]) )) + __pyx_t_1)) ))) - __pyx_v_z);
+  __pyx_v_state = 0;
 
-        /* "cutils.pyx":171
- *                 dy = patch[j,1] - y
- *                 dz = patch[j,2] - z
- *                 cd_tmp = dx*dx + dy*dy + dz*dz             # <<<<<<<<<<<<<<
- *                 if cd_tmp<cd_acc:
- *                     cd_acc = cd_tmp
+  /* "cutils.pyx":664
+ * 
+ *     cdef int state = 0
+ *     cdef int ctr = 0             # <<<<<<<<<<<<<<
+ *     cdef int p = 0
+ * 
  */
-        __pyx_v_cd_tmp = (((__pyx_v_dx * __pyx_v_dx) + (__pyx_v_dy * __pyx_v_dy)) + (__pyx_v_dz * __pyx_v_dz));
+  __pyx_v_ctr = 0;
 
-        /* "cutils.pyx":172
- *                 dz = patch[j,2] - z
- *                 cd_tmp = dx*dx + dy*dy + dz*dz
- *                 if cd_tmp<cd_acc:             # <<<<<<<<<<<<<<
- *                     cd_acc = cd_tmp
- *             cd += cd_acc
+  /* "cutils.pyx":665
+ *     cdef int state = 0
+ *     cdef int ctr = 0
+ *     cdef int p = 0             # <<<<<<<<<<<<<<
+ * 
+ *     dimx = img.shape[0]
  */
-        __pyx_t_13 = ((__pyx_v_cd_tmp < __pyx_v_cd_acc) != 0);
+  __pyx_v_p = 0;
+
+  /* "cutils.pyx":667
+ *     cdef int p = 0
+ * 
+ *     dimx = img.shape[0]             # <<<<<<<<<<<<<<
+ *     dimy = img.shape[1]
+ *     dimz = img.shape[2]
+ */
+  __pyx_v_dimx = (__pyx_v_img.shape[0]);
+
+  /* "cutils.pyx":668
+ * 
+ *     dimx = img.shape[0]
+ *     dimy = img.shape[1]             # <<<<<<<<<<<<<<
+ *     dimz = img.shape[2]
+ * 
+ */
+  __pyx_v_dimy = (__pyx_v_img.shape[1]);
+
+  /* "cutils.pyx":669
+ *     dimx = img.shape[0]
+ *     dimy = img.shape[1]
+ *     dimz = img.shape[2]             # <<<<<<<<<<<<<<
+ * 
+ *     #--model
+ */
+  __pyx_v_dimz = (__pyx_v_img.shape[2]);
+
+  /* "cutils.pyx":681
+ * 
+ *     #get rendering
+ *     for x in range(dimx):             # <<<<<<<<<<<<<<
+ *         for y in range(dimy):
+ *             for z in range(dimz):
+ */
+  __pyx_t_1 = __pyx_v_dimx;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_x = __pyx_t_3;
+
+    /* "cutils.pyx":682
+ *     #get rendering
+ *     for x in range(dimx):
+ *         for y in range(dimy):             # <<<<<<<<<<<<<<
+ *             for z in range(dimz):
+ *                 if img[x,z,y]>0:
+ */
+    __pyx_t_4 = __pyx_v_dimy;
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_y = __pyx_t_6;
+
+      /* "cutils.pyx":683
+ *     for x in range(dimx):
+ *         for y in range(dimy):
+ *             for z in range(dimz):             # <<<<<<<<<<<<<<
+ *                 if img[x,z,y]>0:
+ *                     #z-buffering
+ */
+      __pyx_t_7 = __pyx_v_dimz;
+      __pyx_t_8 = __pyx_t_7;
+      for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
+        __pyx_v_z = __pyx_t_9;
+
+        /* "cutils.pyx":684
+ *         for y in range(dimy):
+ *             for z in range(dimz):
+ *                 if img[x,z,y]>0:             # <<<<<<<<<<<<<<
+ *                     #z-buffering
+ * 
+ */
+        __pyx_t_10 = __pyx_v_x;
+        __pyx_t_11 = __pyx_v_z;
+        __pyx_t_12 = __pyx_v_y;
+        __pyx_t_13 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) ))) > 0) != 0);
         if (__pyx_t_13) {
 
-          /* "cutils.pyx":173
- *                 cd_tmp = dx*dx + dy*dy + dz*dz
- *                 if cd_tmp<cd_acc:
- *                     cd_acc = cd_tmp             # <<<<<<<<<<<<<<
- *             cd += cd_acc
- *             if cd > threshold_int1: break
+          /* "cutils.pyx":687
+ *                     #z-buffering
+ * 
+ *                     c = 0             # <<<<<<<<<<<<<<
+ *                     u = x + hdis
+ *                     v = z + hdis
  */
-          __pyx_v_cd_acc = __pyx_v_cd_tmp;
+          __pyx_v_c = 0;
 
-          /* "cutils.pyx":172
- *                 dz = patch[j,2] - z
- *                 cd_tmp = dx*dx + dy*dy + dz*dz
- *                 if cd_tmp<cd_acc:             # <<<<<<<<<<<<<<
- *                     cd_acc = cd_tmp
- *             cd += cd_acc
+          /* "cutils.pyx":688
+ * 
+ *                     c = 0
+ *                     u = x + hdis             # <<<<<<<<<<<<<<
+ *                     v = z + hdis
+ *                     d = -y #y must always be negative in d to render from top
+ */
+          __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+          /* "cutils.pyx":689
+ *                     c = 0
+ *                     u = x + hdis
+ *                     v = z + hdis             # <<<<<<<<<<<<<<
+ *                     d = -y #y must always be negative in d to render from top
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+          /* "cutils.pyx":690
+ *                     u = x + hdis
+ *                     v = z + hdis
+ *                     d = -y #y must always be negative in d to render from top             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (-__pyx_v_y);
+
+          /* "cutils.pyx":691
+ *                     v = z + hdis
+ *                     d = -y #y must always be negative in d to render from top
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":692
+ *                     d = -y #y must always be negative in d to render from top
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 1
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":691
+ *                     v = z + hdis
+ *                     d = -y #y must always be negative in d to render from top
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":694
+ *                         rendering[u,v,c]=d
+ * 
+ *                     c = 1             # <<<<<<<<<<<<<<
+ *                     u = y + hdis
+ *                     v = z + hdis
+ */
+          __pyx_v_c = 1;
+
+          /* "cutils.pyx":695
+ * 
+ *                     c = 1
+ *                     u = y + hdis             # <<<<<<<<<<<<<<
+ *                     v = z + hdis
+ *                     d = x
+ */
+          __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":696
+ *                     c = 1
+ *                     u = y + hdis
+ *                     v = z + hdis             # <<<<<<<<<<<<<<
+ *                     d = x
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+          /* "cutils.pyx":697
+ *                     u = y + hdis
+ *                     v = z + hdis
+ *                     d = x             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = __pyx_v_x;
+
+          /* "cutils.pyx":698
+ *                     v = z + hdis
+ *                     d = x
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":699
+ *                     d = x
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 2
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":698
+ *                     v = z + hdis
+ *                     d = x
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":701
+ *                         rendering[u,v,c]=d
+ * 
+ *                     c = 2             # <<<<<<<<<<<<<<
+ *                     u = y + hdis
+ *                     v = z + hdis
+ */
+          __pyx_v_c = 2;
+
+          /* "cutils.pyx":702
+ * 
+ *                     c = 2
+ *                     u = y + hdis             # <<<<<<<<<<<<<<
+ *                     v = z + hdis
+ *                     d = -x
+ */
+          __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":703
+ *                     c = 2
+ *                     u = y + hdis
+ *                     v = z + hdis             # <<<<<<<<<<<<<<
+ *                     d = -x
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+          /* "cutils.pyx":704
+ *                     u = y + hdis
+ *                     v = z + hdis
+ *                     d = -x             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (-__pyx_v_x);
+
+          /* "cutils.pyx":705
+ *                     v = z + hdis
+ *                     d = -x
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":706
+ *                     d = -x
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 3
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":705
+ *                     v = z + hdis
+ *                     d = -x
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":708
+ *                         rendering[u,v,c]=d
+ * 
+ *                     c = 3             # <<<<<<<<<<<<<<
+ *                     u = x + hdis
+ *                     v = y + hdis
+ */
+          __pyx_v_c = 3;
+
+          /* "cutils.pyx":709
+ * 
+ *                     c = 3
+ *                     u = x + hdis             # <<<<<<<<<<<<<<
+ *                     v = y + hdis
+ *                     d = z
+ */
+          __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+          /* "cutils.pyx":710
+ *                     c = 3
+ *                     u = x + hdis
+ *                     v = y + hdis             # <<<<<<<<<<<<<<
+ *                     d = z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":711
+ *                     u = x + hdis
+ *                     v = y + hdis
+ *                     d = z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = __pyx_v_z;
+
+          /* "cutils.pyx":712
+ *                     v = y + hdis
+ *                     d = z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":713
+ *                     d = z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ *                     c = 4
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":712
+ *                     v = y + hdis
+ *                     d = z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":715
+ *                         rendering[u,v,c]=d
+ * 
+ *                     c = 4             # <<<<<<<<<<<<<<
+ *                     u = x + hdis
+ *                     v = y + hdis
+ */
+          __pyx_v_c = 4;
+
+          /* "cutils.pyx":716
+ * 
+ *                     c = 4
+ *                     u = x + hdis             # <<<<<<<<<<<<<<
+ *                     v = y + hdis
+ *                     d = -z
+ */
+          __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+          /* "cutils.pyx":717
+ *                     c = 4
+ *                     u = x + hdis
+ *                     v = y + hdis             # <<<<<<<<<<<<<<
+ *                     d = -z
+ *                     if rendering[u,v,c]>d:
+ */
+          __pyx_v_v = (__pyx_v_y + __pyx_v_hdis);
+
+          /* "cutils.pyx":718
+ *                     u = x + hdis
+ *                     v = y + hdis
+ *                     d = -z             # <<<<<<<<<<<<<<
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d
+ */
+          __pyx_v_d = (-__pyx_v_z);
+
+          /* "cutils.pyx":719
+ *                     v = y + hdis
+ *                     d = -z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          __pyx_t_12 = __pyx_v_u;
+          __pyx_t_11 = __pyx_v_v;
+          __pyx_t_10 = __pyx_v_c;
+          __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":720
+ *                     d = -z
+ *                     if rendering[u,v,c]>d:
+ *                         rendering[u,v,c]=d             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+            __pyx_t_10 = __pyx_v_u;
+            __pyx_t_11 = __pyx_v_v;
+            __pyx_t_12 = __pyx_v_c;
+            *((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) )) = __pyx_v_d;
+
+            /* "cutils.pyx":719
+ *                     v = y + hdis
+ *                     d = -z
+ *                     if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                         rendering[u,v,c]=d
+ * 
+ */
+          }
+
+          /* "cutils.pyx":684
+ *         for y in range(dimy):
+ *             for z in range(dimz):
+ *                 if img[x,z,y]>0:             # <<<<<<<<<<<<<<
+ *                     #z-buffering
+ * 
  */
         }
       }
-
-      /* "cutils.pyx":174
- *                 if cd_tmp<cd_acc:
- *                     cd_acc = cd_tmp
- *             cd += cd_acc             # <<<<<<<<<<<<<<
- *             if cd > threshold_int1: break
- * 
- */
-      __pyx_v_cd = (__pyx_v_cd + __pyx_v_cd_acc);
-
-      /* "cutils.pyx":175
- *                     cd_acc = cd_tmp
- *             cd += cd_acc
- *             if cd > threshold_int1: break             # <<<<<<<<<<<<<<
- * 
- *         if cd<=threshold_int1:
- */
-      __pyx_t_13 = ((__pyx_v_cd > __pyx_v_threshold_int1) != 0);
-      if (__pyx_t_13) {
-        goto __pyx_L6_break;
-      }
-    }
-    __pyx_L6_break:;
-
-    /* "cutils.pyx":177
- *             if cd > threshold_int1: break
- * 
- *         if cd<=threshold_int1:             # <<<<<<<<<<<<<<
- *             return 1
- * 
- */
-    __pyx_t_13 = ((__pyx_v_cd <= __pyx_v_threshold_int1) != 0);
-    if (__pyx_t_13) {
-
-      /* "cutils.pyx":178
- * 
- *         if cd<=threshold_int1:
- *             return 1             # <<<<<<<<<<<<<<
- * 
- *     return 0
- */
-      __Pyx_XDECREF(__pyx_r);
-      __Pyx_INCREF(__pyx_int_1);
-      __pyx_r = __pyx_int_1;
-      goto __pyx_L0;
-
-      /* "cutils.pyx":177
- *             if cd > threshold_int1: break
- * 
- *         if cd<=threshold_int1:             # <<<<<<<<<<<<<<
- *             return 1
- * 
- */
     }
   }
 
-  /* "cutils.pyx":180
- *             return 1
+  /* "cutils.pyx":725
  * 
- *     return 0             # <<<<<<<<<<<<<<
+ *     #depth fusion
+ *     for x in range(dimx):             # <<<<<<<<<<<<<<
+ *         for y in range(dimy):
+ *             for z in range(dimz):
+ */
+  __pyx_t_1 = __pyx_v_dimx;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_x = __pyx_t_3;
+
+    /* "cutils.pyx":726
+ *     #depth fusion
+ *     for x in range(dimx):
+ *         for y in range(dimy):             # <<<<<<<<<<<<<<
+ *             for z in range(dimz):
+ *                 outside_flag = 0
+ */
+    __pyx_t_4 = __pyx_v_dimy;
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_y = __pyx_t_6;
+
+      /* "cutils.pyx":727
+ *     for x in range(dimx):
+ *         for y in range(dimy):
+ *             for z in range(dimz):             # <<<<<<<<<<<<<<
+ *                 outside_flag = 0
+ * 
+ */
+      __pyx_t_7 = __pyx_v_dimz;
+      __pyx_t_8 = __pyx_t_7;
+      for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
+        __pyx_v_z = __pyx_t_9;
+
+        /* "cutils.pyx":728
+ *         for y in range(dimy):
+ *             for z in range(dimz):
+ *                 outside_flag = 0             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 0
+ */
+        __pyx_v_outside_flag = 0;
+
+        /* "cutils.pyx":730
+ *                 outside_flag = 0
+ * 
+ *                 c = 0             # <<<<<<<<<<<<<<
+ *                 u = x + hdis
+ *                 v = z + hdis
+ */
+        __pyx_v_c = 0;
+
+        /* "cutils.pyx":731
+ * 
+ *                 c = 0
+ *                 u = x + hdis             # <<<<<<<<<<<<<<
+ *                 v = z + hdis
+ *                 d = -y
+ */
+        __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+        /* "cutils.pyx":732
+ *                 c = 0
+ *                 u = x + hdis
+ *                 v = z + hdis             # <<<<<<<<<<<<<<
+ *                 d = -y
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+        /* "cutils.pyx":733
+ *                 u = x + hdis
+ *                 v = z + hdis
+ *                 d = -y             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (-__pyx_v_y);
+
+        /* "cutils.pyx":734
+ *                 v = z + hdis
+ *                 d = -y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":735
+ *                 d = -y
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 1
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":734
+ *                 v = z + hdis
+ *                 d = -y
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":737
+ *                     outside_flag += 1
+ * 
+ *                 c = 1             # <<<<<<<<<<<<<<
+ *                 u = y + hdis
+ *                 v = z + hdis
+ */
+        __pyx_v_c = 1;
+
+        /* "cutils.pyx":738
+ * 
+ *                 c = 1
+ *                 u = y + hdis             # <<<<<<<<<<<<<<
+ *                 v = z + hdis
+ *                 d = x
+ */
+        __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":739
+ *                 c = 1
+ *                 u = y + hdis
+ *                 v = z + hdis             # <<<<<<<<<<<<<<
+ *                 d = x
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+        /* "cutils.pyx":740
+ *                 u = y + hdis
+ *                 v = z + hdis
+ *                 d = x             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = __pyx_v_x;
+
+        /* "cutils.pyx":741
+ *                 v = z + hdis
+ *                 d = x
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":742
+ *                 d = x
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 2
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":741
+ *                 v = z + hdis
+ *                 d = x
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":744
+ *                     outside_flag += 1
+ * 
+ *                 c = 2             # <<<<<<<<<<<<<<
+ *                 u = y + hdis
+ *                 v = z + hdis
+ */
+        __pyx_v_c = 2;
+
+        /* "cutils.pyx":745
+ * 
+ *                 c = 2
+ *                 u = y + hdis             # <<<<<<<<<<<<<<
+ *                 v = z + hdis
+ *                 d = -x
+ */
+        __pyx_v_u = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":746
+ *                 c = 2
+ *                 u = y + hdis
+ *                 v = z + hdis             # <<<<<<<<<<<<<<
+ *                 d = -x
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_z + __pyx_v_hdis);
+
+        /* "cutils.pyx":747
+ *                 u = y + hdis
+ *                 v = z + hdis
+ *                 d = -x             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (-__pyx_v_x);
+
+        /* "cutils.pyx":748
+ *                 v = z + hdis
+ *                 d = -x
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":749
+ *                 d = -x
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 3
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":748
+ *                 v = z + hdis
+ *                 d = -x
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":751
+ *                     outside_flag += 1
+ * 
+ *                 c = 3             # <<<<<<<<<<<<<<
+ *                 u = x + hdis
+ *                 v = y + hdis
+ */
+        __pyx_v_c = 3;
+
+        /* "cutils.pyx":752
+ * 
+ *                 c = 3
+ *                 u = x + hdis             # <<<<<<<<<<<<<<
+ *                 v = y + hdis
+ *                 d = z
+ */
+        __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+        /* "cutils.pyx":753
+ *                 c = 3
+ *                 u = x + hdis
+ *                 v = y + hdis             # <<<<<<<<<<<<<<
+ *                 d = z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":754
+ *                 u = x + hdis
+ *                 v = y + hdis
+ *                 d = z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = __pyx_v_z;
+
+        /* "cutils.pyx":755
+ *                 v = y + hdis
+ *                 d = z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_10 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_12 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_10 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_12)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":756
+ *                 d = z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 c = 4
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":755
+ *                 v = y + hdis
+ *                 d = z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":758
+ *                     outside_flag += 1
+ * 
+ *                 c = 4             # <<<<<<<<<<<<<<
+ *                 u = x + hdis
+ *                 v = y + hdis
+ */
+        __pyx_v_c = 4;
+
+        /* "cutils.pyx":759
+ * 
+ *                 c = 4
+ *                 u = x + hdis             # <<<<<<<<<<<<<<
+ *                 v = y + hdis
+ *                 d = -z
+ */
+        __pyx_v_u = (__pyx_v_x + __pyx_v_hdis);
+
+        /* "cutils.pyx":760
+ *                 c = 4
+ *                 u = x + hdis
+ *                 v = y + hdis             # <<<<<<<<<<<<<<
+ *                 d = -z
+ *                 if rendering[u,v,c]>d:
+ */
+        __pyx_v_v = (__pyx_v_y + __pyx_v_hdis);
+
+        /* "cutils.pyx":761
+ *                 u = x + hdis
+ *                 v = y + hdis
+ *                 d = -z             # <<<<<<<<<<<<<<
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1
+ */
+        __pyx_v_d = (-__pyx_v_z);
+
+        /* "cutils.pyx":762
+ *                 v = y + hdis
+ *                 d = -z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        __pyx_t_12 = __pyx_v_u;
+        __pyx_t_11 = __pyx_v_v;
+        __pyx_t_10 = __pyx_v_c;
+        __pyx_t_13 = (((*((int *) ( /* dim=2 */ ((char *) (((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_rendering.data + __pyx_t_12 * __pyx_v_rendering.strides[0]) ) + __pyx_t_11 * __pyx_v_rendering.strides[1]) )) + __pyx_t_10)) ))) > __pyx_v_d) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":763
+ *                 d = -z
+ *                 if rendering[u,v,c]>d:
+ *                     outside_flag += 1             # <<<<<<<<<<<<<<
+ * 
+ *                 if outside_flag==0:
+ */
+          __pyx_v_outside_flag = (__pyx_v_outside_flag + 1);
+
+          /* "cutils.pyx":762
+ *                 v = y + hdis
+ *                 d = -z
+ *                 if rendering[u,v,c]>d:             # <<<<<<<<<<<<<<
+ *                     outside_flag += 1
+ * 
+ */
+        }
+
+        /* "cutils.pyx":765
+ *                     outside_flag += 1
+ * 
+ *                 if outside_flag==0:             # <<<<<<<<<<<<<<
+ *                     img[x,z,y] = 1
+ * 
+ */
+        __pyx_t_13 = ((__pyx_v_outside_flag == 0) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":766
+ * 
+ *                 if outside_flag==0:
+ *                     img[x,z,y] = 1             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_int_0);
-  __pyx_r = __pyx_int_0;
-  goto __pyx_L0;
+          __pyx_t_10 = __pyx_v_x;
+          __pyx_t_11 = __pyx_v_z;
+          __pyx_t_12 = __pyx_v_y;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) )) = 1;
 
-  /* "cutils.pyx":148
+          /* "cutils.pyx":765
+ *                     outside_flag += 1
+ * 
+ *                 if outside_flag==0:             # <<<<<<<<<<<<<<
+ *                     img[x,z,y] = 1
+ * 
+ */
+        }
+      }
+    }
+  }
+
+  /* "cutils.pyx":772
+ * 
+ * 
+ *     for i in range(dimx):             # <<<<<<<<<<<<<<
+ *         for j in range(dimy):
+ *             for k in range(dimz):
+ */
+  __pyx_t_1 = __pyx_v_dimx;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+
+    /* "cutils.pyx":773
+ * 
+ *     for i in range(dimx):
+ *         for j in range(dimy):             # <<<<<<<<<<<<<<
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:
+ */
+    __pyx_t_4 = __pyx_v_dimy;
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_j = __pyx_t_6;
+
+      /* "cutils.pyx":774
+ *     for i in range(dimx):
+ *         for j in range(dimy):
+ *             for k in range(dimz):             # <<<<<<<<<<<<<<
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1
+ */
+      __pyx_t_7 = __pyx_v_dimz;
+      __pyx_t_8 = __pyx_t_7;
+      for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
+        __pyx_v_k = __pyx_t_9;
+
+        /* "cutils.pyx":775
+ *         for j in range(dimy):
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:             # <<<<<<<<<<<<<<
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:
+ */
+        __pyx_t_12 = __pyx_v_i;
+        __pyx_t_11 = __pyx_v_j;
+        __pyx_t_10 = __pyx_v_k;
+        __pyx_t_13 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_12 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_10)) ))) > 0) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":776
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1             # <<<<<<<<<<<<<<
+ *                 if img[i,j,k]==state:
+ *                     ctr += 1
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = __pyx_v_k;
+          *((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) )) = 1;
+
+          /* "cutils.pyx":775
+ *         for j in range(dimy):
+ *             for k in range(dimz):
+ *                 if img[i,j,k]>0:             # <<<<<<<<<<<<<<
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:
+ */
+        }
+
+        /* "cutils.pyx":777
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:             # <<<<<<<<<<<<<<
+ *                     ctr += 1
+ *                     if ctr==255:
+ */
+        __pyx_t_12 = __pyx_v_i;
+        __pyx_t_11 = __pyx_v_j;
+        __pyx_t_10 = __pyx_v_k;
+        __pyx_t_13 = (((*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_12 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_10)) ))) == __pyx_v_state) != 0);
+        if (__pyx_t_13) {
+
+          /* "cutils.pyx":778
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:
+ *                     ctr += 1             # <<<<<<<<<<<<<<
+ *                     if ctr==255:
+ *                         state_ctr[p,0] = state
+ */
+          __pyx_v_ctr = (__pyx_v_ctr + 1);
+
+          /* "cutils.pyx":779
+ *                 if img[i,j,k]==state:
+ *                     ctr += 1
+ *                     if ctr==255:             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ */
+          __pyx_t_13 = ((__pyx_v_ctr == 0xFF) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":780
+ *                     ctr += 1
+ *                     if ctr==255:
+ *                         state_ctr[p,0] = state             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1
+ */
+            __pyx_t_10 = __pyx_v_p;
+            __pyx_t_11 = 0;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_10 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = __pyx_v_state;
+
+            /* "cutils.pyx":781
+ *                     if ctr==255:
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr             # <<<<<<<<<<<<<<
+ *                         p += 1
+ *                         ctr = 0
+ */
+            __pyx_t_11 = __pyx_v_p;
+            __pyx_t_10 = 1;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_11 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_10)) )) = __pyx_v_ctr;
+
+            /* "cutils.pyx":782
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1             # <<<<<<<<<<<<<<
+ *                         ctr = 0
+ *                 else:
+ */
+            __pyx_v_p = (__pyx_v_p + 1);
+
+            /* "cutils.pyx":783
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1
+ *                         ctr = 0             # <<<<<<<<<<<<<<
+ *                 else:
+ *                     if ctr>0:
+ */
+            __pyx_v_ctr = 0;
+
+            /* "cutils.pyx":779
+ *                 if img[i,j,k]==state:
+ *                     ctr += 1
+ *                     if ctr==255:             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ */
+          }
+
+          /* "cutils.pyx":777
+ *                 if img[i,j,k]>0:
+ *                     img[i,j,k] = 1
+ *                 if img[i,j,k]==state:             # <<<<<<<<<<<<<<
+ *                     ctr += 1
+ *                     if ctr==255:
+ */
+          goto __pyx_L34;
+        }
+
+        /* "cutils.pyx":785
+ *                         ctr = 0
+ *                 else:
+ *                     if ctr>0:             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ */
+        /*else*/ {
+          __pyx_t_13 = ((__pyx_v_ctr > 0) != 0);
+          if (__pyx_t_13) {
+
+            /* "cutils.pyx":786
+ *                 else:
+ *                     if ctr>0:
+ *                         state_ctr[p,0] = state             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1
+ */
+            __pyx_t_10 = __pyx_v_p;
+            __pyx_t_11 = 0;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_10 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = __pyx_v_state;
+
+            /* "cutils.pyx":787
+ *                     if ctr>0:
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr             # <<<<<<<<<<<<<<
+ *                         p += 1
+ *                     state = img[i,j,k]
+ */
+            __pyx_t_11 = __pyx_v_p;
+            __pyx_t_10 = 1;
+            *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_11 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_10)) )) = __pyx_v_ctr;
+
+            /* "cutils.pyx":788
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1             # <<<<<<<<<<<<<<
+ *                     state = img[i,j,k]
+ *                     ctr = 1
+ */
+            __pyx_v_p = (__pyx_v_p + 1);
+
+            /* "cutils.pyx":785
+ *                         ctr = 0
+ *                 else:
+ *                     if ctr>0:             # <<<<<<<<<<<<<<
+ *                         state_ctr[p,0] = state
+ *                         state_ctr[p,1] = ctr
+ */
+          }
+
+          /* "cutils.pyx":789
+ *                         state_ctr[p,1] = ctr
+ *                         p += 1
+ *                     state = img[i,j,k]             # <<<<<<<<<<<<<<
+ *                     ctr = 1
+ * 
+ */
+          __pyx_t_10 = __pyx_v_i;
+          __pyx_t_11 = __pyx_v_j;
+          __pyx_t_12 = __pyx_v_k;
+          __pyx_v_state = (*((char *) ( /* dim=2 */ ((char *) (((char *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_img.data + __pyx_t_10 * __pyx_v_img.strides[0]) ) + __pyx_t_11 * __pyx_v_img.strides[1]) )) + __pyx_t_12)) )));
+
+          /* "cutils.pyx":790
+ *                         p += 1
+ *                     state = img[i,j,k]
+ *                     ctr = 1             # <<<<<<<<<<<<<<
+ * 
+ *     if ctr > 0:
+ */
+          __pyx_v_ctr = 1;
+        }
+        __pyx_L34:;
+      }
+    }
+  }
+
+  /* "cutils.pyx":792
+ *                     ctr = 1
+ * 
+ *     if ctr > 0:             # <<<<<<<<<<<<<<
+ *         state_ctr[p,0] = state
+ *         state_ctr[p,1] = ctr
+ */
+  __pyx_t_13 = ((__pyx_v_ctr > 0) != 0);
+  if (__pyx_t_13) {
+
+    /* "cutils.pyx":793
+ * 
+ *     if ctr > 0:
+ *         state_ctr[p,0] = state             # <<<<<<<<<<<<<<
+ *         state_ctr[p,1] = ctr
+ *         p += 1
+ */
+    __pyx_t_12 = __pyx_v_p;
+    __pyx_t_11 = 0;
+    *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_12 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = __pyx_v_state;
+
+    /* "cutils.pyx":794
+ *     if ctr > 0:
+ *         state_ctr[p,0] = state
+ *         state_ctr[p,1] = ctr             # <<<<<<<<<<<<<<
+ *         p += 1
+ * 
+ */
+    __pyx_t_11 = __pyx_v_p;
+    __pyx_t_12 = 1;
+    *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_11 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_12)) )) = __pyx_v_ctr;
+
+    /* "cutils.pyx":795
+ *         state_ctr[p,0] = state
+ *         state_ctr[p,1] = ctr
+ *         p += 1             # <<<<<<<<<<<<<<
+ * 
+ *     state_ctr[p,0] = 2
+ */
+    __pyx_v_p = (__pyx_v_p + 1);
+
+    /* "cutils.pyx":792
+ *                     ctr = 1
+ * 
+ *     if ctr > 0:             # <<<<<<<<<<<<<<
+ *         state_ctr[p,0] = state
+ *         state_ctr[p,1] = ctr
+ */
+  }
+
+  /* "cutils.pyx":797
+ *         p += 1
+ * 
+ *     state_ctr[p,0] = 2             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_t_12 = __pyx_v_p;
+  __pyx_t_11 = 0;
+  *((int *) ( /* dim=1 */ ((char *) (((int *) ( /* dim=0 */ (__pyx_v_state_ctr.data + __pyx_t_12 * __pyx_v_state_ctr.strides[0]) )) + __pyx_t_11)) )) = 2;
+
+  /* "cutils.pyx":643
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def eval_match_CD(int[:, ::1] img, int[:, :, ::1] patches, float threshold):             # <<<<<<<<<<<<<<
- *     cdef int dict_size
- *     cdef int p,i,j,x,y,z,dx,dy,dz,cd,cd_acc,cd_tmp,vnum1,vnum2,threshold_int1
+ * def depth_fusion_XZY_5views(char[:, :, ::1] img, int[:, :, ::1] rendering, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
+ *     cdef int dimx,dimy,dimz
+ * 
  */
 
   /* function exit code */
-  __pyx_L0:;
-  __PYX_XDEC_MEMVIEW(&__pyx_v_patch, 1);
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   __PYX_XDEC_MEMVIEW(&__pyx_v_img, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_patches, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_rendering, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_state_ctr, 1);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -18694,9 +24319,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_base, __pyx_k_base, sizeof(__pyx_k_base), 0, 0, 1, 1},
   {&__pyx_n_s_c, __pyx_k_c, sizeof(__pyx_k_c), 0, 0, 1, 1},
   {&__pyx_n_u_c, __pyx_k_c, sizeof(__pyx_k_c), 0, 1, 0, 1},
-  {&__pyx_n_s_cd, __pyx_k_cd, sizeof(__pyx_k_cd), 0, 0, 1, 1},
-  {&__pyx_n_s_cd_acc, __pyx_k_cd_acc, sizeof(__pyx_k_cd_acc), 0, 0, 1, 1},
-  {&__pyx_n_s_cd_tmp, __pyx_k_cd_tmp, sizeof(__pyx_k_cd_tmp), 0, 0, 1, 1},
   {&__pyx_n_s_class, __pyx_k_class, sizeof(__pyx_k_class), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_kp_s_contiguous_and_direct, __pyx_k_contiguous_and_direct, sizeof(__pyx_k_contiguous_and_direct), 0, 0, 1, 0},
@@ -18704,31 +24326,27 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ctr, __pyx_k_ctr, sizeof(__pyx_k_ctr), 0, 0, 1, 1},
   {&__pyx_n_s_cutils, __pyx_k_cutils, sizeof(__pyx_k_cutils), 0, 0, 1, 1},
   {&__pyx_kp_s_cutils_pyx, __pyx_k_cutils_pyx, sizeof(__pyx_k_cutils_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_d, __pyx_k_d, sizeof(__pyx_k_d), 0, 0, 1, 1},
+  {&__pyx_n_s_depth_fusion_XZY, __pyx_k_depth_fusion_XZY, sizeof(__pyx_k_depth_fusion_XZY), 0, 0, 1, 1},
+  {&__pyx_n_s_depth_fusion_XZY_5views, __pyx_k_depth_fusion_XZY_5views, sizeof(__pyx_k_depth_fusion_XZY_5views), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
-  {&__pyx_n_s_dict_size, __pyx_k_dict_size, sizeof(__pyx_k_dict_size), 0, 0, 1, 1},
-  {&__pyx_n_s_dilated, __pyx_k_dilated, sizeof(__pyx_k_dilated), 0, 0, 1, 1},
   {&__pyx_n_s_dimx, __pyx_k_dimx, sizeof(__pyx_k_dimx), 0, 0, 1, 1},
   {&__pyx_n_s_dimy, __pyx_k_dimy, sizeof(__pyx_k_dimy), 0, 0, 1, 1},
   {&__pyx_n_s_dimz, __pyx_k_dimz, sizeof(__pyx_k_dimz), 0, 0, 1, 1},
   {&__pyx_n_s_dtype_is_object, __pyx_k_dtype_is_object, sizeof(__pyx_k_dtype_is_object), 0, 0, 1, 1},
-  {&__pyx_n_s_dx, __pyx_k_dx, sizeof(__pyx_k_dx), 0, 0, 1, 1},
-  {&__pyx_n_s_dy, __pyx_k_dy, sizeof(__pyx_k_dy), 0, 0, 1, 1},
-  {&__pyx_n_s_dz, __pyx_k_dz, sizeof(__pyx_k_dz), 0, 0, 1, 1},
-  {&__pyx_n_s_edge, __pyx_k_edge, sizeof(__pyx_k_edge), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
   {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
   {&__pyx_n_s_error, __pyx_k_error, sizeof(__pyx_k_error), 0, 0, 1, 1},
-  {&__pyx_n_s_eval_match_CD, __pyx_k_eval_match_CD, sizeof(__pyx_k_eval_match_CD), 0, 0, 1, 1},
+  {&__pyx_n_s_expand_then_shrink, __pyx_k_expand_then_shrink, sizeof(__pyx_k_expand_then_shrink), 0, 0, 1, 1},
+  {&__pyx_n_s_flag, __pyx_k_flag, sizeof(__pyx_k_flag), 0, 0, 1, 1},
   {&__pyx_n_s_flags, __pyx_k_flags, sizeof(__pyx_k_flags), 0, 0, 1, 1},
+  {&__pyx_n_s_floodfill, __pyx_k_floodfill, sizeof(__pyx_k_floodfill), 0, 0, 1, 1},
   {&__pyx_n_s_format, __pyx_k_format, sizeof(__pyx_k_format), 0, 0, 1, 1},
   {&__pyx_n_s_fortran, __pyx_k_fortran, sizeof(__pyx_k_fortran), 0, 0, 1, 1},
   {&__pyx_n_u_fortran, __pyx_k_fortran, sizeof(__pyx_k_fortran), 0, 1, 0, 1},
-  {&__pyx_n_s_get_patches, __pyx_k_get_patches, sizeof(__pyx_k_get_patches), 0, 0, 1, 1},
-  {&__pyx_n_s_get_patches_edge_dilated, __pyx_k_get_patches_edge_dilated, sizeof(__pyx_k_get_patches_edge_dilated), 0, 0, 1, 1},
-  {&__pyx_n_s_get_patches_sparse, __pyx_k_get_patches_sparse, sizeof(__pyx_k_get_patches_sparse), 0, 0, 1, 1},
-  {&__pyx_n_s_get_state_ctr, __pyx_k_get_state_ctr, sizeof(__pyx_k_get_state_ctr), 0, 0, 1, 1},
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},
   {&__pyx_kp_s_got_differing_extents_in_dimensi, __pyx_k_got_differing_extents_in_dimensi, sizeof(__pyx_k_got_differing_extents_in_dimensi), 0, 0, 1, 0},
+  {&__pyx_n_s_hdis, __pyx_k_hdis, sizeof(__pyx_k_hdis), 0, 0, 1, 1},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
   {&__pyx_n_s_id, __pyx_k_id, sizeof(__pyx_k_id), 0, 0, 1, 1},
   {&__pyx_n_s_img, __pyx_k_img, sizeof(__pyx_k_img), 0, 0, 1, 1},
@@ -18738,7 +24356,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_j, __pyx_k_j, sizeof(__pyx_k_j), 0, 0, 1, 1},
   {&__pyx_n_s_k, __pyx_k_k, sizeof(__pyx_k_k), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
-  {&__pyx_n_s_margin_size, __pyx_k_margin_size, sizeof(__pyx_k_margin_size), 0, 0, 1, 1},
+  {&__pyx_n_s_max_queue_len, __pyx_k_max_queue_len, sizeof(__pyx_k_max_queue_len), 0, 0, 1, 1},
   {&__pyx_n_s_memview, __pyx_k_memview, sizeof(__pyx_k_memview), 0, 0, 1, 1},
   {&__pyx_n_s_mode, __pyx_k_mode, sizeof(__pyx_k_mode), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
@@ -18749,14 +24367,13 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_np, __pyx_k_np, sizeof(__pyx_k_np), 0, 0, 1, 1},
   {&__pyx_n_s_numpy, __pyx_k_numpy, sizeof(__pyx_k_numpy), 0, 0, 1, 1},
   {&__pyx_n_s_obj, __pyx_k_obj, sizeof(__pyx_k_obj), 0, 0, 1, 1},
+  {&__pyx_n_s_outside_flag, __pyx_k_outside_flag, sizeof(__pyx_k_outside_flag), 0, 0, 1, 1},
   {&__pyx_n_s_p, __pyx_k_p, sizeof(__pyx_k_p), 0, 0, 1, 1},
   {&__pyx_n_s_pack, __pyx_k_pack, sizeof(__pyx_k_pack), 0, 0, 1, 1},
-  {&__pyx_n_s_patch, __pyx_k_patch, sizeof(__pyx_k_patch), 0, 0, 1, 1},
-  {&__pyx_n_s_patch_size, __pyx_k_patch_size, sizeof(__pyx_k_patch_size), 0, 0, 1, 1},
-  {&__pyx_n_s_patches, __pyx_k_patches, sizeof(__pyx_k_patches), 0, 0, 1, 1},
-  {&__pyx_n_s_patches_dilated, __pyx_k_patches_dilated, sizeof(__pyx_k_patches_dilated), 0, 0, 1, 1},
-  {&__pyx_n_s_patches_edge, __pyx_k_patches_edge, sizeof(__pyx_k_patches_edge), 0, 0, 1, 1},
+  {&__pyx_n_s_pi, __pyx_k_pi, sizeof(__pyx_k_pi), 0, 0, 1, 1},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
+  {&__pyx_n_s_pj, __pyx_k_pj, sizeof(__pyx_k_pj), 0, 0, 1, 1},
+  {&__pyx_n_s_pk, __pyx_k_pk, sizeof(__pyx_k_pk), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_checksum, __pyx_k_pyx_checksum, sizeof(__pyx_k_pyx_checksum), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_getbuffer, __pyx_k_pyx_getbuffer, sizeof(__pyx_k_pyx_getbuffer), 0, 0, 1, 1},
@@ -18765,10 +24382,14 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pyx_type, __pyx_k_pyx_type, sizeof(__pyx_k_pyx_type), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_Enum, __pyx_k_pyx_unpickle_Enum, sizeof(__pyx_k_pyx_unpickle_Enum), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
+  {&__pyx_n_s_queue, __pyx_k_queue, sizeof(__pyx_k_queue), 0, 0, 1, 1},
+  {&__pyx_n_s_queue_end, __pyx_k_queue_end, sizeof(__pyx_k_queue_end), 0, 0, 1, 1},
+  {&__pyx_n_s_queue_start, __pyx_k_queue_start, sizeof(__pyx_k_queue_start), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
+  {&__pyx_n_s_rendering, __pyx_k_rendering, sizeof(__pyx_k_rendering), 0, 0, 1, 1},
   {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
   {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
   {&__pyx_n_s_shape, __pyx_k_shape, sizeof(__pyx_k_shape), 0, 0, 1, 1},
@@ -18783,25 +24404,21 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_strided_and_indirect, __pyx_k_strided_and_indirect, sizeof(__pyx_k_strided_and_indirect), 0, 0, 1, 0},
   {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
   {&__pyx_n_s_struct, __pyx_k_struct, sizeof(__pyx_k_struct), 0, 0, 1, 1},
-  {&__pyx_n_s_sx, __pyx_k_sx, sizeof(__pyx_k_sx), 0, 0, 1, 1},
-  {&__pyx_n_s_sy, __pyx_k_sy, sizeof(__pyx_k_sy), 0, 0, 1, 1},
-  {&__pyx_n_s_sz, __pyx_k_sz, sizeof(__pyx_k_sz), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
-  {&__pyx_n_s_threshold, __pyx_k_threshold, sizeof(__pyx_k_threshold), 0, 0, 1, 1},
-  {&__pyx_n_s_threshold_int1, __pyx_k_threshold_int1, sizeof(__pyx_k_threshold_int1), 0, 0, 1, 1},
+  {&__pyx_n_s_tmp, __pyx_k_tmp, sizeof(__pyx_k_tmp), 0, 0, 1, 1},
+  {&__pyx_n_s_u, __pyx_k_u, sizeof(__pyx_k_u), 0, 0, 1, 1},
   {&__pyx_kp_s_unable_to_allocate_array_data, __pyx_k_unable_to_allocate_array_data, sizeof(__pyx_k_unable_to_allocate_array_data), 0, 0, 1, 0},
   {&__pyx_kp_s_unable_to_allocate_shape_and_str, __pyx_k_unable_to_allocate_shape_and_str, sizeof(__pyx_k_unable_to_allocate_shape_and_str), 0, 0, 1, 0},
   {&__pyx_n_s_unpack, __pyx_k_unpack, sizeof(__pyx_k_unpack), 0, 0, 1, 1},
   {&__pyx_n_s_update, __pyx_k_update, sizeof(__pyx_k_update), 0, 0, 1, 1},
-  {&__pyx_n_s_vnum1, __pyx_k_vnum1, sizeof(__pyx_k_vnum1), 0, 0, 1, 1},
-  {&__pyx_n_s_vnum2, __pyx_k_vnum2, sizeof(__pyx_k_vnum2), 0, 0, 1, 1},
+  {&__pyx_n_s_v, __pyx_k_v, sizeof(__pyx_k_v), 0, 0, 1, 1},
   {&__pyx_n_s_x, __pyx_k_x, sizeof(__pyx_k_x), 0, 0, 1, 1},
   {&__pyx_n_s_y, __pyx_k_y, sizeof(__pyx_k_y), 0, 0, 1, 1},
   {&__pyx_n_s_z, __pyx_k_z, sizeof(__pyx_k_z), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 105, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 133, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 148, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 151, __pyx_L1_error)
@@ -19013,65 +24630,53 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
 
-  /* "cutils.pyx":7
+  /* "cutils.pyx":9
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_state_ctr(char[:, :, ::1] img, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
- *     cdef int dimx,dimy,dimz
- *     cdef int state,ctr
+ * def floodfill(char[:, :, ::1] img, int[:, ::1] queue, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
+ *     cdef int dimx,dimy,dimz,max_queue_len
+ *     cdef int pi = 0
  */
-  __pyx_tuple__20 = PyTuple_Pack(11, __pyx_n_s_img, __pyx_n_s_state_ctr, __pyx_n_s_dimx, __pyx_n_s_dimy, __pyx_n_s_dimz, __pyx_n_s_state, __pyx_n_s_ctr, __pyx_n_s_p, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_k); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(18, __pyx_n_s_img, __pyx_n_s_queue, __pyx_n_s_state_ctr, __pyx_n_s_dimx, __pyx_n_s_dimy, __pyx_n_s_dimz, __pyx_n_s_max_queue_len, __pyx_n_s_pi, __pyx_n_s_pj, __pyx_n_s_pk, __pyx_n_s_queue_start, __pyx_n_s_queue_end, __pyx_n_s_state, __pyx_n_s_ctr, __pyx_n_s_p, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_k); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(2, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cutils_pyx, __pyx_n_s_get_state_ctr, 7, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(3, 0, 18, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cutils_pyx, __pyx_n_s_floodfill, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 9, __pyx_L1_error)
 
-  /* "cutils.pyx":50
+  /* "cutils.pyx":136
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_patches(char[:, :, ::1] img, char[:, :, :, ::1] patches, int patch_size):             # <<<<<<<<<<<<<<
+ * def expand_then_shrink(char[:, :, ::1] img, char[:, :, ::1] tmp):             # <<<<<<<<<<<<<<
  *     cdef int dimx,dimy,dimz
- *     #cdef int buffer_size
+ *     cdef int i = 0
  */
-  __pyx_tuple__22 = PyTuple_Pack(11, __pyx_n_s_img, __pyx_n_s_patches, __pyx_n_s_patch_size, __pyx_n_s_dimx, __pyx_n_s_dimy, __pyx_n_s_dimz, __pyx_n_s_margin_size, __pyx_n_s_p, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_k); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_tuple__22 = PyTuple_Pack(9, __pyx_n_s_img, __pyx_n_s_tmp, __pyx_n_s_dimx, __pyx_n_s_dimy, __pyx_n_s_dimz, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_k, __pyx_n_s_flag); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
-  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(3, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cutils_pyx, __pyx_n_s_get_patches, 50, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(2, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cutils_pyx, __pyx_n_s_expand_then_shrink, 136, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 136, __pyx_L1_error)
 
-  /* "cutils.pyx":78
+  /* "cutils.pyx":224
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_patches_edge_dilated(char[:, :, ::1] img, char[:, :, ::1] edge, char[:, :, ::1] dilated, char[:, :, :, ::1] patches,  char[:, :, :, ::1] patches_edge, char[:, :, :, ::1] patches_dilated, int patch_size):             # <<<<<<<<<<<<<<
+ * def depth_fusion_XZY(char[:, :, ::1] img, int[:, :, ::1] rendering, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
  *     cdef int dimx,dimy,dimz
- *     cdef int margin_size
+ * 
  */
-  __pyx_tuple__24 = PyTuple_Pack(15, __pyx_n_s_img, __pyx_n_s_edge, __pyx_n_s_dilated, __pyx_n_s_patches, __pyx_n_s_patches_edge, __pyx_n_s_patches_dilated, __pyx_n_s_patch_size, __pyx_n_s_dimx, __pyx_n_s_dimy, __pyx_n_s_dimz, __pyx_n_s_margin_size, __pyx_n_s_p, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_k); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_tuple__24 = PyTuple_Pack(21, __pyx_n_s_img, __pyx_n_s_rendering, __pyx_n_s_state_ctr, __pyx_n_s_dimx, __pyx_n_s_dimy, __pyx_n_s_dimz, __pyx_n_s_hdis, __pyx_n_s_c, __pyx_n_s_u, __pyx_n_s_v, __pyx_n_s_d, __pyx_n_s_outside_flag, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_k, __pyx_n_s_state, __pyx_n_s_ctr, __pyx_n_s_p); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__24);
   __Pyx_GIVEREF(__pyx_tuple__24);
-  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(7, 0, 15, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cutils_pyx, __pyx_n_s_get_patches_edge_dilated, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(3, 0, 21, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cutils_pyx, __pyx_n_s_depth_fusion_XZY, 224, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 224, __pyx_L1_error)
 
-  /* "cutils.pyx":106
+  /* "cutils.pyx":643
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_patches_sparse(char[:, :, ::1] img, int[:, :, ::1] patches, int patch_size):             # <<<<<<<<<<<<<<
+ * def depth_fusion_XZY_5views(char[:, :, ::1] img, int[:, :, ::1] rendering, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
  *     cdef int dimx,dimy,dimz
- *     #cdef int buffer_size
+ * 
  */
-  __pyx_tuple__26 = PyTuple_Pack(18, __pyx_n_s_img, __pyx_n_s_patches, __pyx_n_s_patch_size, __pyx_n_s_dimx, __pyx_n_s_dimy, __pyx_n_s_dimz, __pyx_n_s_margin_size, __pyx_n_s_p, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_k, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_sx, __pyx_n_s_sy, __pyx_n_s_sz, __pyx_n_s_c); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_tuple__26 = PyTuple_Pack(21, __pyx_n_s_img, __pyx_n_s_rendering, __pyx_n_s_state_ctr, __pyx_n_s_dimx, __pyx_n_s_dimy, __pyx_n_s_dimz, __pyx_n_s_hdis, __pyx_n_s_c, __pyx_n_s_u, __pyx_n_s_v, __pyx_n_s_d, __pyx_n_s_outside_flag, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_k, __pyx_n_s_state, __pyx_n_s_ctr, __pyx_n_s_p); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 643, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__26);
   __Pyx_GIVEREF(__pyx_tuple__26);
-  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(3, 0, 18, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cutils_pyx, __pyx_n_s_get_patches_sparse, 106, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 106, __pyx_L1_error)
-
-  /* "cutils.pyx":148
- * @cython.boundscheck(False)
- * @cython.wraparound(False)
- * def eval_match_CD(int[:, ::1] img, int[:, :, ::1] patches, float threshold):             # <<<<<<<<<<<<<<
- *     cdef int dict_size
- *     cdef int p,i,j,x,y,z,dx,dy,dz,cd,cd_acc,cd_tmp,vnum1,vnum2,threshold_int1
- */
-  __pyx_tuple__28 = PyTuple_Pack(20, __pyx_n_s_img, __pyx_n_s_patches, __pyx_n_s_threshold, __pyx_n_s_dict_size, __pyx_n_s_p, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_dx, __pyx_n_s_dy, __pyx_n_s_dz, __pyx_n_s_cd, __pyx_n_s_cd_acc, __pyx_n_s_cd_tmp, __pyx_n_s_vnum1, __pyx_n_s_vnum2, __pyx_n_s_threshold_int1, __pyx_n_s_patch); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__28);
-  __Pyx_GIVEREF(__pyx_tuple__28);
-  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(3, 0, 20, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cutils_pyx, __pyx_n_s_eval_match_CD, 148, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(3, 0, 21, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cutils_pyx, __pyx_n_s_depth_fusion_XZY_5views, 643, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 643, __pyx_L1_error)
 
   /* "View.MemoryView":286
  *         return self.name
@@ -19080,9 +24685,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_tuple__30 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(1, 286, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__30);
-  __Pyx_GIVEREF(__pyx_tuple__30);
+  __pyx_tuple__28 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(1, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__28);
+  __Pyx_GIVEREF(__pyx_tuple__28);
 
   /* "View.MemoryView":287
  * 
@@ -19091,9 +24696,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_tuple__31 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(1, 287, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__31);
-  __Pyx_GIVEREF(__pyx_tuple__31);
+  __pyx_tuple__29 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(1, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__29);
+  __Pyx_GIVEREF(__pyx_tuple__29);
 
   /* "View.MemoryView":288
  * cdef generic = Enum("<strided and direct or indirect>")
@@ -19102,9 +24707,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__32 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(1, 288, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__32);
-  __Pyx_GIVEREF(__pyx_tuple__32);
+  __pyx_tuple__30 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(1, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__30);
+  __Pyx_GIVEREF(__pyx_tuple__30);
 
   /* "View.MemoryView":291
  * 
@@ -19113,9 +24718,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_tuple__33 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(1, 291, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__33);
-  __Pyx_GIVEREF(__pyx_tuple__33);
+  __pyx_tuple__31 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(1, 291, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__31);
+  __Pyx_GIVEREF(__pyx_tuple__31);
 
   /* "View.MemoryView":292
  * 
@@ -19124,19 +24729,19 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__34 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(1, 292, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__34);
-  __Pyx_GIVEREF(__pyx_tuple__34);
+  __pyx_tuple__32 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(1, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__32);
+  __Pyx_GIVEREF(__pyx_tuple__32);
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Enum(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__35 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__35);
-  __Pyx_GIVEREF(__pyx_tuple__35);
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__33 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__33);
+  __Pyx_GIVEREF(__pyx_tuple__33);
+  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -19494,64 +25099,61 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cutils.pyx":7
+  /* "cutils.pyx":5
+ * 
+ * 
+ * cdef int render_depth_img_size = 2560             # <<<<<<<<<<<<<<
+ * 
+ * @cython.boundscheck(False)
+ */
+  __pyx_v_6cutils_render_depth_img_size = 0xA00;
+
+  /* "cutils.pyx":9
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_state_ctr(char[:, :, ::1] img, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
- *     cdef int dimx,dimy,dimz
- *     cdef int state,ctr
+ * def floodfill(char[:, :, ::1] img, int[:, ::1] queue, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
+ *     cdef int dimx,dimy,dimz,max_queue_len
+ *     cdef int pi = 0
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6cutils_1get_state_ctr, NULL, __pyx_n_s_cutils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6cutils_1floodfill, NULL, __pyx_n_s_cutils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_state_ctr, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_floodfill, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cutils.pyx":50
+  /* "cutils.pyx":136
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_patches(char[:, :, ::1] img, char[:, :, :, ::1] patches, int patch_size):             # <<<<<<<<<<<<<<
+ * def expand_then_shrink(char[:, :, ::1] img, char[:, :, ::1] tmp):             # <<<<<<<<<<<<<<
  *     cdef int dimx,dimy,dimz
- *     #cdef int buffer_size
+ *     cdef int i = 0
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6cutils_3get_patches, NULL, __pyx_n_s_cutils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6cutils_3expand_then_shrink, NULL, __pyx_n_s_cutils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_patches, __pyx_t_1) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_expand_then_shrink, __pyx_t_1) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cutils.pyx":78
+  /* "cutils.pyx":224
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_patches_edge_dilated(char[:, :, ::1] img, char[:, :, ::1] edge, char[:, :, ::1] dilated, char[:, :, :, ::1] patches,  char[:, :, :, ::1] patches_edge, char[:, :, :, ::1] patches_dilated, int patch_size):             # <<<<<<<<<<<<<<
+ * def depth_fusion_XZY(char[:, :, ::1] img, int[:, :, ::1] rendering, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
  *     cdef int dimx,dimy,dimz
- *     cdef int margin_size
+ * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6cutils_5get_patches_edge_dilated, NULL, __pyx_n_s_cutils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6cutils_5depth_fusion_XZY, NULL, __pyx_n_s_cutils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_patches_edge_dilated, __pyx_t_1) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_depth_fusion_XZY, __pyx_t_1) < 0) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cutils.pyx":106
+  /* "cutils.pyx":643
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * def get_patches_sparse(char[:, :, ::1] img, int[:, :, ::1] patches, int patch_size):             # <<<<<<<<<<<<<<
+ * def depth_fusion_XZY_5views(char[:, :, ::1] img, int[:, :, ::1] rendering, int[:, ::1] state_ctr):             # <<<<<<<<<<<<<<
  *     cdef int dimx,dimy,dimz
- *     #cdef int buffer_size
+ * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6cutils_7get_patches_sparse, NULL, __pyx_n_s_cutils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6cutils_7depth_fusion_XZY_5views, NULL, __pyx_n_s_cutils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 643, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_patches_sparse, __pyx_t_1) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "cutils.pyx":148
- * @cython.boundscheck(False)
- * @cython.wraparound(False)
- * def eval_match_CD(int[:, ::1] img, int[:, :, ::1] patches, float threshold):             # <<<<<<<<<<<<<<
- *     cdef int dict_size
- *     cdef int p,i,j,x,y,z,dx,dy,dz,cd,cd_acc,cd_tmp,vnum1,vnum2,threshold_int1
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6cutils_9eval_match_CD, NULL, __pyx_n_s_cutils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_eval_match_CD, __pyx_t_1) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_depth_fusion_XZY_5views, __pyx_t_1) < 0) __PYX_ERR(0, 643, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "cutils.pyx":1
@@ -19584,7 +25186,7 @@ if (!__Pyx_RefNanny) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__30, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 286, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__28, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(generic);
   __Pyx_DECREF_SET(generic, __pyx_t_1);
@@ -19598,7 +25200,7 @@ if (!__Pyx_RefNanny) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__31, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 287, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__29, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(strided);
   __Pyx_DECREF_SET(strided, __pyx_t_1);
@@ -19612,7 +25214,7 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__32, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 288, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__30, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(indirect);
   __Pyx_DECREF_SET(indirect, __pyx_t_1);
@@ -19626,7 +25228,7 @@ if (!__Pyx_RefNanny) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__33, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 291, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__31, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(contiguous);
   __Pyx_DECREF_SET(contiguous, __pyx_t_1);
@@ -19640,7 +25242,7 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__34, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 292, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__32, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(indirect_contiguous);
   __Pyx_DECREF_SET(indirect_contiguous, __pyx_t_1);
@@ -22764,18 +28366,18 @@ __pyx_fail:
 }
 
 /* ObjectToMemviewSlice */
-  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_d_dc_char(PyObject *obj, int writable_flag) {
+  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_int(PyObject *obj, int writable_flag) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
     __Pyx_BufFmt_StackElem stack[1];
-    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
+    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
     int retcode;
     if (obj == Py_None) {
         result.memview = (struct __pyx_memoryview_obj *) Py_None;
         return result;
     }
     retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
-                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 4,
-                                                 &__Pyx_TypeInfo_char, stack,
+                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 3,
+                                                 &__Pyx_TypeInfo_int, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))
         goto __pyx_fail;
@@ -22807,29 +28409,6 @@ __pyx_fail:
         }\
         return (target_type) value;\
     }
-
-/* ObjectToMemviewSlice */
-  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_int(PyObject *obj, int writable_flag) {
-    __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
-    __Pyx_BufFmt_StackElem stack[1];
-    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
-    int retcode;
-    if (obj == Py_None) {
-        result.memview = (struct __pyx_memoryview_obj *) Py_None;
-        return result;
-    }
-    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
-                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 3,
-                                                 &__Pyx_TypeInfo_int, stack,
-                                                 &result, obj);
-    if (unlikely(retcode == -1))
-        goto __pyx_fail;
-    return result;
-__pyx_fail:
-    result.memview = NULL;
-    result.data = NULL;
-    return result;
-}
 
 /* MemviewSliceCopyTemplate */
   static __Pyx_memviewslice
@@ -22896,6 +28475,44 @@ no_fail:
     __Pyx_XDECREF(array_obj);
     __Pyx_RefNannyFinishContext();
     return new_mvs;
+}
+
+/* CIntToPy */
+  static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+    const int neg_one = (int) -1, const_zero = (int) 0;
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic pop
+#endif
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(int) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(int) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(int) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(int),
+                                     little, !is_unsigned);
+    }
 }
 
 /* CIntFromPy */
@@ -23092,44 +28709,6 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to int");
     return (int) -1;
-}
-
-/* CIntToPy */
-  static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion"
-#endif
-    const int neg_one = (int) -1, const_zero = (int) 0;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic pop
-#endif
-    const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(int) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(int) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
-#endif
-        }
-    } else {
-        if (sizeof(int) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-#endif
-        }
-    }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(int),
-                                     little, !is_unsigned);
-    }
 }
 
 /* CIntToPy */

@@ -27,13 +27,13 @@ def print_progress_bar (iteration, total, prefix = '', suffix = '', decimals = 1
         print()
 
 # Show multiple voxel results together
-def show_voxels(voxs, shape=None, save=False, threshhold=1):
+def show_voxels(voxs, shape=None, save=False, threshhold=1, out_loc='results/img_res/', name=None, size=400):
   if shape == None:
     ax_l = math.ceil(math.sqrt(len(voxs)))
     shape = (ax_l, ax_l)
 
   grids = []
-  for i in range(len(voxs)):
+  for i in range(min(len(voxs), shape[0] * shape[1])):
     grid = pv.UniformGrid()
     grid.dimensions = np.array(voxs[i].shape[1:]) + 1
     grid.origin = (0, 0, 0) 
@@ -57,9 +57,12 @@ def show_voxels(voxs, shape=None, save=False, threshhold=1):
   # if show_mesh:
   #   pl.add_mesh(show_mesh, color="green", opacity=1.0)
   if save:
-    if not os.path.exists('results/img_res/'):
-      os.makedirs('results/img_res/')
-    pl.show(screenshot='results/img_res/'+str(save)+'_saved_img.png')
+    if not os.path.exists(out_loc):
+      os.makedirs(out_loc)
+    if name:
+      pl.show(screenshot=out_loc+name+'.png', window_size=[size, size])
+    else:
+      pl.show(screenshot=out_loc+str(save)+'_saved_img.png', window_size=[size, size])
   else:
     pl.show()
 

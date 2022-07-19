@@ -2,15 +2,15 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-import torchvision.transforms as transforms
-import numpy as np
-import random as r
+# import torchvision.transforms as transforms
+# import numpy as np
+# import random as r
 
 # Hyperparams
 batch_size = 64
-epochs = 80
-d_lr = 0.00005
-g_lr = 0.00005
+epochs = 500
+d_lr = 0.00002
+g_lr = 0.00002
 latent_n = 256
 
 class DiscrimNetwork(nn.Module):

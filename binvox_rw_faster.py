@@ -78,17 +78,19 @@ def write_pair(fp,state, ctr):
     fp.write(struct.pack('B',state))
     fp.write(struct.pack('B',ctr))
     
-def write_voxel(voxel_model, filename):
+def write_voxel(voxel_model, filename, f=0):
     with open(filename, 'wb') as fp:
         buffer_size = 256*256*32 #change the buffer size if the input voxel is large
         state_ctr = np.zeros([buffer_size,2], np.int32)
+        # print(voxel_model.shape)
         dimx,dimy,dimz = voxel_model.shape
         if voxel_model.dtype != np.uint8:
             voxel_model = voxel_model.astype(np.uint8)
         if not voxel_model.flags['C_CONTIGUOUS']:
             voxel_model = np.ascontiguousarray(voxel_model, dtype=np.uint8)
 
-        cutils.get_state_ctr(voxel_model,state_ctr)
+        if not f:
+          cutils.get_state_ctr(voxel_model,state_ctr)
 
         bwrite(fp,'#binvox 1\n')
         bwrite(fp,'dim '+' '.join(map(str, [dimx,dimy,dimz]))+'\n')
@@ -96,9 +98,34 @@ def write_voxel(voxel_model, filename):
         bwrite(fp,'scale '+str(1)+'\n')
         bwrite(fp,'data\n')
 
-        c = 0
-        while True:
-            write_pair(fp, state_ctr[c,0], state_ctr[c,1])
-            c += 1
-            if state_ctr[c,0]==2: break
+        if not f:
+          c = 0
+          while True:
+              write_pair(fp, state_ctr[c,0], state_ctr[c,1])
+              c += 1
+              if state_ctr[c,0]==2: break
+        else:
+          voxels_flat = np.transpose(voxel_model, (0, 2, 1)).flatten()
+
+          # keep a sort of state machine for writing run length encoding
+          state = voxels_flat[0]
+          ctr = 0
+          for c in voxels_flat:
+              if c==state:
+                  ctr += 1
+                  # if ctr hits max, dump
+                  if ctr==255:
+                      bwrite(fp, chr(state))
+                      bwrite(fp, chr(ctr))
+                      ctr = 0
+              else:
+                  # if switch state, dump
+                  bwrite(fp, chr(state))
+                  bwrite(fp, chr(ctr))
+                  state = c
+                  ctr = 1
+          # flush out remainders
+          if ctr > 0:
+              bwrite(fp, chr(state))
+              bwrite(fp, chr(ctr))
 

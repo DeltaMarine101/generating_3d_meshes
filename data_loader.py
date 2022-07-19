@@ -66,3 +66,17 @@ class RandomFlip(object):
       vox = np.flip(vox, axis=0).copy()
 
     return vox
+
+class SymmetricAxes(object):
+  def __init__(self, axis):
+    self.axis = axis
+
+  def __call__(self, vox):
+    size = vox.shape[self.axis]
+    if self.axis == 0:
+      vox[size // 2:,:,:] = 0.0
+    if self.axis == 1:
+      vox[:,size // 2:,:] = 0.0
+    if self.axis == 2:
+      vox[:,:,size // 2:] = 0.0
+    return vox

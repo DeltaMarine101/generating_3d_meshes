@@ -269,18 +269,19 @@ def process_class_stg2(tst_class):
   p = psutil.Process(os.getpid())
   p.nice(psutil.HIGH_PRIORITY_CLASS)
 
-  voxelise_data(tst_class, 32)
-  voxelise_data(tst_class, 64)
-  # voxelise_data(tst_class, 128) # included in shapenet.v2
-  voxelise_data(tst_class, 256)
-  voxelise_data(tst_class, 512)
+  voxelise_data(tst_class, 16)
+  # voxelise_data(tst_class, 32)
+  # voxelise_data(tst_class, 64)
+  # # voxelise_data(tst_class, 128) # included in shapenet.v2
+  # voxelise_data(tst_class, 256)
+  # voxelise_data(tst_class, 512)
 
 def process_class_stg3(tst_class):
   # p = psutil.Process(os.getpid())
   # p.nice(psutil.HIGH_PRIORITY_CLASS)
 
   for type in ['depth_fusion_5', 'depth_fusion_17', 'floodfill']:
-    for size in [32, 64, 128, 256]:#, 512]:
+    for size in [16]:#[32, 64, 128, 256]:#, 512]:
       print(type, size, "###################################################################")
       fill_voxels(tst_class, type=type, size=size)
 
@@ -289,7 +290,7 @@ def main():
   train_classes = ['03001627', '02691156', '02818832', '02828884', '02876657', '02958343', '03046257', '02933112', '03261776', '03928116', '04090263', '04256520', '04379243', '04401088', '04530566', '02808440']
 
   # multiprocessing multiple classes
-  train_classes = train_classes[1:] # these are already processed
+  # train_classes = train_classes[1:] # these are already processed
   # pl = []
   # for i in train_classes:
   #   p = Process(target=process_class_stg1, args=(i, ))
@@ -312,26 +313,26 @@ def main():
   # p.nice(psutil.HIGH_PRIORITY_CLASS)
   # for i in train_classes:
   #   tst_class = i
-    
+  tst_class = train_classes[0]
   #   load_shapenet(tst_class)
-
+  voxelise_data(tst_class, 16)
   #   voxelise_data(tst_class, 32)
   #   voxelise_data(tst_class, 64)
   #   # voxelise_data(tst_class, 128) # included in shapenet.v2
   #   voxelise_data(tst_class, 256)
   #   voxelise_data(tst_class, 512)
-    # for type in ['depth_fusion_5', 'depth_fusion_17', 'floodfill']:
-    #   for size in [32, 64, 128, 256, 512]:
-    #     print(type, size, "###################################################################")
-    #     fill_voxels(tst_class, type=type, size=size)
+  for type in ['depth_fusion_5', 'depth_fusion_17', 'floodfill']:
+    for size in [16]: # [32, 64, 128, 256, 512]:
+      print(type, size, "###################################################################")
+      fill_voxels(tst_class, type=type, size=size)
 
-  pl = []
-  for i in train_classes:
-    p = Process(target=process_class_stg3, args=(i, ))
-    p.start()
-    pl += [p]
-  for i in pl:
-    i.join()
+  # pl = []
+  # for i in train_classes:
+  #   p = Process(target=process_class_stg3, args=(i, ))
+  #   p.start()
+  #   pl += [p]
+  # for i in pl:
+  #   i.join()
   # tst_class =  i
 
 if __name__ == '__main__':

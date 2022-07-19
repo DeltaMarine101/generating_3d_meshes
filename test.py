@@ -57,7 +57,7 @@ def vox_show(vox, mode='matplot', show_mesh=None):
   #   for y in range(32):
   #     for z in range(32):
   #       if x >= 16:
-  #         vox[x][y][z] = 0
+  #         vox[x, y, z] = 0
 
   if mode=='pyvista':
     grid = pv.UniformGrid()
